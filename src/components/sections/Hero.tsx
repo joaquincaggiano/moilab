@@ -1,5 +1,6 @@
 import LightRays from "../backgrounds/LighRays";
 import Header from "../header/Header";
+import BlurText from "../ui/texts/BlurText";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -33,13 +34,26 @@ const Hero = () => {
         <div className="absolute inset-0 flex items-center justify-center z-10 pt-20">
           <div className="text-center max-w-4xl mx-auto px-6">
             {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Creamos tus ideas en
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                {" "}
-                experiencias digitales
-              </span>
-            </h1>
+            <div className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              <BlurText
+                text="Creamos tus ideas en"
+                className="text-white"
+                animateBy="words"
+                delay={150}
+                stepDuration={0.4}
+                direction="top"
+              />{" "}
+              <BlurText
+                text="experiencias digitales"
+                className=""
+                animateBy="words"
+                delay={300}
+                stepDuration={0.4}
+                direction="top"
+                gradientStart="#60a5fa"
+                gradientEnd="#a855f7"
+              />
+            </div>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
