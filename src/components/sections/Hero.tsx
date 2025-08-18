@@ -35,7 +35,7 @@ const Hero = () => {
             {/* Main Title */}
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Creamos tus ideas en
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-400">
                 {" "}
                 experiencias digitales
               </span>
@@ -52,7 +52,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={scrollToContact}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-gradient-to-r from-red-500 to-amber-400 text-white font-semibold rounded-lg hover:from-amber-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Comenzar Proyecto
               </button>

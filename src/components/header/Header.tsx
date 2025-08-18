@@ -1,9 +1,9 @@
-import { Menu } from "lucide-react";
+import { Flame } from "lucide-react";
 
 const Header = () => {
   return (
     <header
-      className="fixed top-4 left-1/2 -translate-x-1/2 w-[60%] max-w-4xl
+      className="fixed top-4 left-1/2 -translate-x-1/2 w-[60%] max-w-2xl
         backdrop-blur-xl
         rounded-3xl border border-gray-400/20
         py-4 px-6 z-50
@@ -11,7 +11,7 @@ const Header = () => {
         shadow-lg shadow-gray-900/10"
     >
       <div className="flex items-center gap-2">
-        <Menu className="w-8 h-8 text-dark-primary" />
+        <Flame className="w-8 h-8 text-dark-primary" />
       </div>
 
       <nav>
