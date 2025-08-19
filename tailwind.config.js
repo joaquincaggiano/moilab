@@ -17,6 +17,8 @@ export default {
           900: "#0f172a",
           950: "#020617",
         },
+        primary: "#60a5fa",
+        secondary: "#a855f7",
       },
       backgroundColor: {
         "dark-primary": "#0f172a",

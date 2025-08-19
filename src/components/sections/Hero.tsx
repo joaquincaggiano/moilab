@@ -1,5 +1,7 @@
+import { colors } from "../../theme/palette-colors";
 import LightRays from "../backgrounds/LighRays";
 import Header from "../header/Header";
+import ButtonGradient from "../ui/buttons/ButtonGradient";
 import BlurText from "../ui/texts/BlurText";
 
 const Hero = () => {
@@ -16,7 +18,8 @@ const Hero = () => {
   return (
     <>
       <Header />
-      <div className="w-full h-screen relative bg-gray-900">
+
+      <div className="w-full h-screen relative bg-gray-900" id="home">
         <LightRays
           raysOrigin="top-center"
           raysColor="#ffffff"
@@ -50,8 +53,8 @@ const Hero = () => {
                 delay={300}
                 stepDuration={0.4}
                 direction="top"
-                gradientStart="#60a5fa"
-                gradientEnd="#a855f7"
+                gradientStart={colors.primary}
+                gradientEnd={colors.secondary}
               />
             </div>
 
@@ -64,12 +67,10 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
+              <ButtonGradient
                 onClick={scrollToContact}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Comenzar Proyecto
-              </button>
+                text="Comenzar Proyecto"
+              />
 
               <button
                 onClick={scrollToServices}
