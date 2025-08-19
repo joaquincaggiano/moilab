@@ -1,6 +1,12 @@
 import ShinyText from "../texts/ShinyText";
 
-const Button = ({ text, onClick }: { text: string; onClick: () => void }) => {
+const ButtonShiny = ({
+  text,
+  onClick,
+}: {
+  text: string;
+  onClick: () => void;
+}) => {
   return (
     <button
       onClick={onClick}
@@ -26,4 +32,4 @@ const Button = ({ text, onClick }: { text: string; onClick: () => void }) => {
   );
 };
 
-export default Button;
+export default ButtonShiny;

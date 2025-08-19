@@ -1,9 +1,9 @@
 import { colors } from "../../theme/palette-colors";
 import LightRays from "../backgrounds/LighRays";
 import Header from "../header/Header";
-import Button from "../ui/buttons/Button";
 import ButtonGradient from "../ui/buttons/ButtonGradient";
 import BlurText from "../ui/texts/BlurText";
+import ButtonShiny from "../ui/buttons/ButtonShiny";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -73,7 +73,7 @@ const Hero = () => {
                 text="Comenzar Proyecto"
               />
 
-              <Button onClick={scrollToServices} text="Ver Servicios" />
+              <ButtonShiny onClick={scrollToServices} text="Ver Servicios" />
             </div>
           </div>
         </div>
