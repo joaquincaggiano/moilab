@@ -1,4 +1,24 @@
 import { Flame } from "lucide-react";
+import LiComponent from "../ui/navbar/LiComponent";
+
+const links = [
+  {
+    href: "#home",
+    text: "Inicio",
+  },
+  {
+    href: "#services",
+    text: "Servicios",
+  },
+  {
+    href: "#projects",
+    text: "Proyectos",
+  },
+  {
+    href: "#contact",
+    text: "Contacto",
+  },
+];
 
 const Header = () => {
   return (
@@ -16,38 +36,9 @@ const Header = () => {
 
       <nav>
         <ul className="flex items-center gap-8">
-          <li>
-            <a
-              href="#home"
-              className="text-dark-primary hover:text-dark-secondary transition-colors"
-            >
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a
-              href="#services"
-              className="text-dark-primary hover:text-dark-secondary transition-colors"
-            >
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              className="text-dark-primary hover:text-dark-secondary transition-colors"
-            >
-              Proyectos
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="text-dark-primary hover:text-dark-secondary transition-colors"
-            >
-              Contacto
-            </a>
-          </li>
+          {links.map((link) => (
+            <LiComponent key={link.href} href={link.href} text={link.text} />
+          ))}
         </ul>
       </nav>
     </header>
