@@ -1,5 +1,5 @@
 import { Flame } from "lucide-react";
-import LiComponent from "../ui/navbar/LiComponent";
+import LiNavbar from "../ui/navbar/LiNavbar";
 
 const links = [
   {
@@ -37,7 +37,7 @@ const Header = () => {
       <nav>
         <ul className="flex items-center gap-8">
           {links.map((link) => (
-            <LiComponent key={link.href} href={link.href} text={link.text} />
+            <LiNavbar key={link.href} href={link.href} text={link.text} />
           ))}
         </ul>
       </nav>

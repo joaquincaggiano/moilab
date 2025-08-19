@@ -3,7 +3,7 @@ interface Props {
   text: string;
 }
 
-const LiComponent = ({ href, text }: Props) => {
+const LiNavbar = ({ href, text }: Props) => {
   return (
     <li>
       <a
@@ -29,4 +29,4 @@ const LiComponent = ({ href, text }: Props) => {
   );
 };
 
-export default LiComponent;
+export default LiNavbar;
