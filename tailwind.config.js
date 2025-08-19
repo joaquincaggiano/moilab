@@ -30,6 +30,15 @@ export default {
         "dark-secondary": "#cbd5e1",
         "dark-muted": "#64748b",
       },
+      keyframes: {
+        shine: {
+          "0%": { "background-position": "100%" },
+          "100%": { "background-position": "-100%" },
+        },
+      },
+      animation: {
+        shine: "shine 5s linear infinite",
+      },
     },
   },
   plugins: [],
