@@ -18,7 +18,7 @@ const ButtonShiny = ({
         bg-gray-900
         border-2
         border-transparent
-        hover:border-purple-600
+        hover:border-[#b5b5b5a4]
         transition-colors
         duration-300"
     >
