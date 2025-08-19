@@ -5,7 +5,7 @@ const Header = () => {
     <header
       className="fixed top-4 left-1/2 -translate-x-1/2 w-[60%] max-w-2xl
         backdrop-blur-xl
-        rounded-4xl border border-gray-400/20
+        rounded-full border border-gray-400/20
         py-4 px-6 z-50
         flex items-center justify-between
         shadow-lg shadow-gray-900/10"

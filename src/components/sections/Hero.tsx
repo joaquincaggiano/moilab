@@ -1,6 +1,7 @@
 import { colors } from "../../theme/palette-colors";
 import LightRays from "../backgrounds/LighRays";
 import Header from "../header/Header";
+import Button from "../ui/buttons/Button";
 import ButtonGradient from "../ui/buttons/ButtonGradient";
 import BlurText from "../ui/texts/BlurText";
 
@@ -72,12 +73,7 @@ const Hero = () => {
                 text="Comenzar Proyecto"
               />
 
-              <button
-                onClick={scrollToServices}
-                className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
-              >
-                Ver Servicios
-              </button>
+              <Button onClick={scrollToServices} text="Ver Servicios" />
             </div>
           </div>
         </div>

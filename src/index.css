@@ -17,11 +17,6 @@ body {
   min-height: 100vh;
 }
 
-/* Asegurar que todos los elementos hereden el tema dark */
-* {
-  border-color: rgb(55 65 81);
-}
-
 /* Estilos para scrollbar en modo dark */
 ::-webkit-scrollbar {
   width: 8px;
