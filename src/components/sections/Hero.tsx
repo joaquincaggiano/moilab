@@ -1,5 +1,5 @@
 import { colors } from "../../theme/palette-colors";
-import LightRays from "../backgrounds/LighRays";
+import LightRays from "../ui/backgrounds/LighRays";
 import Header from "../header/Header";
 import ButtonGradient from "../ui/buttons/ButtonGradient";
 import BlurText from "../ui/texts/BlurText";
