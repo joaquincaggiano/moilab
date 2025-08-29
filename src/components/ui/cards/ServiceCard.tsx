@@ -19,7 +19,7 @@ export const ServiceCard = ({
 }: Props) => {
   return (
     <div
-      className={`absolute w-full max-w-4xl bg-white rounded-2xl shadow-2xl transition-all duration-300 ease-out ${
+      className={`absolute w-full max-w-3xl bg-white rounded-2xl shadow-2xl transition-all duration-300 ease-out ${
         isMain ? "cursor-grab active:cursor-grabbing" : ""
       }`}
       style={{
@@ -30,7 +30,7 @@ export const ServiceCard = ({
         background: card.backgroundColor,
       }}
     >
-      <div className="flex h-[500px]">
+      <div className="flex h-[400px]">
         {/* Lado izquierdo - 40% */}
         <div className="w-2/5 p-6 flex flex-col">
           <h3 className="text-2xl font-bold text-black mb-3">
@@ -41,7 +41,7 @@ export const ServiceCard = ({
         </div>
 
         {/* Lado derecho - 60% */}
-        <div className="w-3/5 p-2">
+        <div className="w-3/5 p-6">
           <div className="w-full h-full rounded-xl overflow-hidden">
             <img
               src={card.image}
