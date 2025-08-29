@@ -1,5 +1,5 @@
 import { servicesData } from "../../../data/services/data.services";
-import { useCardSwap } from "../../../hooks/card-swap.hook";
+import { useCardSwap } from "../../../hooks/useCardSwap";
 import { ServiceCard } from "../../ui/cards/ServiceCard";
 
 export const ServicesSwap = () => {

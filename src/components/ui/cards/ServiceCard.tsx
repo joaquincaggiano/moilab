@@ -33,11 +33,13 @@ export const ServiceCard = ({
       <div className="flex h-[400px]">
         {/* Lado izquierdo - 40% */}
         <div className="w-2/5 p-6 flex flex-col">
-          <h3 className="text-2xl font-bold text-black mb-3">
-            {card.title}
-          </h3>
-          <p className="text-black text-md font-medium leading-relaxed mb-6">{card.description}</p>
-          <p className="text-black text-sm leading-relaxed">Ideal para: {card.idealFor}</p>
+          <h3 className="text-2xl font-bold text-black mb-3">{card.title}</h3>
+          <p className="text-black text-md font-medium leading-relaxed mb-6">
+            {card.description}
+          </p>
+          <p className="text-black text-sm leading-relaxed">
+            Ideal para: {card.idealFor}
+          </p>
         </div>
 
         {/* Lado derecho - 60% */}
