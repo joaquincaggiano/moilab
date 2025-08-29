@@ -38,9 +38,7 @@ export const ServicesSwap = () => {
           return (
             <ServiceCard
               key={card.id}
-              title={card.title}
-              description={card.description}
-              image={card.image}
+              card={card}
               isMain={isMain}
               translateX={translateX}
               scale={scale}

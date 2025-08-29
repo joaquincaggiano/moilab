@@ -1,7 +1,7 @@
+import type { Service } from "../../../interfaces/services/service.interface";
+
 interface Props {
-  title: string;
-  description: string;
-  image: string;
+  card: Service;
   isMain: boolean;
   translateX: number;
   scale: number;
@@ -10,9 +10,7 @@ interface Props {
 }
 
 export const ServiceCard = ({
-  title,
-  description,
-  image,
+  card,
   isMain,
   translateX,
   scale,
@@ -29,23 +27,25 @@ export const ServiceCard = ({
         zIndex,
         opacity: Math.max(opacity, 0.3),
         pointerEvents: isMain ? "auto" : "none",
+        background: card.backgroundColor,
       }}
     >
       <div className="flex h-[500px]">
         {/* Lado izquierdo - 40% */}
         <div className="w-2/5 p-6 flex flex-col">
-          <h3 className="text-2xl font-bold text-gray-800 mb-3">
-            {title}
+          <h3 className="text-2xl font-bold text-black mb-3">
+            {card.title}
           </h3>
-          <p className="text-gray-600 leading-relaxed">{description}</p>
+          <p className="text-black text-md font-medium leading-relaxed mb-6">{card.description}</p>
+          <p className="text-black text-sm leading-relaxed">Ideal para: {card.idealFor}</p>
         </div>
 
         {/* Lado derecho - 60% */}
         <div className="w-3/5 p-2">
           <div className="w-full h-full rounded-xl overflow-hidden">
             <img
-              src={image}
-              alt={title}
+              src={card.image}
+              alt={card.title}
               className="w-full h-full object-cover"
             />
           </div>
