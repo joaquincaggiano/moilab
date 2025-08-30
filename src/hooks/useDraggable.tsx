@@ -44,7 +44,10 @@ export function useAnimeCarousel<T = unknown>({
 
   const layoutCards = useCallback(() => {
     // Hilera horizontal: cada card se desplaza a la izquierda según su índice
-    const spacing = 40; // separación horizontal entre cards
+    const spacing = 60; // separación horizontal entre cards
+    const baseScale = 1.0; // escala base para la primera card
+    const scaleReduction = 0.08; // reducción de escala por cada card hacia atrás
+    const yOffset = 8; // desplazamiento vertical para crear profundidad
 
     for (let i = 0; i < order.length; i++) {
       const el = cardRefs.current[i];
@@ -53,13 +56,18 @@ export function useAnimeCarousel<T = unknown>({
       // Aseguramos que el zIndex ya esté aplicado desde el principio
       el.style.zIndex = String(order.length - i);
 
+      // Calculamos la escala: primera card (i=0) es 1.0, las siguientes se van achicando
+      const scale = Math.max(baseScale - i * scaleReduction, 0.6); // mínimo 0.6 para que no se vean muy pequeñas
+
+      // Desplazamiento vertical para crear efecto de profundidad
+      const translateY = i * yOffset;
+
       animate(el, {
         translateX: -i * spacing, // desplazamiento horizontal
-        translateY: 0,
+        translateY: translateY, // desplazamiento vertical para profundidad
         rotate: 0,
-        scale: 1,
+        scale: scale, // escala que disminuye hacia atrás
         opacity: 1,
-        // zIndex ya seteado directamente en el DOM antes de animar
       });
     }
   }, [order.length]);
