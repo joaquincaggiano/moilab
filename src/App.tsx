@@ -4,6 +4,7 @@ import Hero from "./components/sections/Hero";
 import Services from "./components/sections/services/Services";
 import Header from "./components/sections/header/Header";
 import { useLenisStore } from "./stores/lenisStore";
+import Contact from "./components/sections/contact/Contact";
 
 function App() {
   const { setLenis, destroy } = useLenisStore();
@@ -58,23 +59,7 @@ function App() {
         </div>
       </section>
 
-      {/* Sección de Contacto */}
-      <section className="w-full min-h-screen bg-gray-900" id="contact">
-        <div className="container mx-auto px-4 py-16 flex flex-col items-center">
-          <div className="text-center mb-10">
-            <h2 className="text-5xl font-bold text-white mb-4">Contactanos</h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              ¿Tienes un proyecto en mente? Estamos aquí para ayudarte a hacerlo
-              realidad.
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-gray-400">
-              Formulario de contacto próximamente...
-            </p>
-          </div>
-        </div>
-      </section>
+      <Contact />
     </div>
   );
 }
