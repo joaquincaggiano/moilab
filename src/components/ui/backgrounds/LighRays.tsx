@@ -118,7 +118,7 @@ const LightRays: React.FC<LightRaysProps> = ({
         const entry = entries[0];
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "50px" }
     );
 
     observerRef.current.observe(containerRef.current);
