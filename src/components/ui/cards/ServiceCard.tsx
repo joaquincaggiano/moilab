@@ -9,8 +9,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
   return (
     <div
       ref={setRef}
-      className="absolute left-1/5 w-full max-w-3xl h-[500px] shadow-2xl rounded-2xl mt-20 flex bg-stone-200"
-
+      className="absolute cursor-grab w-full max-w-3xl h-[450px] bottom-10 shadow-2xl rounded-2xl mt-20 flex bg-gradient-to-br from-stone-200 to-blue-400"
     >
       {/* Lado izquierdo - 40% */}
       <div className="w-2/5 p-6 flex flex-col">
@@ -18,7 +17,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
         <p className="text-black text-md font-medium mb-6">
           {card.description}
         </p>
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-700 text-sm">
           Ideal para: {card.idealFor}
         </p>
       </div>
