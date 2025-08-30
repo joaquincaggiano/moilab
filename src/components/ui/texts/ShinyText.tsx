@@ -30,7 +30,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
     <>
       <style>{shineKeyframes}</style>
       <div
-        className={`relative inline-block ${className}`}
+        className={`relative inline-block font-regular ${className}`}
         style={{
           color: disabled ? "#b5b5b5a4" : "transparent",
           background: disabled

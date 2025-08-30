@@ -17,7 +17,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
         <p className="text-black text-md font-medium mb-6">
           {card.description}
         </p>
-        <p className="text-gray-700 text-sm">
+        <p className="text-gray-700 text-sm font-regular">
           Ideal para: {card.idealFor}
         </p>
       </div>

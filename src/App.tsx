@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import Hero from "./components/sections/Hero";
 import Services from "./components/sections/services/Services";
-import Header from "./components/header/Header";
+import Header from "./components/sections/header/Header";
 
 function App() {
   const lenisRef = useRef<Lenis | null>(null);

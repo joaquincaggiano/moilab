@@ -1,5 +1,5 @@
 import { Flame } from "lucide-react";
-import LiNavbar from "../ui/navbar/LiNavbar";
+import LiNavbar from "../../ui/navbar/LiNavbar";
 
 const links = [
   {

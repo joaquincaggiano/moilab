@@ -9,6 +9,8 @@ const LiNavbar = ({ href, text }: Props) => {
       <a
         href={href}
         className="
+            font-regular
+            text-md
             text-white
             relative
             transition-colors
