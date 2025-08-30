@@ -3,38 +3,17 @@ import LightRays from "../ui/backgrounds/LighRays";
 import ButtonGradient from "../ui/buttons/ButtonGradient";
 import BlurText from "../ui/texts/BlurText";
 import ButtonShiny from "../ui/buttons/ButtonShiny";
-import Lenis from "lenis";
-
-// Extender la interfaz Window para incluir Lenis
-declare global {
-  interface Window {
-    lenis?: Lenis;
-  }
-}
+import { useLenisStore } from "../../stores/lenisStore";
 
 const Hero = () => {
+  const { scrollTo } = useLenisStore();
+
   const scrollToContact = () => {
-    const contactElement = document.getElementById("contact");
-    if (contactElement && window.lenis) {
-      window.lenis.scrollTo(contactElement, {
-        duration: 1.8,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-    } else if (contactElement) {
-      contactElement.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollTo("contact");
   };
 
   const scrollToServices = () => {
-    const servicesElement = document.getElementById("services");
-    if (servicesElement && window.lenis) {
-      window.lenis.scrollTo(servicesElement, {
-        duration: 1.8,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-    } else if (servicesElement) {
-      servicesElement.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollTo("services");
   };
 
   return (

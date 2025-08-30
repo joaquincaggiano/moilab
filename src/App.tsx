@@ -1,33 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Lenis from "lenis";
 import Hero from "./components/sections/Hero";
 import Services from "./components/sections/services/Services";
 import Header from "./components/sections/header/Header";
-
-// Extender la interfaz Window para incluir Lenis
-declare global {
-  interface Window {
-    lenis?: Lenis;
-  }
-}
+import { useLenisStore } from "./stores/lenisStore";
 
 function App() {
-  const lenisRef = useRef<Lenis | null>(null);
+  const { setLenis, destroy } = useLenisStore();
 
   useEffect(() => {
     // Inicializar Lenis para scroll suave
-    lenisRef.current = new Lenis({
+    const lenis = new Lenis({
       duration: 1.8,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
     });
 
-    // Hacer la instancia de Lenis disponible globalmente
-    window.lenis = lenisRef.current;
+    // Guardar la instancia en el store
+    setLenis(lenis);
 
     // Función para actualizar Lenis en cada frame
     const raf = (time: number) => {
-      lenisRef.current?.raf(time);
+      lenis.raf(time);
       requestAnimationFrame(raf);
     };
 
@@ -36,10 +30,9 @@ function App() {
 
     // Limpiar al desmontar
     return () => {
-      lenisRef.current?.destroy();
-      delete window.lenis;
+      destroy();
     };
-  }, []);
+  }, [setLenis, destroy]);
 
   return (
     <div className="w-full bg-gray-900">
