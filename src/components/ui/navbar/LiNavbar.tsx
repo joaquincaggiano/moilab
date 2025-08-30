@@ -1,13 +1,54 @@
+import { useEffect, useRef } from "react";
+import Lenis from "lenis";
+
+// Extender la interfaz Window para incluir Lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
+
 interface Props {
   href: string;
   text: string;
 }
 
 const LiNavbar = ({ href, text }: Props) => {
+  const lenisRef = useRef<Lenis | null>(null);
+
+  useEffect(() => {
+    // Obtener la instancia de Lenis del window (si está disponible)
+    if (typeof window !== "undefined") {
+      // Buscar la instancia de Lenis en el window
+      lenisRef.current = window.lenis || null;
+    }
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    if (href.startsWith("#")) {
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement && lenisRef.current) {
+        // Usar Lenis para smooth scrolling
+        lenisRef.current.scrollTo(targetElement, {
+          duration: 1.8,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else if (targetElement) {
+        // Fallback si Lenis no está disponible
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <li>
       <a
         href={href}
+        onClick={handleClick}
         className="
             font-regular
             text-md

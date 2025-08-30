@@ -3,16 +3,38 @@ import LightRays from "../ui/backgrounds/LighRays";
 import ButtonGradient from "../ui/buttons/ButtonGradient";
 import BlurText from "../ui/texts/BlurText";
 import ButtonShiny from "../ui/buttons/ButtonShiny";
+import Lenis from "lenis";
+
+// Extender la interfaz Window para incluir Lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
 
 const Hero = () => {
   const scrollToContact = () => {
-    // Implementar scroll a la sección de contacto
-    console.log("Scroll to contact");
+    const contactElement = document.getElementById("contact");
+    if (contactElement && window.lenis) {
+      window.lenis.scrollTo(contactElement, {
+        duration: 1.8,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else if (contactElement) {
+      contactElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const scrollToServices = () => {
-    // Implementar scroll a la sección de servicios
-    console.log("Scroll to services");
+    const servicesElement = document.getElementById("services");
+    if (servicesElement && window.lenis) {
+      window.lenis.scrollTo(servicesElement, {
+        duration: 1.8,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else if (servicesElement) {
+      servicesElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
