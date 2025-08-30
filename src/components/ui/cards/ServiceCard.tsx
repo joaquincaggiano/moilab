@@ -9,18 +9,16 @@ export const ServiceCard = ({ card, setRef }: Props) => {
   return (
     <div
       ref={setRef}
-      className="absolute left-1/3 w-full max-w-3xl h-[500px] rounded-2xl mt-20 flex"
-      style={{
-        background: card.backgroundColor,
-      }}
+      className="absolute left-1/5 w-full max-w-3xl h-[500px] shadow-2xl rounded-2xl mt-20 flex bg-stone-200"
+
     >
       {/* Lado izquierdo - 40% */}
       <div className="w-2/5 p-6 flex flex-col">
         <h3 className="text-2xl font-bold text-black mb-3">{card.title}</h3>
-        <p className="text-black text-md font-medium leading-relaxed mb-6">
+        <p className="text-black text-md font-medium mb-6">
           {card.description}
         </p>
-        <p className="text-black text-sm leading-relaxed">
+        <p className="text-gray-500 text-sm">
           Ideal para: {card.idealFor}
         </p>
       </div>

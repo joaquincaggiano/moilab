@@ -3,6 +3,5 @@ export interface Service {
   title: string;
   description: string;
   image: string;
-  backgroundColor: string;
   idealFor: string;
 }
