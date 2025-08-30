@@ -6,7 +6,7 @@ export default function ServicesSwap() {
   const { containerRef, items, onPointerDown, goLeft, goRight } =
     useAnimeCarousel({
       items: servicesData,
-      dragThreshold: 20,
+      dragThreshold: 100,
     });
 
   return (

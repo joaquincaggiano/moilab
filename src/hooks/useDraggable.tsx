@@ -163,9 +163,11 @@ export function useAnimeCarousel<T = unknown>({
         });
 
         // parallax leve en las de atrás
-        for (let i = 1; i < Math.min(order.length, 4); i++) {
+        for (let i = 1; i < order.length; i++) {
           const el = cardRefs.current[i];
           if (!el) continue;
+          // Se ajusta la posición vertical (translateY) y la escala (scale) en función de cuánto se ha arrastrado la tarjeta principal (dx).
+          // Esto genera un efecto visual de profundidad y movimiento suave en las tarjetas traseras.
           animate(el, {
             translateY: i * 8 - Math.min(Math.abs(dx) / 20, 4),
             scale: 1 - i * 0.05 + Math.min(Math.abs(dx) / 600, 0.03),
