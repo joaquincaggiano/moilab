@@ -1,68 +1,36 @@
 import { servicesData } from "../../../data/services/data.services";
-import { useCardSwap } from "../../../hooks/useCardSwap";
+import { useAnimeCarousel } from "../../../hooks/useDraggable";
 import { ServiceCard } from "../../ui/cards/ServiceCard";
 
-export const ServicesSwap = () => {
-  const {
-    currentIndex,
-    isDragging,
-    dragOffset,
-    containerRef,
-    visibleCards,
-    handleDragStart,
-    handleDragMove,
-    handleDragEnd,
-    setCurrentIndex,
-  } = useCardSwap(servicesData);
+export default function ServicesSwap() {
+  const { containerRef, items, onPointerDown, goLeft, goRight } =
+    useAnimeCarousel({
+      items: servicesData,
+      dragThreshold: 20,
+    });
+
   return (
-    <>
+    <div className="w-full">
       <div
         ref={containerRef}
-        className="relative w-full max-w-7xl h-[600px] flex items-center justify-center overflow-hidden"
-        onMouseDown={handleDragStart}
-        onMouseMove={handleDragMove}
-        onMouseUp={handleDragEnd}
-        onMouseLeave={handleDragEnd}
-        onTouchStart={handleDragStart}
-        onTouchMove={handleDragMove}
-        onTouchEnd={handleDragEnd}
-        style={{ cursor: isDragging ? "grabbing" : "grab" }}
+        onPointerDown={onPointerDown}
+        className="relative w-full h-[600px] select-none touch-none"
       >
-        {visibleCards.map((card, index) => {
-          const isMain = index === 0;
-          const scale = isMain ? 1 : 0.9 - index * 0.1;
-          const zIndex = 10 - index;
-          const opacity = isMain ? 1 : 0.8 - index * 0.15;
-          const translateX = isMain ? dragOffset * 0.5 : -100 - index * 120;
-
-          return (
-            <ServiceCard
-              key={card.id}
-              card={card}
-              isMain={isMain}
-              translateX={translateX}
-              scale={scale}
-              zIndex={zIndex}
-              opacity={opacity}
-            />
-          );
-        })}
-      </div>
-
-      {/* Indicadores */}
-      <div className="flex space-x-3 mt-8">
-        {servicesData.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`cursor-pointer w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "bg-white scale-125"
-                : "bg-gray-400 hover:bg-gray-300"
-            }`}
-          />
+        {items.map(({ it: card, setRef }) => (
+          <ServiceCard key={card.id} card={card} setRef={setRef} />
         ))}
       </div>
-    </>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          justifyContent: "center",
+          marginTop: 12,
+        }}
+      >
+        <button onClick={goLeft}>← Swipe Izquierda</button>
+        <button onClick={goRight}>Swipe Derecha →</button>
+      </div>
+    </div>
   );
-};
+}

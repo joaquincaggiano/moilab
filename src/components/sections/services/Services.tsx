@@ -1,4 +1,4 @@
-import { ServicesSwap } from "./ServicesSwap";
+import ServicesSwap from "./ServicesSwap";
 
 const Services = () => {
   return (

@@ -50,13 +50,16 @@ export function useAnimeCarousel<T = unknown>({
       const el = cardRefs.current[i];
       if (!el) continue;
 
+      // Aseguramos que el zIndex ya esté aplicado desde el principio
+      el.style.zIndex = String(order.length - i);
+
       animate(el, {
         translateX: -i * spacing, // desplazamiento horizontal
         translateY: 0,
         rotate: 0,
         scale: 1,
         opacity: 1,
-        zIndex: order.length - i, // la primera con mayor zIndex
+        // zIndex ya seteado directamente en el DOM antes de animar
       });
     }
   }, [order.length]);

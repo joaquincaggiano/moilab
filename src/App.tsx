@@ -1,4 +1,3 @@
-import CarouselDemo from "./components/sections/CarouselDemo";
 import Hero from "./components/sections/Hero";
 import Services from "./components/sections/services/Services";
 
@@ -7,7 +6,6 @@ function App() {
     <div className="w-full h-screen bg-gray-900">
       <Hero />
       <Services />
-      <CarouselDemo />
     </div>
   );
 }
