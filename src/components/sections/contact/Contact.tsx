@@ -1,5 +1,6 @@
-import avatar from "../../../../public/img/perfil.png"
+import avatar from "../../../../public/img/perfil.png";
 import ProfileCard from "../../ui/cards/ProfileCard";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
@@ -13,16 +14,19 @@ const Contact = () => {
           </p>
         </div>
 
-        <ProfileCard
-          name="Joaquín Caggiano"
-          title="Full Stack Developer"
-          handle="moilab@gmail.com"
-          status="Disponible"
-          avatarUrl={avatar}
-          showUserInfo={true}
-          enableTilt={true}
-          enableMobileTilt={false}
-        />
+        <div className="flex items-center justify-between w-full max-w-7xl">
+          <ProfileCard
+            name="Joaquín Caggiano"
+            title="Full Stack Developer"
+            handle="moilab@gmail.com"
+            status="Disponible"
+            avatarUrl={avatar}
+            showUserInfo={true}
+            enableTilt={true}
+            enableMobileTilt={false}
+          />
+          <ContactForm />
+        </div>
       </div>
     </section>
   );
