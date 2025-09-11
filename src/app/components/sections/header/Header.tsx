@@ -1,4 +1,4 @@
-import { Flame } from "lucide-react";
+import { LuFlame } from "react-icons/lu";
 import LiNavbar from "../../ui/navbar/LiNavbar";
 
 const links = [
@@ -31,7 +31,7 @@ const Header = () => {
         shadow-lg shadow-gray-900/10"
     >
       <div className="flex items-center gap-2">
-        <Flame className="w-8 h-8 text-dark-primary" />
+        <LuFlame className="w-8 h-8 text-dark-primary" />
       </div>
 
       <nav>
