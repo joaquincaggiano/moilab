@@ -1,18 +1,31 @@
-"use server";
+'use server';
 
-import { Resend } from "resend";
+import { Resend } from 'resend';
+import { SendEmailDto, FormState } from '../dto/send-email.dto';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmailAction(formData: FormData): Promise<void> {
-  const fullName = formData.get("fullName") as string;
-  const email = formData.get("email") as string;
-  const message = formData.get("message") as string;
+export async function sendEmailAction(
+  prevState: FormState | null,
+  formData: FormData
+): Promise<FormState> {
+  const fullName = formData.get('fullName') as string;
+  const email = formData.get('email') as string;
+  const message = formData.get('message') as string;
+
+  const errors = SendEmailDto.checkEmailData({ fullName, email, message });
+
+  if (errors) {
+    return {
+      success: false,
+      errors,
+    };
+  }
 
   try {
     await resend.emails.send({
       from: `Mi App <${process.env.RESEND_FROM_EMAIL}>`, // Debe estar verificado en Resend
-      to: process.env.RESEND_TO_EMAIL || "",
+      to: process.env.RESEND_TO_EMAIL || '',
       subject: `Nuevo mensaje de contacto de ${fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -38,8 +51,16 @@ export async function sendEmailAction(formData: FormData): Promise<void> {
         </div>
       `,
     });
+
+    return {
+      success: true,
+      message: 'Mensaje enviado correctamente',
+    };
   } catch (error) {
     console.error(error);
-    throw new Error("Error al enviar el mensaje");
+    return {
+      success: false,
+      message: 'Error al enviar el mensaje',
+    };
   }
 }
