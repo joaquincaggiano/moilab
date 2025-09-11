@@ -7,6 +7,11 @@ interface SendEmailInterface {
 export interface FormState {
   success: boolean;
   message?: string;
+  values?: {
+    fullName?: string;
+    email?: string;
+    message?: string;
+  };
   errors?: {
     fullName?: string;
     email?: string;

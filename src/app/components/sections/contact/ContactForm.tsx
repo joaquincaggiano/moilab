@@ -30,6 +30,7 @@ const ContactForm = () => {
             name='fullName'
             type='text'
             placeholder='Tu nombre completo'
+            defaultValue={state?.values?.fullName || ''}
             className='px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
           />
 
@@ -54,6 +55,7 @@ const ContactForm = () => {
             name='email'
             type='email'
             placeholder='moilab@gmail.com'
+            defaultValue={state?.values?.email || ''}
             className='px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
           />
 
@@ -78,6 +80,7 @@ const ContactForm = () => {
             name='message'
             placeholder='Escribe tu mensaje aquí...'
             rows={6}
+            defaultValue={state?.values?.message || ''}
             className='px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors resize-none'
           />
 
@@ -100,6 +103,9 @@ const ContactForm = () => {
       </button>
 
       {state?.success && <p className='text-green-500'>{state?.message}</p>}
+      {!state?.success && state?.message && (
+        <p className='text-red-500'>{state?.message}</p>
+      )}
     </form>
   );
 };

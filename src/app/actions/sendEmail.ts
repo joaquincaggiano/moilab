@@ -18,6 +18,11 @@ export async function sendEmailAction(
   if (errors) {
     return {
       success: false,
+      values: {
+        fullName,
+        email,
+        message,
+      },
       errors,
     };
   }
