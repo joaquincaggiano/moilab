@@ -2,17 +2,27 @@
 
 import { sendEmailAction } from '@/app/actions/sendEmail';
 import { FormState } from '@/app/dto/send-email.dto';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
+import { toast, Toaster } from 'sonner';
 
 const ContactForm = () => {
   const initialState: FormState = {
-    success: false,
+    status: 'idle',
   };
 
   const [state, action, isLoading] = useActionState<FormState, FormData>(
     sendEmailAction,
     initialState
   );
+
+  useEffect(() => {
+    if (state?.status === 'success') {
+      toast.success(state?.message || 'Mensaje enviado correctamente');
+    }
+    if (state?.status === 'error-server') {
+      toast.error(state?.message || 'Error al enviar el mensaje');
+    }
+  }, [state]);
 
   return (
     <form
@@ -102,10 +112,7 @@ const ContactForm = () => {
         {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
       </button>
 
-      {state?.success && <p className='text-green-500'>{state?.message}</p>}
-      {!state?.success && state?.message && (
-        <p className='text-red-500'>{state?.message}</p>
-      )}
+      <Toaster richColors />
     </form>
   );
 };

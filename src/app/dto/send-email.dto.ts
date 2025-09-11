@@ -5,7 +5,7 @@ interface SendEmailInterface {
 }
 
 export interface FormState {
-  success: boolean;
+  status: 'success' | 'error-server' | 'idle';
   message?: string;
   values?: {
     fullName?: string;

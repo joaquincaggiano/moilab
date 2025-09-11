@@ -17,7 +17,7 @@ export async function sendEmailAction(
 
   if (errors) {
     return {
-      success: false,
+      status: 'idle',
       values: {
         fullName,
         email,
@@ -58,13 +58,14 @@ export async function sendEmailAction(
     });
 
     return {
-      success: true,
+      status: 'success',
       message: 'Mensaje enviado correctamente',
     };
   } catch (error) {
     console.error(error);
+
     return {
-      success: false,
+      status: 'error-server',
       message: 'Error al enviar el mensaje',
     };
   }
