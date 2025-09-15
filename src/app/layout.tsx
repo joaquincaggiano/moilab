@@ -52,7 +52,9 @@ export default function RootLayout({
             </div>
             {/* End Background */}
 
-            {children}
+            <div className='relative z-10 w-full h-full'>
+              {children}
+            </div>
           </main>
         </LenisWrapper>
       </body>
