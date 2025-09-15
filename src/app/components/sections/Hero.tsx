@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full h-screen relative bg-gray-900" id="home">
+    <div className="w-full h-screen relative" id="home">
       <LightRays
         raysOrigin="top-center"
         raysColor="#ffffff"
