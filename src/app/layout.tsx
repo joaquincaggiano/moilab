@@ -38,13 +38,13 @@ export default function RootLayout({
             <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(96,165,250,0.05)_0%,transparent_50%)]' />
 
             {/* Refined grid pattern */}
-            <div className='absolute inset-0 opacity-20'>
+            <div className='absolute inset-0 opacity-40'>
               <div
                 className='absolute inset-0'
                 style={{
                   backgroundImage: `
-            linear-gradient(rgba(96,165,250,0.25) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(96,165,250,0.25) 1px, transparent 1px)
+            linear-gradient(rgba(96,165,250,0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(96,165,250,0.4) 1px, transparent 1px)
           `,
                   backgroundSize: '60px 60px',
                 }}
@@ -52,9 +52,7 @@ export default function RootLayout({
             </div>
             {/* End Background */}
 
-            <div className='relative z-10 w-full h-full'>
-              {children}
-            </div>
+            <div className='relative z-10 w-full h-full'>{children}</div>
           </main>
         </LenisWrapper>
       </body>
