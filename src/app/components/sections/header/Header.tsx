@@ -1,43 +1,78 @@
-import { LuFlame } from "react-icons/lu";
-import LiNavbar from "../../ui/navbar/LiNavbar";
+'use client';
+
+import { LuFlame, LuMenu, LuX } from 'react-icons/lu';
+import { useState } from 'react';
+import LiNavbar from '../../ui/navbar/LiNavbar';
 
 const links = [
   {
-    href: "#home",
-    text: "Inicio",
+    href: '#home',
+    text: 'Inicio',
   },
   {
-    href: "#services",
-    text: "Servicios",
+    href: '#services',
+    text: 'Servicios',
   },
   {
-    href: "#projects",
-    text: "Proyectos",
+    href: '#projects',
+    text: 'Proyectos',
   },
   {
-    href: "#contact",
-    text: "Contacto",
+    href: '#contact',
+    text: 'Contacto',
   },
 ];
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <header
-      className="fixed top-4 left-1/2 -translate-x-1/2 w-[60%] max-w-2xl
-        backdrop-blur-xl
-        rounded-full border border-gray-400/20
-        py-4 px-6 z-50
-        flex items-center justify-between
-        shadow-lg shadow-gray-900/10"
-    >
-      <div className="flex items-center gap-2">
-        <LuFlame className="w-8 h-8 text-dark-primary" />
+    <header className='fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl backdrop-blur-xl border border-gray-400/20 rounded-2xl sm:rounded-full z-50 shadow-lg shadow-gray-900/10 transition-all duration-300 ease-in-out'>
+      {/* Header principal */}
+      <div className='flex items-center justify-between py-4 px-6'>
+        <div className='flex items-center gap-2'>
+          <LuFlame className='w-8 h-8 text-dark-primary' />
+        </div>
+
+        <button
+          className='sm:hidden'
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+        >
+          {isMobileMenuOpen ? (
+            <LuX className='w-8 h-8 text-dark-primary' />
+          ) : (
+            <LuMenu className='w-8 h-8 text-dark-primary' />
+          )}
+        </button>
+
+        {/* Navbar web */}
+        <nav className='hidden sm:block'>
+          <ul className='flex items-center gap-8'>
+            {links.map(link => (
+              <LiNavbar key={link.href} href={link.href} text={link.text} />
+            ))}
+          </ul>
+        </nav>
       </div>
 
-      <nav>
-        <ul className="flex items-center gap-8">
-          {links.map((link) => (
-            <LiNavbar key={link.href} href={link.href} text={link.text} />
+      {/* Navbar móvil */}
+      <nav
+        className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out
+          ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+      >
+        <ul className='flex flex-col justify-end items-end px-6 pb-4 space-y-3'>
+          {links.map(link => (
+            <LiNavbar
+              key={link.href}
+              href={link.href}
+              text={link.text}
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
           ))}
         </ul>
       </nav>

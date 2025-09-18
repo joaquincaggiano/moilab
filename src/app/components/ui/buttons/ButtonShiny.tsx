@@ -1,4 +1,4 @@
-import ShinyText from "../texts/ShinyText";
+import ShinyText from '../texts/ShinyText';
 
 const ButtonShiny = ({
   text,
@@ -10,17 +10,19 @@ const ButtonShiny = ({
   return (
     <button
       onClick={onClick}
-      className="
+      className='
+        w-full
+        max-w-[150px]
         cursor-pointer
-        text-md h-14
+        text-sm h-14
         rounded-full
-        px-6
         bg-gray-900
         border-2
         border-transparent
+        hover:bg-black
         hover:border-[#b5b5b5a4]
         transition-colors
-        duration-300"
+        duration-300'
     >
       <ShinyText
         text={text}

@@ -10,13 +10,11 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <Services />
+      {/* <Services />
 
       <ToolSection />
 
-      {/* <Marquee items={techLogos} /> */}
-
-      <Contact />
+      <Contact /> */}
     </>
   );
 }

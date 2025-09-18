@@ -25,7 +25,8 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased`}>
         <LenisWrapper>
           <Header />
-          <main className='w-full min-h-screen relative bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden flex flex-col'>
+
+          <main className='w-full min-h-screen relative bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-x-hidden flex flex-col px-5 sm:px-10'>
             {/* Background */}
             {/* Soft radial gradient */}
             <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.08)_0%,rgba(96,165,250,0.04)_30%,transparent_70%)]' />
