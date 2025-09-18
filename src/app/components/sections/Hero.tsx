@@ -34,7 +34,7 @@ const Hero = () => {
       />
 
       {/* Hero Content */}
-      <div className='absolute inset-0 flex items-center justify-center z-10'>
+      <div className='absolute inset-0 flex items-center justify-center z-10 pt-10'>
         <div className='flex flex-col gap-4 items-center justify-center'>
           {/* Texto principal */}
           <div className='flex flex-col items-center justify-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl p-2'>
@@ -68,7 +68,7 @@ const Hero = () => {
           </div>
 
           {/* Botones */}
-          <div className='w-full flex flex-col md:flex-row gap-4 justify-center items-center'>
+          <div className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <ButtonGradient
               onClick={scrollToContact}
               text='Comenzar Proyecto'
@@ -77,18 +77,6 @@ const Hero = () => {
             <ButtonShiny onClick={scrollToServices} text='Ver Servicios' />
           </div>
         </div>
-        {/* <div className='text-center max-w-4xl mx-auto px-4 sm:px-6'>
-
-
-          <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4'>
-            <ButtonGradient
-              onClick={scrollToContact}
-              text='Comenzar Proyecto'
-            />
-
-            <ButtonShiny onClick={scrollToServices} text='Ver Servicios' />
-          </div>
-        </div> */}
       </div>
     </div>
   );
