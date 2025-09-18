@@ -15,7 +15,7 @@ export default function ServicesSwap() {
       <div
         ref={containerRef}
         onPointerDown={onPointerDown}
-        className="relative w-full h-[550px] select-none touch-none flex justify-center items-center mb-14"
+        className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] select-none touch-none flex justify-center items-center mb-14"
       >
         {items.map(({ it: card, setRef }) => (
           <ServiceCard key={card.id} card={card} setRef={setRef} />
