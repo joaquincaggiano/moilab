@@ -25,10 +25,9 @@ export class SendEmailDto {
 
     // Validar nombre completo
     if (!fullName || fullName.trim().length === 0) {
-      errors.fullName =
-        'El nombre es requerido y debe tener al menos 5 caracteres';
+      errors.fullName = 'El nombre es requerido';
     } else if (fullName.trim().length < 4) {
-      errors.fullName = 'El nombre debe tener al menos 4 caracteres';
+      errors.fullName = 'Debe tener al menos 4 caracteres';
     }
 
     // Validar email
@@ -46,7 +45,7 @@ export class SendEmailDto {
     if (!message || message.trim().length === 0) {
       errors.message = 'El mensaje es requerido';
     } else if (message.trim().length < 10) {
-      errors.message = 'El mensaje debe tener al menos 10 caracteres';
+      errors.message = 'Debe tener al menos 10 caracteres';
     }
 
     return Object.keys(errors).length > 0 ? errors : null;

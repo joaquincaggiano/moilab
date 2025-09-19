@@ -1,0 +1,44 @@
+interface Props {
+  label: string;
+  name: string;
+  placeholder: string;
+  defaultValue: string;
+  errors: string | undefined;
+}
+
+export const TextAreaForm = ({
+  label,
+  name,
+  placeholder,
+  defaultValue = '',
+  errors,
+}: Props) => {
+  return (
+    <div className='flex flex-col'>
+      <label
+        htmlFor={name}
+        className='text-sm sm:text-base text-white mb-2 font-medium'
+      >
+        {label}
+      </label>
+      <div className='flex flex-col gap-1'>
+        <textarea
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          rows={6}
+          defaultValue={defaultValue}
+          className='text-sm sm:text-base px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors resize-none'
+        />
+
+        <div className='h-2'>
+          {errors && (
+            <span className='text-xs sm:text-sm text-red-400 mt-1'>
+              {errors}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
