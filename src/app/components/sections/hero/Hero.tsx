@@ -1,11 +1,11 @@
 'use client';
 
 import { useLenisStore } from '@/app/storage/lenisStore';
-import LightRays from '../ui/backgrounds/LighRays';
-import BlurText from '../ui/texts/BlurText';
-import ButtonGradient from '../ui/buttons/ButtonGradient';
-import ButtonShiny from '../ui/buttons/ButtonShiny';
 import { colors } from '@/app/theme/palette-colors';
+import LightRays from '../../ui/backgrounds/LighRays';
+import BlurText from '../../ui/texts/BlurText';
+import ButtonGradient from '../../ui/buttons/ButtonGradient';
+import ButtonShiny from '../../ui/buttons/ButtonShiny';
 
 const Hero = () => {
   const { scrollTo } = useLenisStore();
