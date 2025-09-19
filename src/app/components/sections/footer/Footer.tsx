@@ -5,8 +5,6 @@ import { ServicesFooter } from './ServicesFooter';
 import { SocialLinksList } from './SocialLinksList';
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className='relative w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-gray-800/50'>
       {/* Background Effects */}
