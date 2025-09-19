@@ -66,12 +66,17 @@ const Hero = () => {
           </header>
 
           {/* Texto secundario */}
-          <div className='w-full max-w-xl mb-6'>
-            <p className='text-center text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed'>
-              Desarrollamos software personalizado, landing pages impactantes y
+          <div className='w-full max-w-xl mb-6 flex items-center justify-center'>
+            <BlurText
+              text='Desarrollamos software personalizado, landing pages impactantes y
               aplicaciones web que convierten tu visión en realidad. Impulsa tu
-              negocio con soluciones digitales que marcan la diferencia.
-            </p>
+              negocio con soluciones digitales que marcan la diferencia.'
+              className='text-center text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed'
+              animateBy='words'
+              delay={50}
+              // stepDuration={0.1}
+              direction='top'
+            />
           </div>
 
           {/* Botones */}
