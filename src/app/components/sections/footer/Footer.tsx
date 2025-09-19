@@ -1,3 +1,4 @@
+import { BottomFooterBar } from './BottomFooterBar';
 import { BrandSection } from './BrandSection';
 import { QuickLinks } from './QuickLinks';
 import { ServicesFooter } from './ServicesFooter';
@@ -28,28 +29,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className='mt-12 pt-8 border-t border-gray-800/50'>
-          <div className='flex flex-col sm:flex-row justify-between items-center gap-4'>
-            <p className='text-gray-500 text-sm'>
-              © {currentYear} MoiLab. Todos los derechos reservados.
-            </p>
-
-            <div className='flex gap-6 text-sm'>
-              <a
-                href='#'
-                className='text-gray-500 hover:text-blue-400 transition-colors duration-300'
-              >
-                Política de Privacidad
-              </a>
-              <a
-                href='#'
-                className='text-gray-500 hover:text-blue-400 transition-colors duration-300'
-              >
-                Términos de Servicio
-              </a>
-            </div>
-          </div>
-        </div>
+        <BottomFooterBar />
       </div>
     </footer>
   );
