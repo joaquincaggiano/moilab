@@ -10,9 +10,9 @@ export default function HomePage() {
 
       <Services />
 
-      {/*<ToolSection />
+      <ToolSection />
 
-      <Contact /> */}
+      {/* <Contact /> */}
     </>
   );
 }
