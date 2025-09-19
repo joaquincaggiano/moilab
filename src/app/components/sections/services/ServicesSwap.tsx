@@ -1,6 +1,6 @@
 "use client";
 
-import { servicesData } from "@/app/data/services/data.services";
+import { servicesData } from "@/app/data/services/services.data";
 import { useAnimeCarousel } from "@/app/hooks/useDraggable";
 import { ServiceCard } from "../../ui/cards/ServiceCard";
 
