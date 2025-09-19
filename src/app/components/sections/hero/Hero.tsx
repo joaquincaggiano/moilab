@@ -19,7 +19,11 @@ const Hero = () => {
   };
 
   return (
-    <section className='w-full h-screen relative' id='home' aria-label='Sección principal'>
+    <section
+      className='w-full h-screen relative'
+      id='home'
+      aria-label='Sección principal'
+    >
       <LightRays
         raysOrigin='top-center'
         raysColor='#ffffff'
@@ -38,7 +42,9 @@ const Hero = () => {
         <div className='flex flex-col gap-4 items-center justify-center'>
           {/* Texto principal */}
           <header className='flex flex-col items-center justify-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl p-2'>
-            <h1 className='sr-only'>MoiLab - Desarrollo de Software y Aplicaciones Web</h1>
+            <h1 className='sr-only'>
+              MoiLab - Desarrollo de Software y Aplicaciones Web
+            </h1>
             <BlurText
               text='Creamos tus ideas en'
               className='text-white'
@@ -69,7 +75,10 @@ const Hero = () => {
           </div>
 
           {/* Botones */}
-          <nav className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center' aria-label='Acciones principales'>
+          <nav
+            className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center'
+            aria-label='Acciones principales'
+          >
             <ButtonGradient
               onClick={scrollToContact}
               text='Comenzar Proyecto'

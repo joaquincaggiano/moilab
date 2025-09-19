@@ -130,6 +130,8 @@ const BlurText: React.FC<BlurTextProps> = ({
             style={{
               display: 'inline-block',
               willChange: 'transform, filter, opacity',
+              lineHeight: '1.1',
+              paddingBottom: '0.1em',
               ...(gradientStart &&
                 gradientEnd &&
                 animateBy === 'words' && {
