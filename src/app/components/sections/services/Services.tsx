@@ -3,7 +3,7 @@ import ServicesSwap from './ServicesSwap';
 
 const Services = () => {
   return (
-    <section className='w-full min-h-screen mt-20' id='services'>
+    <section className='w-full min-h-screen mt-10' id='services'>
       <div className='container mx-auto flex flex-col items-center gap-10'>
         <TitleAndDescription
           title='¿Qué estás buscando?'
