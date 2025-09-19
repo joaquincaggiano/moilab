@@ -1,6 +1,7 @@
 'use client';
 
 import { ToolData } from '@/app/interfaces/tools/tools.interface';
+import { useScrollAnimation } from '@/app/hooks/useScrollAnimation';
 
 interface Props {
   tool: ToolData;
@@ -12,14 +13,20 @@ export const ToolCard = ({ tool, index }: Props) => {
     window.open(href, '_blank', 'noopener,noreferrer');
   };
 
+  const delay = index === 0 ? 1 : index * 50;
+
+  const animationRef = useScrollAnimation({
+    delay,
+    duration: 400,
+    easing: 'easeOutExpo',
+    threshold: 0.1,
+  });
+
   return (
     <button
+      ref={animationRef}
       onClick={() => handleItemClick(tool.href)}
       className='group relative cursor-pointer'
-      style={{
-        animationDelay: `${index * 150}ms`,
-        animation: 'fadeInUp 0.8s ease-out forwards',
-      }}
     >
       {/* Glow Effect Background */}
       <div
