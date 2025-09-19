@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import Header from './components/sections/header/Header';
+import { Footer } from './components/sections/footer/Footer';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -55,6 +56,8 @@ export default function RootLayout({
 
             <div className='relative z-10 w-full h-full'>{children}</div>
           </main>
+
+          <Footer />
         </LenisWrapper>
       </body>
     </html>

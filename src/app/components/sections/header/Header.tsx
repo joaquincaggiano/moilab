@@ -54,7 +54,12 @@ const Header = () => {
         <nav className='hidden sm:block'>
           <ul className='flex items-center gap-8'>
             {links.map(link => (
-              <LiNavbar key={link.href} href={link.href} text={link.text} />
+              <LiNavbar
+                key={link.href}
+                href={link.href}
+                text={link.text}
+                className='text-sm lg:text-base text-white font-medium'
+              />
             ))}
           </ul>
         </nav>
@@ -72,6 +77,7 @@ const Header = () => {
               href={link.href}
               text={link.text}
               onClick={() => setIsMobileMenuOpen(false)}
+              className='text-sm text-white font-medium'
             />
           ))}
         </ul>

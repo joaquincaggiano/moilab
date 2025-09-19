@@ -5,10 +5,11 @@ import { useLenisStore } from '@/app/storage/lenisStore';
 interface Props {
   href: string;
   text: string;
+  className?: string;
   onClick?: () => void;
 }
 
-const LiNavbar = ({ href, text, onClick }: Props) => {
+const LiNavbar = ({ href, text, className, onClick }: Props) => {
   const { scrollTo } = useLenisStore();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -38,7 +39,7 @@ const LiNavbar = ({ href, text, onClick }: Props) => {
       <a
         href={href}
         onClick={handleClick}
-        className="font-medium text-sm sm:text-xs md:text-sm lg:text-base text-white relative transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#60a5fa] after:transition-all after:duration-300 hover:after:w-full"
+        className={`relative transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#60a5fa] after:transition-all after:duration-300 hover:after:w-full ${className}`}
       >
         {text}
       </a>
