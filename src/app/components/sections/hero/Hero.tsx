@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <div className='w-full h-screen relative' id='home'>
+    <section className='w-full h-screen relative' id='home' aria-label='Sección principal'>
       <LightRays
         raysOrigin='top-center'
         raysColor='#ffffff'
@@ -37,7 +37,8 @@ const Hero = () => {
       <div className='absolute inset-0 flex items-center justify-center z-10 pt-10'>
         <div className='flex flex-col gap-4 items-center justify-center'>
           {/* Texto principal */}
-          <div className='flex flex-col items-center justify-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl p-2'>
+          <header className='flex flex-col items-center justify-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl p-2'>
+            <h1 className='sr-only'>MoiLab - Desarrollo de Software y Aplicaciones Web</h1>
             <BlurText
               text='Creamos tus ideas en'
               className='text-white'
@@ -56,7 +57,7 @@ const Hero = () => {
               gradientStart={colors.primary}
               gradientEnd={colors.secondary}
             />
-          </div>
+          </header>
 
           {/* Texto secundario */}
           <div className='w-full max-w-xl mb-6'>
@@ -68,17 +69,17 @@ const Hero = () => {
           </div>
 
           {/* Botones */}
-          <div className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center'>
+          <nav className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center' aria-label='Acciones principales'>
             <ButtonGradient
               onClick={scrollToContact}
               text='Comenzar Proyecto'
             />
 
             <ButtonShiny onClick={scrollToServices} text='Ver Servicios' />
-          </div>
+          </nav>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
