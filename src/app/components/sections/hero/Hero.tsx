@@ -6,9 +6,20 @@ import LightRays from '../../ui/backgrounds/LighRays';
 import BlurText from '../../ui/texts/BlurText';
 import ButtonGradient from '../../ui/buttons/ButtonGradient';
 import ButtonShiny from '../../ui/buttons/ButtonShiny';
+import { useFadeIn } from '@/app/hooks/useFadeIn';
 
 const Hero = () => {
   const { scrollTo } = useLenisStore();
+  const buttonGradientRef = useFadeIn({
+    delay: 1000,
+    duration: 700,
+    easing: "easeOutExpo",
+  });
+  const buttonShinyRef = useFadeIn({
+    delay: 1200,
+    duration: 700,
+    easing: "easeOutExpo",
+  });
 
   const scrollToContact = () => {
     scrollTo('contact');
@@ -84,12 +95,16 @@ const Hero = () => {
             className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center'
             aria-label='Acciones principales'
           >
-            <ButtonGradient
+            <div ref={buttonGradientRef} className="w-full max-w-[200px]">
+              <ButtonGradient
               onClick={scrollToContact}
               text='Comenzar Proyecto'
-            />
+              />
+            </div>
 
-            <ButtonShiny onClick={scrollToServices} text='Ver Servicios' />
+            <div ref={buttonShinyRef} className="w-full max-w-[150px]">
+              <ButtonShiny onClick={scrollToServices} text='Ver Servicios' />
+            </div>
           </nav>
         </div>
       </div>
