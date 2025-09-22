@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { animate } from "animejs";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { animate } from 'animejs';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type UseAnimeCarouselOptions<T> = {
   items: T[];
@@ -103,24 +103,24 @@ export function useAnimeCarousel<T = unknown>({
 
   // Animaciones de swipe
   const animateSwipe = useCallback(
-    (dir: "left" | "right") => {
+    (dir: 'left' | 'right') => {
       const top = cardRefs.current[0];
       if (!top) return;
 
       const width = containerRef.current?.clientWidth ?? 300;
-      const off = dir === "right" ? width + 80 : -width - 80;
-      const rot = dir === "right" ? 10 : -10;
+      const off = dir === 'right' ? width + 80 : -width - 80;
+      const rot = dir === 'right' ? 10 : -10;
 
       // Saca la top card hacia el lado
       animate(top, {
         translateX: off,
         rotate: rot,
         duration: 260,
-        easing: "easeInQuad",
+        easing: 'easeInQuad',
         complete: () => {
           // Reordena y resetea layout
           const next =
-            dir === "right" ? reorderRight(order) : reorderLeft(order);
+            dir === 'right' ? reorderRight(order) : reorderLeft(order);
           commitOrder(next);
           layoutCards();
         },
@@ -133,16 +133,16 @@ export function useAnimeCarousel<T = unknown>({
         animate(el, {
           translateY: `-=${6}`, // suben un pelín y vuelven
           duration: 180,
-          easing: "easeOutQuad",
-          direction: "alternate",
+          easing: 'easeOutQuad',
+          direction: 'alternate',
         });
       }
     },
     [commitOrder, layoutCards, order, reorderLeft, reorderRight]
   );
 
-  const goLeft = useCallback(() => animateSwipe("left"), [animateSwipe]);
-  const goRight = useCallback(() => animateSwipe("right"), [animateSwipe]);
+  const goLeft = useCallback(() => animateSwipe('left'), [animateSwipe]);
+  const goRight = useCallback(() => animateSwipe('right'), [animateSwipe]);
 
   // Drag handlers
   const onPointerDown = useCallback(
@@ -184,7 +184,7 @@ export function useAnimeCarousel<T = unknown>({
         const abs = Math.abs(dx);
 
         if (abs > dragThreshold) {
-          animateSwipe(dx > 0 ? "right" : "left");
+          animateSwipe(dx > 0 ? 'right' : 'left');
         } else {
           // volver al centro
           const top = cardRefs.current[0];
@@ -193,21 +193,21 @@ export function useAnimeCarousel<T = unknown>({
               translateX: 0,
               rotate: 0,
               duration: 220,
-              easing: "easeOutQuad",
+              easing: 'easeOutQuad',
             });
           }
           // y restaurar capas
           layoutCards();
         }
 
-        window.removeEventListener("pointermove", onMove);
-        window.removeEventListener("pointerup", onUp);
-        window.removeEventListener("pointercancel", onUp);
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        window.removeEventListener('pointercancel', onUp);
       };
 
-      window.addEventListener("pointermove", onMove);
-      window.addEventListener("pointerup", onUp);
-      window.addEventListener("pointercancel", onUp);
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+      window.addEventListener('pointercancel', onUp);
     },
     [animateSwipe, dragThreshold, layoutCards, order.length, stiffness]
   );
