@@ -8,10 +8,12 @@ export const quickLinks = [
 ];
 
 export const servicesFooter = [
-  'Desarrollo Web',
-  'Aplicaciones Móviles',
   'Landing Pages',
-  'Consultoría IT',
+  'Aplicaciones Móviles',
+  'Sitios web institucionales',
+  'Diseño web',
+  'Mantenimiento',
+  'Software personalizado',
 ];
 
 export const socialLinks = [
