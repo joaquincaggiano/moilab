@@ -20,7 +20,7 @@ export const BrandSection = () => {
       <div className='space-y-3'>
         <div className='flex items-center gap-3 text-gray-400 text-sm'>
           <LuMail className='w-4 h-4 text-blue-400' />
-          <span>moilab@gmail.com</span>
+          <span>moilab.web@gmail.com</span>
         </div>
         <div className='flex items-center gap-3 text-gray-400 text-sm'>
           <LuInstagram className='w-4 h-4 text-blue-400' />

@@ -47,7 +47,7 @@ const ContactForm = () => {
         label='Email'
         name='email'
         type='email'
-        placeholder='moilab@gmail.com'
+        placeholder='moilab.web@gmail.com'
         defaultValue={state?.values?.email || ''}
         errors={state?.errors?.email}
       />

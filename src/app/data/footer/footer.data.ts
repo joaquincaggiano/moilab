@@ -18,19 +18,19 @@ export const socialLinks = [
   {
     name: 'GitHub',
     icon: LuGithub,
-    href: 'https://github.com',
+    href: 'https://github.com/moilab-web',
     color: 'hover:text-gray-300',
   },
   {
     name: 'LinkedIn',
     icon: LuLinkedin,
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/company/moilab-web',
     color: 'hover:text-blue-400',
   },
   {
     name: 'Instagram',
     icon: LuInstagram,
-    href: 'https://instagram.com',
+    href: 'https://www.instagram.com/moilab.web/',
     color: 'hover:text-pink-400',
   },
 ];

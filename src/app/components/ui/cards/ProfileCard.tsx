@@ -73,7 +73,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   miniAvatarUrl,
   name = "Joaquín Caggiano",
   title = "Full Stack Developer",
-  handle = "moilab@gmail.com",
+  handle = "moilab.web@gmail.com",
   status = "Disponible",
   showUserInfo = true,
 }) => {

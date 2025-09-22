@@ -16,7 +16,7 @@ const Contact = () => {
         <ProfileCard
           name='Joaquín Caggiano'
           title='Full Stack Developer'
-          handle='moilab@gmail.com'
+          handle='moilab.web@gmail.com'
           status='Disponible'
           avatarUrl={avatar}
           showUserInfo={true}
