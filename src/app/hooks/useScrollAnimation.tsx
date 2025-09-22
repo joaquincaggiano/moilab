@@ -54,8 +54,8 @@ export const useScrollAnimation = ({
     // Configurar scroll observer
     onScroll({
       target: element,
-      enter: 'bottom-=100 top',
-      leave: 'top+=100 bottom',
+      enter: 'bottom-=20 top',
+      leave: 'top+=20 bottom',
       onEnter: () => {
         if (!hasAnimated.current) {
           hasAnimated.current = true;
