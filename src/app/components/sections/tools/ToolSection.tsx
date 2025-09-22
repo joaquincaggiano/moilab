@@ -5,7 +5,7 @@ import { SectionLayout } from '../SectionLayout';
 
 export const ToolSection = () => {
   return (
-    <SectionLayout className='mt-10' id='tools'>
+    <SectionLayout id='tools'>
       <TitleAndDescription title='Herramientas' />
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>

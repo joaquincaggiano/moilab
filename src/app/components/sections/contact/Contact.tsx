@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 
 const Contact = () => {
   return (
-    <SectionLayout className='mt-30 mb-20' id='contact'>
+    <SectionLayout className='pt-30 pb-20' id='contact'>
       <TitleAndDescription
         title='Contáctanos'
         description='¿Tienes un proyecto en mente? Estamos aquí para ayudarte a hacerlo realidad.'

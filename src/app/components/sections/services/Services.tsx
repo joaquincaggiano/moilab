@@ -4,7 +4,7 @@ import ServicesSwap from './ServicesSwap';
 
 const Services = () => {
   return (
-    <SectionLayout className='mt-10' id='services'>
+    <SectionLayout id='services'>
       <TitleAndDescription
         title='¿Qué estás buscando?'
         description='Explora nuestra variedad de servicios diseñados para impulsar tu
