@@ -70,19 +70,9 @@ export const ServiceCard = ({ card, setRef }: Props) => {
                 {/* Image overlay */}
                 <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500' />
               </div>
-
-              {/* Floating particles effect */}
-              <div className='absolute top-2 right-2 w-1 h-1 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping' />
-              <div
-                className='absolute bottom-4 left-4 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping'
-                style={{ animationDelay: '0.5s' }}
-              />
             </div>
           </div>
         </div>
-
-        {/* Data stream effect */}
-        <div className='absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
 
         {/* Corner accent */}
         <div className='absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-blue-400/50 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500' />

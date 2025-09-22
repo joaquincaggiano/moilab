@@ -3,7 +3,7 @@ import type { Service } from "../../interfaces/services/service.interface";
 export const servicesData: Service[] = [
   {
     id: 1,
-    title: "Landing Page",
+    title: "Landing Pages",
     description:
       "Creamos sitios web modernos y responsivos con las últimas tecnologías del mercado.",
     image:
@@ -21,7 +21,7 @@ export const servicesData: Service[] = [
   },
   {
     id: 3,
-    title: "Páginas institucionales",
+    title: "Sitios web institucionales",
     description:
       "Creamos sitios web modernos y responsivos con las últimas tecnologías del mercado.",
     image:
@@ -30,18 +30,27 @@ export const servicesData: Service[] = [
   },
   {
     id: 4,
-    title: "Diseño",
+    title: "Diseño web",
     description:
-      "Implementamos soluciones de IA y machine learning para optimizar procesos.",
+      "Nos encargamos del diseño y desarrollo de tu sitio web.",
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop",
     idealFor: "Empresas",
   },
   {
     id: 5,
-    title: "Inteligencia Artificial",
+    title: "Mantenimiento",
     description:
-      "Implementamos soluciones de IA y machine learning para optimizar procesos.",
+      "Actualizamos y mantenemos tu sitio web optimizado para que siempre esté al día.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop",
+    idealFor: "Empresas",
+  },
+  {
+    id: 6,
+    title: "Software personalizado",
+    description:
+      "Desarrollamos software personalizado para tu negocio.",
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop",
     idealFor: "Empresas",
