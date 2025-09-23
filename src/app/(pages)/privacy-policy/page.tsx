@@ -1,17 +1,10 @@
+import Breadcrumbs from '@/app/components/seo/Breadcrumbs';
 import type { Metadata } from 'next';
-import Breadcrumbs from '../../components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad',
   description:
     'Política de privacidad de MoiLab. Conoce cómo protegemos y manejamos tu información personal.',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: 'https://moilab.com/privacy-policy',
-  },
 };
 
 const PrivacyPolicyPage = () => {

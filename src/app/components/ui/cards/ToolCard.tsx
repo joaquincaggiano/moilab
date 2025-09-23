@@ -17,7 +17,7 @@ export const ToolCard = ({ tool, index }: Props) => {
 
   const animationRef = useScrollAnimation({
     delay,
-    duration: 400,
+    duration: 200,
     easing: 'easeOutExpo',
     threshold: 0.1,
   });

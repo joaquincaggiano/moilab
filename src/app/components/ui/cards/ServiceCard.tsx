@@ -28,7 +28,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
         {/* Content Container */}
         <div className='relative z-10 flex flex-col md:flex-row h-full'>
           {/* Lado izquierdo - Contenido */}
-          <div className='w-full md:w-2/5 p-4 md:p-6 flex flex-col justify-between'>
+          <div className='w-full h-full md:w-2/5 p-4 md:p-6 flex flex-col justify-between'>
             {/* Header */}
             <div className='mb-4'>
               <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-500'>

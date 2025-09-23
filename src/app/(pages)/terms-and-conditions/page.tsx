@@ -1,17 +1,10 @@
+import Breadcrumbs from '@/app/components/seo/Breadcrumbs';
 import type { Metadata } from 'next';
-import Breadcrumbs from '../../components/seo/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Términos y Condiciones',
   description:
     'Términos y condiciones de uso de MoiLab. Conoce las condiciones para utilizar nuestros servicios.',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: 'https://moilab.com/terms-and-conditions',
-  },
 };
 
 const TermsAndConditionsPage = () => {
