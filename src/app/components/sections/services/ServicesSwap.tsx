@@ -22,7 +22,7 @@ export default function ServicesSwap() {
   };
 
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='w-full flex flex-col items-center mt-10'>
       <div
         ref={containerRef}
         onPointerDown={onPointerDown}

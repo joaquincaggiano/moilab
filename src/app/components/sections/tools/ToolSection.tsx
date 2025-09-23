@@ -8,7 +8,7 @@ export const ToolSection = () => {
     <SectionLayout id='tools'>
       <TitleAndDescription title='Herramientas' />
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-20'>
         {toolsData.map((tool, index) => (
           <ToolCard key={tool.title} tool={tool} index={index} />
         ))}

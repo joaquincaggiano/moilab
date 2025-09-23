@@ -12,7 +12,7 @@ const Contact = () => {
         description='¿Tienes un proyecto en mente? Estamos aquí para ayudarte a hacerlo realidad.'
       />
 
-      <div className='flex flex-col-reverse xl:flex-row items-center justify-center w-full gap-20'>
+      <div className='flex flex-col-reverse xl:flex-row items-center justify-center w-full gap-20 mt-20'>
         <ProfileCard
           name='Joaquín Caggiano'
           title='Full Stack Developer'

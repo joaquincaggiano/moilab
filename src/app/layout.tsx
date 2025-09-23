@@ -4,7 +4,6 @@ import './globals.css';
 import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import Header from './components/sections/header/Header';
 import { Footer } from './components/sections/footer/Footer';
-import StructuredData from './components/seo/StructuredData';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -32,57 +31,6 @@ export const metadata: Metadata = {
     'React',
     'TypeScript',
   ],
-  authors: [{ name: 'MoiLab' }],
-  creator: 'MoiLab',
-  publisher: 'MoiLab',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://moilab.com'),
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'es_ES',
-    url: 'https://moilab.com',
-    title: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
-    description:
-      'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
-    siteName: 'MoiLab',
-    images: [
-      {
-        url: '/img/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'MoiLab - Desarrollo de Software',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
-    description:
-      'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
-    images: ['/img/og-image.jpg'],
-    creator: '@moilab',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 };
 
 export default function RootLayout({
@@ -92,11 +40,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <head>
-        <StructuredData type='organization' />
-        <StructuredData type='website' />
-        <StructuredData type='service' />
-      </head>
       <body className={`${poppins.variable} antialiased`}>
         <LenisWrapper>
           <Header />
