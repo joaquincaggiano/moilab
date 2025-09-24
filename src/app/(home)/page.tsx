@@ -3,6 +3,7 @@ import Contact from '../components/sections/contact/Contact';
 import Hero from '../components/sections/hero/Hero';
 import Services from '../components/sections/services/Services';
 import { ToolSection } from '../components/sections/tools/ToolSection';
+import Projects from '../components/sections/projects/Projects';
 
 export const metadata: Metadata = {
   title: 'Inicio',
@@ -69,6 +70,8 @@ export default function HomePage() {
         <Services />
 
         <ToolSection />
+
+        <Projects />
 
         <Contact />
       </div>
