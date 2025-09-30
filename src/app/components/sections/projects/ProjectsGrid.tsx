@@ -1,12 +1,13 @@
 import { Project } from '@/app/interfaces/projects/project.interface';
 import { ProjectCard } from '../../ui/cards/ProjectCard';
+import { ProjectCardEmpty } from '../../ui/cards/ProjectCardEmpty';
 
 interface Props {
   projects: Project[];
 }
 
 export const ProjectsGrid = ({ projects }: Props) => {
-  const first6Projects = projects.slice(0, 6);
+  const first6Projects = projects.slice(0, 5);
 
   return (
     <div className='w-full max-w-6xl mx-auto flex flex-col xl:flex-row gap-5 mt-20'>
@@ -33,6 +34,7 @@ export const ProjectsGrid = ({ projects }: Props) => {
           {first6Projects.slice(4, 6).map(project => (
             <ProjectCard key={project.id} project={project} size='small' />
           ))}
+          <ProjectCardEmpty />
         </div>
       </div>
     </div>
