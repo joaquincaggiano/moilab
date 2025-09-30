@@ -10,7 +10,7 @@ export const projectsData: Project[] = [
   },
   {
     id: '2',
-    title: 'Re-K platform',
+    title: 'Re-K Platform',
     type: 'collaboration',
     website: 'https://www.re-k.eu/',
     description: 'Plataforma de rehabilitación energética de viviendas',
