@@ -12,10 +12,10 @@ export const ServiceCard = ({ card, setRef }: Props) => {
   return (
     <div
       ref={setRef}
-      className='group absolute cursor-grab w-full max-w-[250px] sm:max-w-[300px] md:max-w-3xl h-[300px] sm:h-[350px] md:h-[450px] bottom-10 mt-20'
+      className='group absolute cursor-grab w-full max-w-[300px] sm:max-w-[400px] md:max-w-4xl h-full bottom-10 mt-20'
     >
       {/* Glow Effect Background */}
-      <div className='absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-2xl blur opacity-75 group-hover:opacity-75 transition-all duration-1000 group-hover:duration-200 ' />
+      <div className='absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-2xl blur opacity-75 group-hover:opacity-75 transition-all duration-1000 group-hover:duration-200' />
 
       {/* Main Card */}
       <div className='relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-2 sm:p-4 md:p-6 border border-gray-700/50 group-hover:border-transparent transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-2 h-full flex flex-col md:flex-row overflow-hidden'>
@@ -28,14 +28,14 @@ export const ServiceCard = ({ card, setRef }: Props) => {
         {/* Content Container */}
         <div className='relative z-10 flex flex-col md:flex-row h-full'>
           {/* Lado izquierdo - Contenido */}
-          <div className='w-full h-full md:w-2/5 p-4 md:p-6 flex flex-col justify-between'>
+          <div className='w-full h-full lg:w-2/5 p-4 lg:p-6 flex flex-col justify-between'>
             {/* Header */}
             <div className='mb-4'>
               <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-500'>
                 {card.title}
               </h3>
 
-              <p className='text-gray-300 text-sm sm:text-base md:text-lg font-medium mb-4 leading-relaxed'>
+              <p className='text-gray-300 text-sm sm:text-base font-medium mb-4 leading-relaxed'>
                 {card.description}
               </p>
             </div>
@@ -52,7 +52,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
           </div>
 
           {/* Lado derecho - Imagen */}
-          <div className='w-full md:w-3/5 p-4 md:p-6 hidden md:block'>
+          <div className='w-full lg:w-3/5 p-4 lg:p-6 hidden lg:block'>
             <div className='relative w-full h-full rounded-xl overflow-hidden group/image'>
               {/* Image glow effect */}
               <div className='absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-xl opacity-0 group-hover/image:opacity-100 transition-opacity duration-500' />
