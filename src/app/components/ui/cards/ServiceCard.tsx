@@ -64,6 +64,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
                   alt={card.title}
                   width={1000}
                   height={1000}
+                  priority
                   className='w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110'
                 />
 
