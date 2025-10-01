@@ -28,7 +28,7 @@ export const TextAreaForm = ({
           placeholder={placeholder}
           rows={6}
           defaultValue={defaultValue}
-          className='text-sm sm:text-base px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors resize-none'
+          className='text-sm px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors resize-none'
         />
 
         <div className='h-2'>
