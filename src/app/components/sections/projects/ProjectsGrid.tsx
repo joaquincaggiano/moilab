@@ -31,7 +31,7 @@ export const ProjectsGrid = ({ projects }: Props) => {
           ))}
         </div>
         <div className='grid grid-cols-1 xl:grid-cols-2 gap-5'>
-          {first6Projects.slice(4, 6).map(project => (
+          {first6Projects.slice(4, 5).map(project => (
             <ProjectCard key={project.id} project={project} size='small' />
           ))}
           <ProjectCardEmpty />

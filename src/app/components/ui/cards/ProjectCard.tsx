@@ -17,7 +17,7 @@ export const ProjectCard = ({ project, size = 'small' }: Props) => {
 
   return (
     <article
-      className={`group relative w-full h-full ${website && 'hover:scale-[1.02]'} transition-all duration-700 ease-out`}
+      className={`group relative w-full md:max-w-[300px] lg:max-w-[400px] xl:max-w-none h-full ${website && 'hover:scale-[1.02]'} transition-all duration-700 ease-out`}
     >
       <div
         className={`relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-xl rounded-3xl px-5 pt-5 pb-3 w-full h-[300px] ${size === 'small' ? 'md:h-[250px]' : 'md:h-[350px]'} flex flex-col overflow-hidden border border-gray-700/30 group-hover:border-gray-600/50 transition-all duration-700`}
