@@ -1,6 +1,7 @@
 'use client';
 
-import { LuFlame, LuMenu, LuX } from 'react-icons/lu';
+import Image from 'next/image';
+import { LuMenu, LuX } from 'react-icons/lu';
 import { useState } from 'react';
 import LiNavbar from '../../ui/navbar/LiNavbar';
 
@@ -35,7 +36,12 @@ const Header = () => {
       {/* Header principal */}
       <div className='flex items-center justify-between py-4 px-6'>
         <div className='flex items-center gap-2'>
-          <LuFlame className='w-8 h-8 text-dark-primary' />
+          <Image
+            src='/img/logos/moilab-logo.png'
+            alt='Moilab'
+            width={150}
+            height={100}
+          />
         </div>
 
         <button
