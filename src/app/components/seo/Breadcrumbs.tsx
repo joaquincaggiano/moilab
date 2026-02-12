@@ -17,7 +17,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://moilab.com${item.href}`,
+      item: `https://moilab.es${item.href}`,
     })),
   };
 

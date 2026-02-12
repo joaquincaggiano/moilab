@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     title: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
     description:
       'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
-    url: 'https://moilab.com',
+    url: 'https://moilab.es',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://moilab.com',
+    canonical: 'https://moilab.es',
   },
 };
 

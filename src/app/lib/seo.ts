@@ -1,6 +1,6 @@
 export const seoConfig = {
   siteName: 'MoiLab',
-  siteUrl: 'https://moilab.com',
+  siteUrl: 'https://moilab.es',
   defaultTitle: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
   defaultDescription:
     'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad. Soluciones digitales que marcan la diferencia.',
