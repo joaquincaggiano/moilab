@@ -13,9 +13,9 @@ import {
   SiDocker,
   SiNodedotjs,
   SiExpress,
-  SiNextui,
   SiPrisma,
   SiTypeorm,
+  SiExpo,
 } from 'react-icons/si';
 
 export const toolsData: ToolData[] = [
@@ -110,9 +110,9 @@ export const toolsData: ToolData[] = [
     hoverGlow: 'group-hover:shadow-slate-300/90',
   },
   {
-    node: <SiNextui className='w-10 h-10' color='#ffffff' />,
-    title: 'HeroUI',
-    href: 'https://www.heroui.com/',
+    node: <SiExpo className='w-10 h-10' color='#ffffff' />,
+    title: 'Expo',
+    href: 'https://expo.dev/',
     color: 'from-gray-500 via-gray-700 to-gray-900',
     glowColor: 'shadow-gray-700/50',
     hoverGlow: 'group-hover:shadow-gray-500/80',

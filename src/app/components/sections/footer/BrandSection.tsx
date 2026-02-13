@@ -1,14 +1,16 @@
-import { LuFlame, LuInstagram, LuMail, LuMapPin } from 'react-icons/lu';
+import Image from 'next/image';
+import { LuInstagram, LuMail, LuMapPin } from 'react-icons/lu';
 
 export const BrandSection = () => {
   return (
     <div className='lg:col-span-1 space-y-6'>
       <div className='flex items-center gap-3'>
-        <div className='relative'>
-          <LuFlame className='w-8 h-8 text-blue-400' />
-          <div className='absolute inset-0 bg-blue-400/20 blur-lg rounded-full' />
-        </div>
-        <span className='text-2xl font-bold text-white'>MoiLab</span>
+        <Image
+          src='/img/logos/moilab-logo.png'
+          alt='Moilab'
+          width={150}
+          height={100}
+        />
       </div>
 
       <p className='text-gray-400 text-sm leading-relaxed max-w-xs'>
