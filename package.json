@@ -12,6 +12,7 @@
     "format:staged": "prettier --write"
   },
   "dependencies": {
+    "@react-email/components": "^1.0.7",
     "animejs": "^4.1.3",
     "lenis": "^1.3.11",
     "motion": "^12.23.13",
