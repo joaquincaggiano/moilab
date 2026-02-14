@@ -26,7 +26,7 @@ export const TextAreaForm = ({
           id={name}
           name={name}
           placeholder={placeholder}
-          rows={6}
+          rows={5}
           defaultValue={defaultValue}
           className='relative text-sm px-5 py-3.5 bg-gray-800/50 text-white rounded-xl border border-gray-700/50
                      focus:border-gray-600 focus:bg-gray-800/70 focus:outline-none
