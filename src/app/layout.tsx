@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Analytics } from '@vercel/analytics/next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import { Footer } from './components/sections/footer/Footer';
+import { CookieBanner } from './components/cookie-banner/CookieBanner';
+import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -45,7 +46,8 @@ export default function RootLayout({
           {children}
           <Footer />
         </LenisWrapper>
-        <Analytics />
+        <CookieBanner />
+        <ConditionalAnalytics />
       </body>
     </html>
   );

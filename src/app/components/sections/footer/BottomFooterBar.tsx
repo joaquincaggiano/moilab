@@ -10,12 +10,18 @@ export const BottomFooterBar = () => {
           © {currentYear} MoiLab. Todos los derechos reservados.
         </p>
 
-        <div className='flex gap-6 text-sm'>
+        <div className='flex flex-wrap justify-center gap-4 sm:gap-6 text-sm'>
           <Link
             href='/privacy-policy'
             className='text-gray-500 hover:text-blue-400 transition-colors duration-300'
           >
             Política de Privacidad
+          </Link>
+          <Link
+            href='/cookie-policy'
+            className='text-gray-500 hover:text-blue-400 transition-colors duration-300'
+          >
+            Política de Cookies
           </Link>
           <Link
             href='/terms-and-conditions'
