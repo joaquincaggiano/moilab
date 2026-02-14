@@ -1,7 +1,6 @@
 'use client';
 
 import { Project } from '@/app/interfaces/projects/project.interface';
-import { LuGithub, LuSquareArrowOutUpRight } from 'react-icons/lu';
 
 interface Props {
   project: Project;
@@ -9,15 +8,18 @@ interface Props {
 }
 
 export const ProjectCard = ({ project, size = 'small' }: Props) => {
-  const { title, description, github, website, type } = project;
+  const { title, description, website, type } = project;
 
-  const handleClick = (site: string) => {
-    window.open(site, '_blank', 'noopener,noreferrer');
+  const handleCardClick = () => {
+    if (website) {
+      window.open(website, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
     <article
-      className={`group relative w-full md:max-w-[300px] lg:max-w-[400px] xl:max-w-none h-full ${website && 'hover:scale-[1.02]'} transition-all duration-700 ease-out`}
+      onClick={handleCardClick}
+      className={`group relative w-full md:max-w-[300px] lg:max-w-[400px] xl:max-w-none h-full ${website ? 'hover:scale-[1.02] cursor-pointer' : ''} transition-all duration-700 ease-out`}
     >
       <div
         className={`relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-xl rounded-3xl px-5 pt-5 pb-3 w-full h-[300px] ${size === 'small' ? 'md:h-[250px]' : 'md:h-[350px]'} flex flex-col overflow-hidden border border-gray-700/30 group-hover:border-gray-600/50 transition-all duration-700`}
@@ -53,38 +55,17 @@ export const ProjectCard = ({ project, size = 'small' }: Props) => {
             )}
           </div>
 
-          <div className='flex items-center justify-between w-full'>
-            <div className='flex items-center space-x-3'>
-              <div
-                className={`w-3 h-3 rounded-full ${
-                  type === 'own'
-                    ? 'bg-gradient-to-r from-blue-400 to-cyan-400 shadow-lg shadow-blue-400/30'
-                    : 'bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg shadow-purple-400/30'
-                }`}
-              />
-              <span className='text-gray-400 text-xs font-medium group-hover:text-gray-300 transition-colors duration-500'>
-                {type === 'own' ? 'Proyecto Propio' : 'Colaboración'}
-              </span>
-            </div>
-
-            <div className='flex items-center'>
-              {github && (
-                <button
-                  onClick={() => handleClick(github)}
-                  className='cursor-pointer text-gray-400 hover:text-white hover:bg-gray-500 rounded-full p-2'
-                >
-                  <LuGithub className='w-4 h-4 ' />
-                </button>
-              )}
-              {website && (
-                <button
-                  onClick={() => handleClick(website)}
-                  className='cursor-pointer text-gray-400 hover:text-white hover:bg-gray-500 rounded-full p-2'
-                >
-                  <LuSquareArrowOutUpRight className='w-4 h-4' />
-                </button>
-              )}
-            </div>
+          <div className='flex items-center space-x-3'>
+            <div
+              className={`w-3 h-3 rounded-full ${
+                type === 'own'
+                  ? 'bg-gradient-to-r from-blue-400 to-cyan-400 shadow-lg shadow-blue-400/30'
+                  : 'bg-gradient-to-r from-purple-400 to-pink-400 shadow-lg shadow-purple-400/30'
+              }`}
+            />
+            <span className='text-gray-400 text-xs font-medium group-hover:text-gray-300 transition-colors duration-500'>
+              {type === 'own' ? 'Proyecto Propio' : 'Colaboración'}
+            </span>
           </div>
         </div>
 

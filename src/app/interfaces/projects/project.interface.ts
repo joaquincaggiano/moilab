@@ -3,6 +3,5 @@ export interface Project {
   title: string;
   type: 'own' | 'collaboration';
   website?: string;
-  github?: string;
   description?: string;
 }
