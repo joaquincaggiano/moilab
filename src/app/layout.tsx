@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { LenisWrapper } from './components/wrapper/lenis-wrapper';
@@ -44,6 +45,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </LenisWrapper>
+        <Analytics />
       </body>
     </html>
   );
