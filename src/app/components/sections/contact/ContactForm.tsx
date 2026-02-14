@@ -28,48 +28,63 @@ const ContactForm = () => {
   }, [state]);
 
   return (
-    <form
-      action={action}
-      className='w-full max-w-xl bg-gray-800 p-6 rounded-lg space-y-4 flex flex-col gap-2'
-    >
-      {/* Campo de nombre completo */}
-      <InputForm
-        label='Nombre Completo'
-        name='fullName'
-        type='text'
-        placeholder='Tu nombre completo'
-        defaultValue={state?.values?.fullName || ''}
-        errors={state?.errors?.fullName}
-      />
+    <div className='group relative w-full max-w-xl'>
+      {/* Holographic overlay */}
+      <div className='absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl pointer-events-none'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(96,165,250,0.3),transparent_50%)]' />
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(168,85,247,0.2),transparent_50%)]' />
+      </div>
 
-      {/* Campo de email */}
-      <InputForm
-        label='Email'
-        name='email'
-        type='email'
-        placeholder='moilab.web@gmail.com'
-        defaultValue={state?.values?.email || ''}
-        errors={state?.errors?.email}
-      />
+      {/* Animated glow effects */}
+      <div className='absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl group-hover:scale-150 transition-transform duration-1000 pointer-events-none' />
+      <div className='absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-2xl group-hover:scale-125 transition-transform duration-1000 pointer-events-none' />
 
-      {/* Campo de mensaje */}
-      <TextAreaForm
-        label='Mensaje'
-        name='message'
-        placeholder='Escribe tu mensaje aquí...'
-        defaultValue={state?.values?.message || ''}
-        errors={state?.errors?.message}
-      />
+      <form
+        action={action}
+        className='relative bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-xl rounded-3xl p-8 space-y-6 flex flex-col border border-gray-700/30 group-hover:border-gray-600/50 transition-all duration-700'
+      >
+        {/* Campo de nombre completo */}
+        <InputForm
+          label='Nombre Completo'
+          name='fullName'
+          type='text'
+          placeholder='John Doe'
+          defaultValue={state?.values?.fullName || ''}
+          errors={state?.errors?.fullName}
+        />
 
-      {/* Botón de envío */}
-      <ButtonForm
-        isLoading={isLoading}
-        text='Enviar Mensaje'
-        textLoading='Enviando...'
-      />
+        {/* Campo de email */}
+        <InputForm
+          label='Email'
+          name='email'
+          type='email'
+          placeholder='john.doe@example.com'
+          defaultValue={state?.values?.email || ''}
+          errors={state?.errors?.email}
+        />
 
-      <Toaster richColors />
-    </form>
+        {/* Campo de mensaje */}
+        <TextAreaForm
+          label='Mensaje'
+          name='message'
+          placeholder='Escribe tu mensaje aquí...'
+          defaultValue={state?.values?.message || ''}
+          errors={state?.errors?.message}
+        />
+
+        {/* Botón de envío */}
+        <ButtonForm
+          isLoading={isLoading}
+          text='Enviar Mensaje'
+          textLoading='Enviando...'
+        />
+
+        <Toaster richColors />
+
+        {/* Overall glow on hover */}
+        <div className='absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none' />
+      </form>
+    </div>
   );
 };
 
