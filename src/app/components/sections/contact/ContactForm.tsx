@@ -28,7 +28,7 @@ const ContactForm = () => {
   }, [state]);
 
   return (
-    <div className='group relative w-full max-w-xl h-auto xl:h-[80svh] xl:max-h-[540px]'>
+    <div className='group relative w-full max-w-xl h-auto xl:h-[80svh] xl:max-h-[560px]'>
       {/* Holographic overlay */}
       <div className='absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-700 rounded-3xl pointer-events-none'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(96,165,250,0.3),transparent_50%)]' />
