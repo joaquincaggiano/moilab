@@ -1,6 +1,6 @@
 'use client';
 
-import { animate } from 'animejs';
+import { animate } from 'motion';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type UseAnimeCarouselOptions<T> = {
@@ -63,13 +63,17 @@ export function useAnimeCarousel<T = unknown>({
       // Desplazamiento vertical para crear efecto de profundidad
       const translateY = i * yOffset;
 
-      animate(el, {
-        translateX: -i * spacing, // desplazamiento horizontal
-        translateY: translateY, // desplazamiento vertical para profundidad
-        rotate: 0,
-        scale: scale, // escala que disminuye hacia atrás
-        opacity: 1,
-      });
+      animate(
+        el as any,
+        {
+          x: -i * spacing, // desplazamiento horizontal
+          y: translateY, // desplazamiento vertical para profundidad
+          rotate: 0,
+          scale: scale, // escala que disminuye hacia atrás
+          opacity: 1,
+        },
+        { duration: 0.3 } as any
+      );
     }
   }, [order.length]);
 
@@ -112,30 +116,41 @@ export function useAnimeCarousel<T = unknown>({
       const rot = dir === 'right' ? 10 : -10;
 
       // Saca la top card hacia el lado
-      animate(top, {
-        translateX: off,
-        rotate: rot,
-        duration: 260,
-        easing: 'easeInQuad',
-        complete: () => {
-          // Reordena y resetea layout
-          const next =
-            dir === 'right' ? reorderRight(order) : reorderLeft(order);
-          commitOrder(next);
-          layoutCards();
+      animate(
+        top as any,
+        {
+          x: off,
+          rotate: rot,
         },
+        {
+          duration: 0.26, // 260ms
+          easing: [0.55, 0.085, 0.68, 0.53], // easeInQuad bezier curve
+        } as any
+      ).finished.then(() => {
+        // Reordena y resetea layout
+        const next = dir === 'right' ? reorderRight(order) : reorderLeft(order);
+        commitOrder(next);
+        layoutCards();
       });
 
       // Sutil pop de las siguientes
       for (let i = 1; i < Math.min(order.length, 4); i++) {
         const el = cardRefs.current[i];
         if (!el) continue;
-        animate(el, {
-          translateY: `-=${6}`, // suben un pelín y vuelven
-          duration: 180,
-          easing: 'easeOutQuad',
-          direction: 'alternate',
-        });
+        const currentY = parseFloat(
+          getComputedStyle(el).transform.split(',')[5] || '0'
+        );
+        // Anima hacia arriba y luego vuelve
+        animate(
+          el as any,
+          {
+            y: [currentY, currentY - 6, currentY],
+          },
+          {
+            duration: 0.36, // 180ms * 2 para ida y vuelta
+            easing: [0.25, 0.46, 0.45, 0.94], // easeOutQuad bezier curve
+          } as any
+        );
       }
     },
     [commitOrder, layoutCards, order, reorderLeft, reorderRight]
@@ -158,21 +173,29 @@ export function useAnimeCarousel<T = unknown>({
         currentDX.current = dx;
 
         // mover sólo la top card + rotación leve
-        animate(cardRefs.current[0], {
-          translateX: dx,
-          rotate: dx / 12,
-        });
+        animate(
+          cardRefs.current[0] as any,
+          {
+            x: dx,
+            rotate: dx / 12,
+          },
+          { duration: 0 } as any
+        );
 
         // parallax leve en las de atrás
         for (let i = 1; i < order.length; i++) {
           const el = cardRefs.current[i];
           if (!el) continue;
-          // Se ajusta la posición vertical (translateY) y la escala (scale) en función de cuánto se ha arrastrado la tarjeta principal (dx).
+          // Se ajusta la posición vertical (y) y la escala (scale) en función de cuánto se ha arrastrado la tarjeta principal (dx).
           // Esto genera un efecto visual de profundidad y movimiento suave en las tarjetas traseras.
-          animate(el, {
-            translateY: i * 8 - Math.min(Math.abs(dx) / 20, 4),
-            scale: 1 - i * 0.05 + Math.min(Math.abs(dx) / 600, 0.03),
-          });
+          animate(
+            el as any,
+            {
+              y: i * 8 - Math.min(Math.abs(dx) / 20, 4),
+              scale: 1 - i * 0.05 + Math.min(Math.abs(dx) / 600, 0.03),
+            },
+            { duration: 0 } as any
+          );
         }
       };
 
@@ -189,12 +212,17 @@ export function useAnimeCarousel<T = unknown>({
           // volver al centro
           const top = cardRefs.current[0];
           if (top) {
-            animate(top, {
-              translateX: 0,
-              rotate: 0,
-              duration: 220,
-              easing: 'easeOutQuad',
-            });
+            animate(
+              top as any,
+              {
+                x: 0,
+                rotate: 0,
+              },
+              {
+                duration: 0.22, // 220ms
+                easing: [0.25, 0.46, 0.45, 0.94], // easeOutQuad bezier curve
+              } as any
+            );
           }
           // y restaurar capas
           layoutCards();

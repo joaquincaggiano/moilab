@@ -1,16 +1,16 @@
 'use client';
 
-import { animate } from 'animejs';
+import { animate } from 'motion';
 import { useEffect, useRef, useState } from 'react';
 
 export const useBlurReveal = ({
   threshold = 0.15,
   duration = 1000,
-  easing = 'easeOutExpo',
+  easing = [0.19, 1, 0.22, 1], // easeOutExpo bezier curve
 }: {
   threshold?: number;
   duration?: number;
-  easing?: string;
+  easing?: string | number[];
 } = {}) => {
   const elementRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -20,7 +20,7 @@ export const useBlurReveal = ({
 
     const element = elementRef.current;
 
-    // Set initial state - MODERADO
+    // Set initial state
     element.style.filter = 'blur(15px)';
     element.style.opacity = '0';
     element.style.transform = 'translateY(60px)';
@@ -31,25 +31,19 @@ export const useBlurReveal = ({
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true);
 
-            // Animate the reveal
-            animate(element, {
-              opacity: [0, 1],
-              translateY: [60, 0],
-              duration,
-              easing,
-            });
-
-            // Animate blur separately (anime.js doesn't support filter directly)
-            let currentBlur = 15;
-            const blurAnimation = setInterval(() => {
-              currentBlur = Math.max(0, currentBlur - 0.75);
-              element.style.filter = `blur(${currentBlur}px)`;
-
-              if (currentBlur <= 0) {
-                clearInterval(blurAnimation);
-                element.style.filter = 'none';
-              }
-            }, 16); // ~60fps
+            // Motion supports filter animation directly
+            animate(
+              element as any,
+              {
+                opacity: [0, 1],
+                y: [60, 0],
+                filter: ['blur(15px)', 'blur(0px)'],
+              },
+              {
+                duration: duration / 1000, // Motion usa segundos
+                easing,
+              } as any
+            );
           }
         });
       },
