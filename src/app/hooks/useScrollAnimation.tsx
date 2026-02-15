@@ -1,19 +1,19 @@
 'use client';
 
+import { animate } from 'motion';
 import { useEffect, useRef } from 'react';
-import { animate, onScroll } from 'animejs';
 
 interface UseScrollAnimationProps {
   delay?: number;
   duration?: number;
-  easing?: string;
+  easing?: string | number[];
   threshold?: number;
 }
 
 export const useScrollAnimation = ({
   delay = 0,
   duration = 400,
-  easing = 'easeOutExpo',
+  easing = [0.19, 1, 0.22, 1], // easeOutExpo bezier curve
   threshold = 0.1,
 }: UseScrollAnimationProps = {}) => {
   const elementRef = useRef<HTMLButtonElement>(null);
@@ -24,48 +24,44 @@ export const useScrollAnimation = ({
     if (!element || hasAnimated.current) return;
 
     // Configurar estado inicial
-    animate(element, {
-      translateY: 100,
-      opacity: 0,
-      scale: 0.8,
-      duration: 0,
-    });
+    element.style.transform = 'translateY(100px) scale(0.8)';
+    element.style.opacity = '0';
 
-    // Configurar animación de entrada
-    const animation = animate(element, {
-      translateY: [100, 0],
-      opacity: [0, 1],
-      scale: [0.8, 1],
-      duration: duration,
-      delay: delay,
-      easing: easing,
-      autoplay: false,
-      complete: () => {
-        // Limpiar estilos inline después de la animación
-        animate(element, {
-          translateY: 'auto',
-          opacity: 'auto',
-          scale: 'auto',
-          duration: 0,
+    // Configurar IntersectionObserver
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true;
+
+            // Animar entrada
+            animate(
+              element as any,
+              {
+                y: [100, 0],
+                opacity: [0, 1],
+                scale: [0.8, 1],
+              },
+              {
+                duration: duration / 1000, // Motion usa segundos
+                delay: delay / 1000,
+                easing,
+              } as any
+            ).finished.then(() => {
+              // Limpiar estilos inline después de la animación
+              element.style.transform = '';
+              element.style.opacity = '';
+            });
+          }
         });
       },
-    });
+      { threshold }
+    );
 
-    // Configurar scroll observer
-    onScroll({
-      target: element,
-      enter: 'bottom-=20 top',
-      leave: 'top+=20 bottom',
-      onEnter: () => {
-        if (!hasAnimated.current) {
-          hasAnimated.current = true;
-          animation.play();
-        }
-      },
-    });
+    observer.observe(element);
 
     return () => {
-      // Cleanup si es necesario
+      observer.disconnect();
     };
   }, [delay, duration, easing, threshold]);
 
