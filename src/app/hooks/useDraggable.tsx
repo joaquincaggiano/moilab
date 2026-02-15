@@ -112,47 +112,115 @@ export function useAnimeCarousel<T = unknown>({
       if (!top) return;
 
       const width = containerRef.current?.clientWidth ?? 300;
-      // Desplazamiento más allá de la vista para evitar el "break"
-      const off = dir === 'right' ? width * 0.6 : -width * 0.6;
-      const rot = dir === 'right' ? 8 : -8;
 
-      // Saca la top card hacia el lado con fade out
-      animate(
-        top as any,
-        {
-          x: off,
-          rotate: rot,
-          opacity: 0, // Se desvanece mientras sale
-          scale: 0.8, // Se hace más pequeña mientras sale
-        },
-        {
-          duration: 0.35, // Duración un poco más larga para suavidad
-          easing: [0.4, 0, 0.2, 1], // easeInOut más suave
-        } as any
-      ).finished.then(() => {
-        // Reordena y resetea layout
-        const next = dir === 'right' ? reorderRight(order) : reorderLeft(order);
-        commitOrder(next);
-        layoutCards();
-      });
+      if (dir === 'right') {
+        // DRAG DERECHA: Tarjeta actual va al final
+        const off = width * 0.8;
+        const rot = 12;
 
-      // Sutil movimiento de las siguientes tarjetas hacia adelante
-      for (let i = 1; i < Math.min(order.length, 3); i++) {
-        const el = cardRefs.current[i];
-        if (!el) continue;
-
-        // Anima hacia adelante suavemente
+        // Saca la top card hacia la derecha
         animate(
-          el as any,
+          top as any,
           {
-            scale: 1 - (i - 1) * 0.08, // Se agrandan ligeramente
-            opacity: [1, 1], // Mantienen opacidad
+            x: off,
+            rotate: rot,
+            opacity: 0,
+            scale: 0.7,
           },
           {
-            duration: 0.35,
-            easing: [0.4, 0, 0.2, 1], // Mismo easing que la tarjeta principal
+            duration: 0.4,
+            easing: [0.4, 0, 0.2, 1],
           } as any
-        );
+        ).finished.then(() => {
+          const next = reorderRight(order);
+          commitOrder(next);
+          layoutCards();
+        });
+
+        // Las tarjetas traseras AVANZAN hacia adelante (izquierda)
+        for (let i = 1; i < Math.min(order.length, 4); i++) {
+          const el = cardRefs.current[i];
+          if (!el) continue;
+
+          animate(
+            el as any,
+            {
+              x: [0, -20, 0], // Se mueven un poco a la izquierda y vuelven
+              scale: [
+                1 - i * 0.08,
+                1 - (i - 1) * 0.08 + 0.05,
+                1 - (i - 1) * 0.08,
+              ],
+              opacity: 1,
+            },
+            {
+              duration: 0.4,
+              easing: [0.4, 0, 0.2, 1],
+            } as any
+          );
+        }
+      } else {
+        // DRAG IZQUIERDA: Última tarjeta viene al frente
+        const off = -width * 0.8;
+        const rot = -12;
+
+        // Saca la top card hacia la izquierda
+        animate(
+          top as any,
+          {
+            x: off,
+            rotate: rot,
+            opacity: 0,
+            scale: 0.7,
+            y: 20, // Baja un poco
+          },
+          {
+            duration: 0.4,
+            easing: [0.4, 0, 0.2, 1],
+          } as any
+        ).finished.then(() => {
+          const next = reorderLeft(order);
+          commitOrder(next);
+          layoutCards();
+        });
+
+        // La ÚLTIMA tarjeta se hace más visible (viene desde atrás)
+        const lastIndex = order.length - 1;
+        if (lastIndex > 0) {
+          const lastCard = cardRefs.current[lastIndex];
+          if (lastCard) {
+            animate(
+              lastCard as any,
+              {
+                scale: [1 - lastIndex * 0.08, 0.95, 1 - (lastIndex - 1) * 0.08],
+                opacity: [1, 1, 1],
+                y: [lastIndex * 8, 0, (lastIndex - 1) * 8],
+              },
+              {
+                duration: 0.4,
+                easing: [0.4, 0, 0.2, 1],
+              } as any
+            );
+          }
+        }
+
+        // Las demás se ajustan
+        for (let i = 1; i < lastIndex; i++) {
+          const el = cardRefs.current[i];
+          if (!el) continue;
+
+          animate(
+            el as any,
+            {
+              scale: 1 - i * 0.08,
+              opacity: 1,
+            },
+            {
+              duration: 0.4,
+              easing: [0.4, 0, 0.2, 1],
+            } as any
+          );
+        }
       }
     },
     [commitOrder, layoutCards, order, reorderLeft, reorderRight]
