@@ -1,40 +1,101 @@
 'use client';
 
 import { servicesData } from '@/app/data/services/services.data';
-import { useAnimeCarousel } from '@/app/hooks/useDraggable';
 import { ServiceCard } from '../../ui/cards/ServiceCard';
 import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
 import { RoundedButton } from '../../ui/buttons/RoundedButton';
+import { useState } from 'react';
+import { AnimatePresence, motion, type PanInfo } from 'motion/react';
 
 export default function ServicesSwap() {
-  const { containerRef, items, onPointerDown, goLeft, goRight } =
-    useAnimeCarousel({
-      items: servicesData,
-      dragThreshold: 100,
-    });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
 
   const handlePrevious = () => {
-    goLeft();
+    setDirection('left');
+    setCurrentIndex((prev) => (prev === 0 ? servicesData.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    goRight();
+    setDirection('right');
+    setCurrentIndex((prev) => (prev === servicesData.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleDragEnd = (_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const threshold = 50;
+    const swipeVelocity = 500;
+
+    // Detectar swipe por velocidad o distancia
+    if (Math.abs(info.offset.x) > threshold || Math.abs(info.velocity.x) > swipeVelocity) {
+      if (info.offset.x > 0) {
+        // Drag a la derecha → card sale a la derecha, entra la anterior desde la izquierda
+        setDirection('left');
+        handlePrevious();
+      } else {
+        // Drag a la izquierda → card sale a la izquierda, entra la siguiente desde la derecha
+        setDirection('right');
+        handleNext();
+      }
+    }
+  };
+
+  const currentCard = servicesData[currentIndex];
+
+  const variants = {
+    enter: (direction: 'left' | 'right') => ({
+      // La siguiente entra desde la derecha, la anterior desde la izquierda
+      x: direction === 'right' ? 300 : -300,
+      opacity: 0,
+      scale: 0.8,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: 'left' | 'right') => ({
+      // La actual sale hacia el lado opuesto
+      x: direction === 'right' ? -300 : 300,
+      opacity: 0,
+      scale: 0.8,
+    }),
   };
 
   return (
     <div className='w-full flex flex-col items-center mt-20'>
-      <div
-        ref={containerRef}
-        onPointerDown={onPointerDown}
-        className='relative w-full h-[350px] sm:h-[450px] md:h-[550px] select-none touch-none flex justify-center items-center'
-      >
-        {items.map(({ it: card, setRef }) => (
-          <ServiceCard key={card.id} card={card} setRef={setRef} />
-        ))}
+      <div className='relative w-full h-[400px] sm:h-[480px] md:h-[550px] flex justify-center items-center px-4'>
+        <AnimatePresence initial={false} custom={direction} mode='wait'>
+          <motion.div
+            key={currentCard.id}
+            custom={direction}
+            variants={variants}
+            initial='enter'
+            animate='center'
+            exit='exit'
+            drag='x'
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30,
+            }}
+            whileDrag={{
+              scale: 1.02,
+              cursor: 'grabbing',
+            }}
+            className='absolute w-full h-full flex justify-center items-center cursor-grab'
+          >
+            <div className='w-full max-w-[300px] sm:max-w-[400px] md:max-w-4xl h-full pointer-events-none'>
+              <ServiceCard card={currentCard} />
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Flechas de navegación */}
-      <div className='flex justify-center items-center gap-8 mb-8'>
+      <div className='flex justify-center items-center gap-8 mb-8 mt-10'>
         {/* Flecha izquierda - Anterior */}
         <RoundedButton
           onClick={handlePrevious}

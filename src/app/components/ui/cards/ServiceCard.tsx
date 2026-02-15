@@ -5,25 +5,21 @@ import Image from 'next/image';
 
 interface Props {
   card: Service;
-  setRef: (el: HTMLDivElement | null) => void;
 }
 
-export const ServiceCard = ({ card, setRef }: Props) => {
+export const ServiceCard = ({ card }: Props) => {
   return (
-    <div
-      ref={setRef}
-      className='group absolute cursor-grab w-full max-w-[300px] sm:max-w-[400px] md:max-w-4xl h-full bottom-10 mt-20'
-    >
+    <div className='group w-full h-full relative p-1'>
       {/* Glow Effect Background */}
-      <div className='absolute -inset-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-2xl blur opacity-75 group-hover:opacity-75 transition-all duration-1000 group-hover:duration-200' />
+      <div className='absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-2xl blur-md opacity-60 transition-all duration-1000 group-hover:opacity-80 group-hover:duration-200' />
 
       {/* Main Card */}
-      <div className='relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-2 sm:p-4 md:p-6 border border-gray-700/50 group-hover:border-transparent transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-2 h-full flex flex-col md:flex-row overflow-hidden'>
+      <div className='relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-2 sm:p-4 md:p-6 border border-gray-700/50 transition-all duration-500 h-full flex flex-col md:flex-row overflow-hidden group-hover:border-transparent group-hover:scale-[1.02] group-hover:-translate-y-1'>
         {/* Holographic overlay */}
-        <div className='absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+        <div className='absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
 
         {/* Animated border gradient */}
-        <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
+        <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-blue-400/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
 
         {/* Content Container */}
         <div className='relative z-10 flex flex-col md:flex-row h-full'>
@@ -31,7 +27,7 @@ export const ServiceCard = ({ card, setRef }: Props) => {
           <div className='w-full h-full lg:w-2/5 p-4 lg:p-6 flex flex-col justify-between'>
             {/* Header */}
             <div className='mb-4'>
-              <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-500'>
+              <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 transition-all duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400'>
                 {card.title}
               </h3>
 
