@@ -63,7 +63,10 @@ export default function ServicesSwap() {
 
   return (
     <div className='w-full flex flex-col items-center mt-20'>
-      <div className='relative w-full h-[400px] sm:h-[480px] md:h-[550px] flex justify-center items-center px-4'>
+      <div
+        className='relative w-full h-[400px] sm:h-[480px] md:h-[550px] flex justify-center items-center px-4'
+        style={{ touchAction: 'pan-y' }}
+      >
         <AnimatePresence initial={false} custom={direction} mode='wait'>
           <motion.div
             key={currentCard.id}
@@ -75,6 +78,7 @@ export default function ServicesSwap() {
             drag='x'
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
+            dragDirectionLock
             onDragEnd={handleDragEnd}
             transition={{
               type: 'spring',
