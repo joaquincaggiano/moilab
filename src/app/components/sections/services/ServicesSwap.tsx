@@ -4,12 +4,25 @@ import { servicesData } from '@/app/data/services/services.data';
 import { ServiceCard } from '../../ui/cards/ServiceCard';
 import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
 import { RoundedButton } from '../../ui/buttons/RoundedButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion, type PanInfo } from 'motion/react';
 
 export default function ServicesSwap() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Detectar si es desktop (ancho > 1024px)
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth > 1024);
+    };
+
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
 
   const handlePrevious = () => {
     setDirection('left');
@@ -63,10 +76,7 @@ export default function ServicesSwap() {
 
   return (
     <div className='w-full flex flex-col items-center mt-20'>
-      <div
-        className='relative w-full h-[400px] sm:h-[480px] md:h-[550px] flex justify-center items-center px-4'
-        style={{ touchAction: 'pan-y' }}
-      >
+      <div className='relative w-full h-[400px] sm:h-[480px] md:h-[550px] flex justify-center items-center px-4'>
         <AnimatePresence initial={false} custom={direction} mode='wait'>
           <motion.div
             key={currentCard.id}
@@ -75,21 +85,26 @@ export default function ServicesSwap() {
             initial='enter'
             animate='center'
             exit='exit'
-            drag='x'
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            dragDirectionLock
-            onDragEnd={handleDragEnd}
+            drag={isDesktop ? 'x' : false}
+            dragConstraints={isDesktop ? { left: 0, right: 0 } : undefined}
+            dragElastic={isDesktop ? 0.2 : undefined}
+            onDragEnd={isDesktop ? handleDragEnd : undefined}
             transition={{
               type: 'spring',
               stiffness: 300,
               damping: 30,
             }}
-            whileDrag={{
-              scale: 1.02,
-              cursor: 'grabbing',
-            }}
-            className='absolute w-full h-full flex justify-center items-center cursor-grab'
+            whileDrag={
+              isDesktop
+                ? {
+                    scale: 1.02,
+                    cursor: 'grabbing',
+                  }
+                : undefined
+            }
+            className={`absolute w-full h-full flex justify-center items-center ${
+              isDesktop ? 'cursor-grab' : ''
+            }`}
           >
             <div className='w-full max-w-[300px] sm:max-w-[400px] md:max-w-4xl h-full pointer-events-none'>
               <ServiceCard card={currentCard} />
