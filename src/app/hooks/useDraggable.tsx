@@ -112,8 +112,9 @@ export function useAnimeCarousel<T = unknown>({
       if (!top) return;
 
       const width = containerRef.current?.clientWidth ?? 300;
-      const off = dir === 'right' ? width + 80 : -width - 80;
-      const rot = dir === 'right' ? 10 : -10;
+      // Desplazamiento reducido: 40% del ancho en lugar del 100% + 80px
+      const off = dir === 'right' ? width * 0.4 : -width * 0.4;
+      const rot = dir === 'right' ? 5 : -5; // Rotación más sutil
 
       // Saca la top card hacia el lado
       animate(
