@@ -112,20 +112,22 @@ export function useAnimeCarousel<T = unknown>({
       if (!top) return;
 
       const width = containerRef.current?.clientWidth ?? 300;
-      // Desplazamiento reducido: 40% del ancho en lugar del 100% + 80px
-      const off = dir === 'right' ? width * 0.4 : -width * 0.4;
-      const rot = dir === 'right' ? 5 : -5; // Rotación más sutil
+      // Desplazamiento más allá de la vista para evitar el "break"
+      const off = dir === 'right' ? width * 0.6 : -width * 0.6;
+      const rot = dir === 'right' ? 8 : -8;
 
-      // Saca la top card hacia el lado
+      // Saca la top card hacia el lado con fade out
       animate(
         top as any,
         {
           x: off,
           rotate: rot,
+          opacity: 0, // Se desvanece mientras sale
+          scale: 0.8, // Se hace más pequeña mientras sale
         },
         {
-          duration: 0.26, // 260ms
-          easing: [0.55, 0.085, 0.68, 0.53], // easeInQuad bezier curve
+          duration: 0.35, // Duración un poco más larga para suavidad
+          easing: [0.4, 0, 0.2, 1], // easeInOut más suave
         } as any
       ).finished.then(() => {
         // Reordena y resetea layout
@@ -134,22 +136,21 @@ export function useAnimeCarousel<T = unknown>({
         layoutCards();
       });
 
-      // Sutil pop de las siguientes
-      for (let i = 1; i < Math.min(order.length, 4); i++) {
+      // Sutil movimiento de las siguientes tarjetas hacia adelante
+      for (let i = 1; i < Math.min(order.length, 3); i++) {
         const el = cardRefs.current[i];
         if (!el) continue;
-        const currentY = parseFloat(
-          getComputedStyle(el).transform.split(',')[5] || '0'
-        );
-        // Anima hacia arriba y luego vuelve
+
+        // Anima hacia adelante suavemente
         animate(
           el as any,
           {
-            y: [currentY, currentY - 6, currentY],
+            scale: 1 - (i - 1) * 0.08, // Se agrandan ligeramente
+            opacity: [1, 1], // Mantienen opacidad
           },
           {
-            duration: 0.36, // 180ms * 2 para ida y vuelta
-            easing: [0.25, 0.46, 0.45, 0.94], // easeOutQuad bezier curve
+            duration: 0.35,
+            easing: [0.4, 0, 0.2, 1], // Mismo easing que la tarjeta principal
           } as any
         );
       }
