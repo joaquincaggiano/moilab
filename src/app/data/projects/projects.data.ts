@@ -20,7 +20,7 @@ export const projectsData: Project[] = [
     title: 'UJI Pride',
     type: 'collaboration',
     website: 'https://apps.apple.com/es/app/uji-pride/id6469503897',
-    description: 'App informativa sobre la diversidad sexual en la UJI',
+    description: 'App enfocada a la información sobre el programa de diversidad afectivo sexual y de género de la Universitat Jaume I, UJI Pride.',
   },
   {
     id: '4',
