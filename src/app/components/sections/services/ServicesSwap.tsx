@@ -38,13 +38,13 @@ export default function ServicesSwap() {
         {/* Flecha izquierda - Anterior */}
         <RoundedButton
           onClick={handlePrevious}
-          icon={<LuArrowLeft className='w-5 h-5' />}
+          icon={<LuArrowLeft className='w-5 h-5 text-white' />}
         />
 
         {/* Flecha derecha - Siguiente */}
         <RoundedButton
           onClick={handleNext}
-          icon={<LuArrowRight className='w-5 h-5' />}
+          icon={<LuArrowRight className='w-5 h-5 text-white' />}
         />
       </div>
     </div>

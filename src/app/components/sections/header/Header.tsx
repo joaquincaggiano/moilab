@@ -50,9 +50,9 @@ const Header = () => {
           aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
           {isMobileMenuOpen ? (
-            <LuX className='w-8 h-8 text-dark-primary' />
+            <LuX className='w-8 h-8 text-white' />
           ) : (
-            <LuMenu className='w-8 h-8 text-dark-primary' />
+            <LuMenu className='w-8 h-8 text-white' />
           )}
         </button>
 
