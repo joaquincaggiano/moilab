@@ -14,7 +14,7 @@ export const LenisWrapper = ({ children }: { children: React.ReactNode }) => {
 
     // Configuración optimizada para iOS
     const lenis = new Lenis({
-      duration: isIOS || isSafari ? 1.0 : 1.8, // Más rápido en iOS
+      duration: isIOS || isSafari ? 1.5 : 1.8, // Más rápido en iOS
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: isIOS || isSafari ? 1.5 : 2, // Menos sensible en iOS
       infinite: false,

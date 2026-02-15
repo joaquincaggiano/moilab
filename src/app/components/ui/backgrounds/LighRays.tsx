@@ -65,7 +65,9 @@ const getAnchorAndDir = (
   w: number,
   h: number
 ): { anchor: [number, number]; dir: [number, number] } => {
-  const outside = 0.2;
+  // Mayor valor para mobile para evitar bordes rectos
+  const isMobile = w < 768;
+  const outside = isMobile ? 0.6 : 0.3;
   switch (origin) {
     case "top-left":
       return { anchor: [0, -outside * h], dir: [0, 1] };
