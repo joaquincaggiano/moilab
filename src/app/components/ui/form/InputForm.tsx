@@ -30,7 +30,7 @@ export const InputForm = ({
           type={type}
           placeholder={placeholder}
           defaultValue={defaultValue}
-          className='relative text-sm px-5 py-3.5 bg-gray-800/50 text-white rounded-xl border border-gray-700/50
+          className='relative text-base px-5 py-3.5 bg-gray-800/50 text-white rounded-xl border border-gray-700/50
                      focus:border-gray-600 focus:bg-gray-800/70 focus:outline-none
                      placeholder:text-gray-500
                      transition-all duration-300
