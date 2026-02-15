@@ -8,11 +8,17 @@ export const LenisWrapper = ({ children }: { children: React.ReactNode }) => {
   const { setLenis, destroy } = useLenisStore();
 
   useEffect(() => {
-    // Inicializar Lenis para scroll suave
+    // Detectar si es iOS/Safari
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    // Configuración optimizada para iOS
     const lenis = new Lenis({
-      duration: 1.8,
+      duration: isIOS || isSafari ? 1.0 : 1.8, // Más rápido en iOS
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      touchMultiplier: isIOS || isSafari ? 1.5 : 2, // Menos sensible en iOS
+      infinite: false,
+      syncTouch: true, // Importante para iOS - sincroniza con el scroll nativo
     });
 
     // Guardar la instancia en el store
