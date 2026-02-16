@@ -5,6 +5,7 @@ import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import { Footer } from './components/sections/footer/Footer';
 import { CookieBanner } from './components/cookie-banner/CookieBanner';
 import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -48,6 +49,7 @@ export default function RootLayout({
         </LenisWrapper>
         <CookieBanner />
         <ConditionalAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );
