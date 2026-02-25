@@ -15,7 +15,7 @@ import {
   SiExpress,
   SiPrisma,
   SiTypeorm,
-  SiExpo,
+  SiExpo
 } from 'react-icons/si';
 
 export const toolsData: ToolData[] = [
