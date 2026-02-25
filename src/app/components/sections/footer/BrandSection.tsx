@@ -27,7 +27,7 @@ export const BrandSection = () => {
         </div>
         <div className='flex items-center gap-3 text-gray-400 text-sm'>
           <LuInstagram className='w-4 h-4 text-blue-400' />
-          <span>@moilab</span>
+          <span>@moilab.web</span>
         </div>
         <div className='flex items-center gap-3 text-gray-400 text-sm'>
           <LuMapPin className='w-4 h-4 text-blue-400' />

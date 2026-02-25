@@ -20,11 +20,9 @@ export const seoConfig = {
   ],
   author: 'MoiLab',
   locale: 'es_ES',
-  twitterHandle: '@moilab',
   socialLinks: {
-    twitter: 'https://twitter.com/moilab',
-    linkedin: 'https://linkedin.com/company/moilab',
-    github: 'https://github.com/moilab',
+    linkedin: 'https://www.linkedin.com/company/moilab-web',
+    github: 'https://github.com/moilab-web',
   },
 };
 
@@ -46,14 +44,6 @@ export const generateMetadata = (
       siteName: seoConfig.siteName,
       locale: seoConfig.locale,
       type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: title
-        ? `${title} | ${seoConfig.siteName}`
-        : seoConfig.defaultTitle,
-      description: description || seoConfig.defaultDescription,
-      creator: seoConfig.twitterHandle,
     },
     alternates: {
       canonical: seoConfig.siteUrl,
