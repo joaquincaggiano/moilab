@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const ProjectCard = ({ project, size = 'small' }: Props) => {
-  const { title, description, website, type } = project;
+  const { title, description, website, type, collaborator } = project;
 
   const handleCardClick = () => {
     if (website) {
@@ -64,7 +64,8 @@ export const ProjectCard = ({ project, size = 'small' }: Props) => {
               }`}
             />
             <span className='text-gray-400 text-xs font-medium group-hover:text-gray-300 transition-colors duration-500'>
-              {type === 'own' ? 'Proyecto Propio' : 'Colaboración'}
+              {type === 'own' ? 'Proyecto Propio' : 'Colaboración'}{' '}
+              {collaborator && `- ${collaborator}`}
             </span>
           </div>
         </div>

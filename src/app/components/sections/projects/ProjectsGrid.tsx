@@ -1,6 +1,6 @@
 import { Project } from '@/app/interfaces/projects/project.interface';
 import { ProjectCard } from '../../ui/cards/ProjectCard';
-import { ProjectCardEmpty } from '../../ui/cards/ProjectCardEmpty';
+// import { ProjectCardEmpty } from '../../ui/cards/ProjectCardEmpty';
 
 interface Props {
   projects: Project[];
