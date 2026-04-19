@@ -25,16 +25,18 @@ export const LenisWrapper = ({ children }: { children: React.ReactNode }) => {
     setLenis(lenis);
 
     // Función para actualizar Lenis en cada frame
+    let rafId: number;
     const raf = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
 
     // Iniciar el loop de animación
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Limpiar al desmontar
     return () => {
+      cancelAnimationFrame(rafId);
       destroy();
     };
   }, [setLenis, destroy]);
