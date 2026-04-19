@@ -20,8 +20,9 @@ const LiNavbar = ({ href, text, className, onClick }: Props) => {
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
-        // Usar el store de Zustand para smooth scrolling
-        scrollTo(targetElement);
+        const header = document.querySelector('header');
+        const offset = header ? -(header.getBoundingClientRect().bottom + 20) : -20;
+        scrollTo(targetElement, { offset });
       } else {
         // Fallback si el elemento no existe
         console.warn(`Element with id "${targetId}" not found`);
