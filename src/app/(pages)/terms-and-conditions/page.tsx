@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Términos y Condiciones',
   description:
     'Términos y condiciones de uso de MoiLab. Conoce las condiciones para utilizar nuestros servicios.',
+  alternates: {
+    canonical: 'https://moilab.es/terms-and-conditions',
+  },
 };
 
 const TermsAndConditionsPage = () => {

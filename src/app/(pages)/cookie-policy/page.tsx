@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Política de Cookies',
   description:
     'Política de cookies de MoiLab. Información sobre las cookies que utilizamos y cómo gestionarlas.',
+  alternates: {
+    canonical: 'https://moilab.es/cookie-policy',
+  },
 };
 
 const CookiePolicyPage = () => {
