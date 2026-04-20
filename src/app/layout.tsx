@@ -6,7 +6,11 @@ import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import { Footer } from './components/sections/footer/Footer';
 import { CookieBanner } from './components/cookie-banner/CookieBanner';
 import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import dynamic from 'next/dynamic';
+
+const SpeedInsights = dynamic(() =>
+  import('@vercel/speed-insights/next').then((m) => ({ default: m.SpeedInsights }))
+);
 
 const poppins = Poppins({
   variable: '--font-poppins',
