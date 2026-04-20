@@ -19,7 +19,10 @@ const ButtonShiny = ({
         border-0
         relative
         overflow-hidden
-        animate-[shineKeyframes_5s_linear_infinite]'
+        animate-[shineKeyframes_5s_linear_infinite]
+        transition-[transform,box-shadow] duration-200 ease-out
+        hover:scale-[1.04] hover:shadow-[0_0_18px_rgba(255,255,255,0.18)]
+        active:scale-[0.97] active:shadow-none'
       style={{
         background: `
           linear-gradient(90deg, #b5b5b5a4 0%, #ffffff 25%, #b5b5b5a4 50%, #ffffff 75%, #b5b5b5a4 100%),
@@ -30,7 +33,7 @@ const ButtonShiny = ({
         backgroundClip: 'border-box, padding-box',
       }}
     >
-      <div className='absolute inset-0 bg-gray-900 hover:bg-black rounded-full m-0.5 flex items-center justify-center'>
+      <div className='absolute inset-0 bg-gray-900 hover:bg-black/80 rounded-full m-0.5 flex items-center justify-center transition-colors duration-200'>
         <ShinyText
           text={text}
           disabled={false}

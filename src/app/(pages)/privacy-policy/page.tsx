@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Política de Privacidad',
   description:
     'Política de privacidad de MoiLab. Conoce cómo protegemos y manejamos tu información personal.',
+  alternates: {
+    canonical: 'https://moilab.es/privacy-policy',
+  },
 };
 
 const PrivacyPolicyPage = () => {

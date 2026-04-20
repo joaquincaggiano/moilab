@@ -1,7 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Analytics } from '@vercel/analytics/next';
+import dynamic from 'next/dynamic';
+
+const Analytics = dynamic(() =>
+  import('@vercel/analytics/next').then((m) => ({ default: m.Analytics }))
+);
 
 export const ConditionalAnalytics = () => {
   const [hasConsent, setHasConsent] = useState(false);

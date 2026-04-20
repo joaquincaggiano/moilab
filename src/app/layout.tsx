@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
 import { SiWhatsapp } from 'react-icons/si';
 import './globals.css';
@@ -6,13 +6,22 @@ import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import { Footer } from './components/sections/footer/Footer';
 import { CookieBanner } from './components/cookie-banner/CookieBanner';
 import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import dynamic from 'next/dynamic';
+
+const SpeedInsights = dynamic(() =>
+  import('@vercel/speed-insights/next').then((m) => ({ default: m.SpeedInsights }))
+);
 
 const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {

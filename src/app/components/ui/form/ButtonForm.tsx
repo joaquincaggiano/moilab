@@ -9,24 +9,21 @@ export const ButtonForm = ({ isLoading, text, textLoading }: Props) => {
     <button
       type='submit'
       disabled={isLoading}
-      className='cursor-pointer group/button relative w-full h-14 overflow-hidden rounded-2xl p-[2px] transition-all duration-300 hover:scale-[1.01] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100'
+      className='group relative w-full h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 active:scale-[0.98] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden cursor-pointer'
     >
-      {/* Animated gradient border */}
-      <span
-        className={`absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#60a5fa_0%,#a855f7_50%,#60a5fa_100%)] ${
-          !isLoading ? 'animate-[spin_2s_linear_infinite]' : ''
-        }`}
-      />
+      {/* Shine sweep on hover */}
+      <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none' />
 
-      {/* Button content */}
-      <span className='relative inline-flex h-full w-full items-center justify-center rounded-[14px] bg-gradient-to-r from-gray-900 to-gray-800 text-sm sm:text-base font-medium text-white backdrop-blur-3xl transition-all duration-300 group-hover/button:from-gray-800 group-hover/button:to-gray-900'>
+      {/* Content */}
+      <span className='relative z-10 flex items-center justify-center gap-2 text-white font-semibold text-sm sm:text-base'>
         {isLoading ? (
-          <span className='flex items-center gap-2'>
+          <>
             <svg
               className='animate-spin h-5 w-5 text-white'
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <circle
                 className='opacity-25'
@@ -43,9 +40,24 @@ export const ButtonForm = ({ isLoading, text, textLoading }: Props) => {
               />
             </svg>
             {textLoading}
-          </span>
+          </>
         ) : (
-          text
+          <>
+            {text}
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 20 20'
+              fill='currentColor'
+              className='w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-200'
+              aria-hidden='true'
+            >
+              <path
+                fillRule='evenodd'
+                d='M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z'
+                clipRule='evenodd'
+              />
+            </svg>
+          </>
         )}
       </span>
     </button>

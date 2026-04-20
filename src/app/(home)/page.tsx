@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Contact from '../components/sections/contact/Contact';
 import Hero from '../components/sections/hero/Hero';
 import Services from '../components/sections/services/Services';
-import { ToolSection } from '../components/sections/tools/ToolSection';
 import Projects from '../components/sections/projects/Projects';
 
 export const metadata: Metadata = {
@@ -49,27 +48,12 @@ export default function HomePage() {
       <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(168,85,247,0.05)_0%,transparent_50%)]' />
       <div className='absolute inset-0 bg-[radial-gradient(ellipse_at_20%_80%,rgba(96,165,250,0.05)_0%,transparent_50%)]' />
 
-      {/* Refined grid pattern */}
-      <div className='absolute inset-0 opacity-40'>
-        <div
-          className='absolute inset-0'
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(96,165,250,0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(96,165,250,0.4) 1px, transparent 1px)
-          `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
       {/* End Background */}
 
       <div className='relative z-10 w-full h-full'>
         <Hero />
 
         <Services />
-
-        <ToolSection />
 
         <Projects />
 

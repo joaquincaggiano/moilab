@@ -1,6 +1,6 @@
 import { TitleAndDescription } from '../../ui/texts/TitleAndDescription';
 import { SectionLayout } from '../SectionLayout';
-import ServicesSwap from './ServicesSwap';
+import ServicesGrid from './ServicesGrid';
 
 const Services = () => {
   return (
@@ -11,7 +11,7 @@ const Services = () => {
             proyecto.'
       />
 
-      <ServicesSwap />
+      <ServicesGrid />
     </SectionLayout>
   );
 };

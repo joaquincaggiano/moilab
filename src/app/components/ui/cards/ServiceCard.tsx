@@ -1,80 +1,128 @@
-'use client';
-
 import { Service } from '@/app/interfaces/services/service.interface';
-import Image from 'next/image';
+import {
+  LuLayoutTemplate,
+  LuSmartphone,
+  LuGlobe,
+  LuWrench,
+  LuCode,
+} from 'react-icons/lu';
+import type { IconType } from 'react-icons';
+
+const numbers = ['01', '02', '03', '04', '05'];
+
+const serviceIcons: IconType[] = [
+  LuLayoutTemplate,
+  LuSmartphone,
+  LuGlobe,
+  LuWrench,
+  LuCode,
+];
+
+// Palette interpolated between primary (#60a5fa ≈ blue-400) and secondary (#a855f7 ≈ purple-500)
+const accentColors = [
+  'from-blue-400 via-blue-400 to-blue-500',
+  'from-blue-400 via-indigo-400 to-violet-500',
+  'from-blue-400 via-violet-400 to-purple-500',
+  'from-indigo-400 via-violet-500 to-purple-500',
+  'from-violet-400 via-purple-500 to-purple-500',
+];
+
+const iconColors = [
+  'text-blue-400',
+  'text-indigo-400',
+  'text-violet-400',
+  'text-purple-400',
+  'text-violet-400',
+];
+
+const glowColors = [
+  'from-blue-500/20 via-transparent to-transparent',
+  'from-indigo-500/20 via-transparent to-transparent',
+  'from-violet-500/20 via-transparent to-transparent',
+  'from-purple-500/20 via-transparent to-transparent',
+  'from-violet-500/20 via-transparent to-transparent',
+];
 
 interface Props {
-  card: Service;
+  service: Service;
+  index: number;
+  className?: string;
+  cardHeight?: number;
 }
 
-export const ServiceCard = ({ card }: Props) => {
+export const ServiceCard = ({
+  service,
+  index,
+  className = '',
+  cardHeight,
+}: Props) => {
+  const Icon = serviceIcons[index];
+  const accent = accentColors[index];
+  const iconColor = iconColors[index];
+  const glow = glowColors[index];
+
   return (
-    <div className='group w-full h-full relative p-1'>
-      {/* Glow Effect Background */}
-      <div className='absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-2xl blur-md opacity-60 transition-all duration-1000 group-hover:opacity-80 group-hover:duration-200' />
+    <div
+      className={`group relative flex flex-col gap-4 p-6 rounded-2xl overflow-hidden
+        bg-gradient-to-br from-slate-800/80 to-slate-900/95
+        border border-white/[0.10] hover:border-white/[0.22]
+        shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.55)]
+        backdrop-blur-sm
+        transition-all duration-300
+        ${className}`}
+      style={{ height: cardHeight ? `${cardHeight}px` : undefined }}
+    >
+      {/* Top accent bar — always visible */}
+      <div
+        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent}`}
+      />
 
-      {/* Main Card */}
-      <div className='relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-2 sm:p-4 md:p-6 border border-gray-700/50 transition-all duration-500 h-full flex flex-col md:flex-row overflow-hidden group-hover:border-transparent group-hover:scale-[1.02] group-hover:-translate-y-1'>
-        {/* Holographic overlay */}
-        <div className='absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
+      {/* Corner glow */}
+      <div
+        className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${glow} blur-2xl pointer-events-none`}
+      />
 
-        {/* Animated border gradient */}
-        <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-blue-400/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
-
-        {/* Content Container */}
-        <div className='relative z-10 flex flex-col md:flex-row h-full'>
-          {/* Lado izquierdo - Contenido */}
-          <div className='w-full h-full lg:w-2/5 p-4 lg:p-6 flex flex-col justify-between'>
-            {/* Header */}
-            <div className='mb-4'>
-              <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 transition-all duration-500 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400'>
-                {card.title}
-              </h3>
-
-              <p className='text-gray-300 text-sm sm:text-base font-medium mb-4 leading-relaxed'>
-                {card.description}
-              </p>
-            </div>
-
-            {/* Ideal for section */}
-            <div className='mt-auto'>
-              <div className='inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 backdrop-blur-sm'>
-                <div className='w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 mr-2' />
-                <p className='text-blue-300 text-xs sm:text-sm font-medium'>
-                  Ideal para: {card.idealFor}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Lado derecho - Imagen */}
-          <div className='w-full lg:w-3/5 p-4 lg:p-6 hidden lg:block'>
-            <div className='relative w-full h-full rounded-xl overflow-hidden group/image'>
-              {/* Image glow effect */}
-              <div className='absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-xl opacity-0 group-hover/image:opacity-100 transition-opacity duration-500' />
-
-              {/* Image container */}
-              <div className='relative w-full h-full rounded-xl overflow-hidden'>
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  width={1000}
-                  height={1000}
-                  priority
-                  className='w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110'
-                />
-
-                {/* Image overlay */}
-                <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500' />
-              </div>
-            </div>
-          </div>
+      {/* Header row: number + icon */}
+      <div className='flex items-start justify-between'>
+        <span className='text-4xl font-black text-white/[0.10] select-none leading-none tracking-tight'>
+          {numbers[index]}
+        </span>
+        <div
+          className={`p-2.5 rounded-xl bg-white/[0.06] border border-white/[0.08] ${iconColor}`}
+        >
+          <Icon className='w-5 h-5' />
         </div>
-
-        {/* Corner accent */}
-        <div className='absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-blue-400/50 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
-        <div className='absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-purple-400/50 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
       </div>
+
+      {/* Title */}
+      <h3 className='text-lg font-bold text-white leading-snug'>
+        {service.title}
+      </h3>
+
+      {/* Divider */}
+      <div className={`h-px w-10 bg-gradient-to-r ${accent} opacity-60`} />
+
+      {/* Description */}
+      <p className='text-slate-400 text-sm leading-relaxed flex-1'>
+        {service.description}
+      </p>
+
+      {/* Badge */}
+      <div className='mt-auto pt-1'>
+        <span
+          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+          bg-white/[0.06] border border-white/[0.10]
+          text-slate-300 text-xs font-medium`}
+        >
+          <span
+            className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${accent} shrink-0`}
+          />
+          {service.idealFor}
+        </span>
+      </div>
+
+      {/* Hover overlay */}
+      <div className='absolute inset-0 rounded-2xl bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
     </div>
   );
 };
