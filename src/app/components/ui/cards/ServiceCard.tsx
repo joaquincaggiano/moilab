@@ -18,28 +18,29 @@ const serviceIcons: IconType[] = [
   LuCode,
 ];
 
+// Palette interpolated between primary (#60a5fa ≈ blue-400) and secondary (#a855f7 ≈ purple-500)
 const accentColors = [
-  'from-blue-500 via-blue-400 to-cyan-400',
-  'from-violet-500 via-purple-400 to-pink-400',
-  'from-cyan-500 via-teal-400 to-emerald-400',
-  'from-orange-500 via-amber-400 to-yellow-400',
-  'from-indigo-500 via-blue-400 to-violet-400',
+  'from-blue-400 via-blue-400 to-blue-500',
+  'from-blue-400 via-indigo-400 to-violet-500',
+  'from-blue-400 via-violet-400 to-purple-500',
+  'from-indigo-400 via-violet-500 to-purple-500',
+  'from-violet-400 via-purple-500 to-purple-500',
 ];
 
 const iconColors = [
   'text-blue-400',
-  'text-violet-400',
-  'text-cyan-400',
-  'text-amber-400',
   'text-indigo-400',
+  'text-violet-400',
+  'text-purple-400',
+  'text-violet-400',
 ];
 
 const glowColors = [
-  'from-blue-600/20 via-transparent to-transparent',
-  'from-violet-600/20 via-transparent to-transparent',
-  'from-cyan-600/20 via-transparent to-transparent',
-  'from-amber-600/20 via-transparent to-transparent',
-  'from-indigo-600/20 via-transparent to-transparent',
+  'from-blue-500/20 via-transparent to-transparent',
+  'from-indigo-500/20 via-transparent to-transparent',
+  'from-violet-500/20 via-transparent to-transparent',
+  'from-purple-500/20 via-transparent to-transparent',
+  'from-violet-500/20 via-transparent to-transparent',
 ];
 
 interface Props {
