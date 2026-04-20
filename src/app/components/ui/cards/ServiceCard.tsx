@@ -32,7 +32,7 @@ export const ServiceCard = ({ service, index, className = '' }: Props) => {
       <div className='mt-auto pt-2'>
         <span className='inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-medium'>
           <span className='w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 shrink-0' />
-          Ideal para: {service.idealFor}
+          {service.idealFor}
         </span>
       </div>
 
