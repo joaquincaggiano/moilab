@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 
 import { servicesData } from '@/app/data/services/services.data';
@@ -39,6 +40,7 @@ const css = `
 
 export default function ServicesGrid() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   return (
     <div className='w-full mt-12'>
@@ -51,6 +53,7 @@ export default function ServicesGrid() {
           centeredSlides={true}
           loop={true}
           slidesPerView='auto'
+          onSwiper={(swiper) => { swiperRef.current = swiper; }}
           onSlideChange={(swiper) =>
             setActiveIndex(swiper.realIndex % TOTAL)
           }
@@ -70,9 +73,11 @@ export default function ServicesGrid() {
       {/* Paginación custom: siempre 5 bullets */}
       <div className='flex items-center justify-center gap-2 mt-4'>
         {servicesData.map((_, i) => (
-          <span
+          <button
             key={i}
-            className='block rounded-full transition-all duration-280'
+            aria-label={`Ir al servicio ${i + 1}`}
+            onClick={() => swiperRef.current?.slideToLoop(i)}
+            className='block rounded-full transition-all duration-[280ms] cursor-pointer'
             style={{
               width: i === activeIndex ? '20px' : '8px',
               height: '8px',
@@ -80,6 +85,8 @@ export default function ServicesGrid() {
                 i === activeIndex
                   ? '#60a5fa'
                   : 'rgba(96, 165, 250, 0.4)',
+              border: 'none',
+              padding: 0,
             }}
           />
         ))}
