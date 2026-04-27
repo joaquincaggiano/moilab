@@ -12,6 +12,7 @@
     "format:staged": "prettier --write"
   },
   "dependencies": {
+    "@paper-design/shaders-react": "^0.0.76",
     "@react-email/components": "^1.0.12",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",

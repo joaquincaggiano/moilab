@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl backdrop-blur-xl border border-gray-400/20 rounded-2xl sm:rounded-full z-50 shadow-lg shadow-gray-900/10 transition-all duration-300 ease-in-out'>
+    <header className='fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl backdrop-blur-xl border border-blue-400/20 rounded-2xl md:rounded-full z-50 shadow-lg shadow-gray-900/10 transition-all duration-300 ease-in-out'>
       {/* Header principal */}
       <div className='flex items-center justify-between py-4 px-6'>
         <div className='flex items-center gap-2'>
@@ -40,12 +40,14 @@ const Header = () => {
             src='/img/logos/moilab-logo.png'
             alt='Moilab'
             width={150}
-            height={100}
+            height={35}
+            priority
+            style={{ width: '150px', height: '35px' }}
           />
         </div>
 
         <button
-          className='sm:hidden'
+          className='md:hidden'
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
@@ -57,7 +59,7 @@ const Header = () => {
         </button>
 
         {/* Navbar web */}
-        <nav className='hidden sm:block'>
+        <nav className='hidden md:block'>
           <ul className='flex items-center gap-8'>
             {links.map(link => (
               <LiNavbar
@@ -73,7 +75,7 @@ const Header = () => {
 
       {/* Navbar móvil */}
       <nav
-        className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out
           ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <ul className='flex flex-col justify-end items-end px-6 pb-4 space-y-3'>

@@ -11,14 +11,15 @@ const ButtonShiny = ({
     <button
       onClick={onClick}
       className='
-        w-full
-        max-w-[150px]
+        inline-flex
+        whitespace-nowrap
         cursor-pointer
-        text-sm h-14
+        text-sm h-12
         rounded-full
         border-0
         relative
         overflow-hidden
+        p-0.5
         animate-[shineKeyframes_5s_linear_infinite]
         transition-[transform,box-shadow] duration-200 ease-out
         hover:scale-[1.04] hover:shadow-[0_0_18px_rgba(255,255,255,0.18)]
@@ -33,13 +34,8 @@ const ButtonShiny = ({
         backgroundClip: 'border-box, padding-box',
       }}
     >
-      <div className='absolute inset-0 bg-gray-900 hover:bg-black/80 rounded-full m-0.5 flex items-center justify-center transition-colors duration-200'>
-        <ShinyText
-          text={text}
-          disabled={false}
-          speed={5}
-          // className="text-white"
-        />
+      <div className='w-full h-full bg-gray-900 hover:bg-black/80 rounded-full flex items-center justify-center px-6 transition-colors duration-200'>
+        <ShinyText text={text} disabled={false} speed={5} />
       </div>
     </button>
   );

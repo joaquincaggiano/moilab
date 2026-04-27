@@ -51,7 +51,9 @@ export default function HomePage() {
       {/* End Background */}
 
       <div className='relative z-10 w-full h-full'>
-        <Hero />
+        <div className='-mx-5 sm:-mx-10'>
+          <Hero />
+        </div>
 
         <Services />
 

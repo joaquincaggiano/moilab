@@ -10,7 +10,8 @@ export const BrandSection = () => {
           src='/img/logos/moilab-logo.png'
           alt='Moilab'
           width={150}
-          height={100}
+          height={35}
+          style={{ width: '150px', height: '35px' }}
         />
       </div>
 
