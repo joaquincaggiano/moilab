@@ -8,8 +8,6 @@ import {
 } from 'react-icons/lu';
 import type { IconType } from 'react-icons';
 
-const numbers = ['01', '02', '03', '04', '05'];
-
 const serviceIcons: IconType[] = [
   LuLayoutTemplate,
   LuSmartphone,
@@ -18,111 +16,137 @@ const serviceIcons: IconType[] = [
   LuCode,
 ];
 
-// Palette interpolated between primary (#60a5fa ≈ blue-400) and secondary (#a855f7 ≈ purple-500)
-const accentColors = [
-  'from-blue-400 via-blue-400 to-blue-500',
-  'from-blue-400 via-indigo-400 to-violet-500',
-  'from-blue-400 via-violet-400 to-purple-500',
-  'from-indigo-400 via-violet-500 to-purple-500',
-  'from-violet-400 via-purple-500 to-purple-500',
-];
-
-const iconColors = [
-  'text-blue-400',
-  'text-indigo-400',
-  'text-violet-400',
-  'text-purple-400',
-  'text-violet-400',
-];
-
-const glowColors = [
-  'from-blue-500/20 via-transparent to-transparent',
-  'from-indigo-500/20 via-transparent to-transparent',
-  'from-violet-500/20 via-transparent to-transparent',
-  'from-purple-500/20 via-transparent to-transparent',
-  'from-violet-500/20 via-transparent to-transparent',
+// Interpolated between primary (#60a5fa) and secondary (#a855f7)
+const cardThemes = [
+  {
+    number: '01',
+    bg: 'from-slate-950 via-blue-950/60 to-slate-950',
+    topBar: 'from-blue-400 to-blue-500',
+    glow: 'bg-blue-500/12',
+    iconBox: 'bg-blue-500/10 border-blue-400/20 text-blue-400',
+    tag: 'bg-blue-500/10 border-blue-400/25 text-blue-300',
+    dot: 'bg-blue-400',
+    ghostNum: 'text-blue-400/[0.07]',
+    divider: 'from-blue-400 to-blue-500',
+  },
+  {
+    number: '02',
+    bg: 'from-slate-950 via-indigo-950/60 to-slate-950',
+    topBar: 'from-indigo-400 to-violet-500',
+    glow: 'bg-indigo-500/12',
+    iconBox: 'bg-indigo-500/10 border-indigo-400/20 text-indigo-400',
+    tag: 'bg-indigo-500/10 border-indigo-400/25 text-indigo-300',
+    dot: 'bg-indigo-400',
+    ghostNum: 'text-indigo-400/[0.07]',
+    divider: 'from-indigo-400 to-violet-500',
+  },
+  {
+    number: '03',
+    bg: 'from-slate-950 via-violet-950/60 to-slate-950',
+    topBar: 'from-violet-400 to-purple-500',
+    glow: 'bg-violet-500/12',
+    iconBox: 'bg-violet-500/10 border-violet-400/20 text-violet-400',
+    tag: 'bg-violet-500/10 border-violet-400/25 text-violet-300',
+    dot: 'bg-violet-400',
+    ghostNum: 'text-violet-400/[0.07]',
+    divider: 'from-violet-400 to-purple-500',
+  },
+  {
+    number: '04',
+    bg: 'from-slate-950 via-purple-950/60 to-slate-950',
+    topBar: 'from-purple-400 to-purple-600',
+    glow: 'bg-purple-500/12',
+    iconBox: 'bg-purple-500/10 border-purple-400/20 text-purple-400',
+    tag: 'bg-purple-500/10 border-purple-400/25 text-purple-300',
+    dot: 'bg-purple-400',
+    ghostNum: 'text-purple-400/[0.07]',
+    divider: 'from-purple-400 to-purple-600',
+  },
+  {
+    number: '05',
+    bg: 'from-slate-950 via-fuchsia-950/50 to-slate-950',
+    topBar: 'from-purple-500 to-fuchsia-500',
+    glow: 'bg-fuchsia-500/12',
+    iconBox: 'bg-fuchsia-500/10 border-fuchsia-400/20 text-fuchsia-400',
+    tag: 'bg-fuchsia-500/10 border-fuchsia-400/25 text-fuchsia-300',
+    dot: 'bg-fuchsia-400',
+    ghostNum: 'text-fuchsia-400/[0.07]',
+    divider: 'from-purple-500 to-fuchsia-500',
+  },
 ];
 
 interface Props {
   service: Service;
   index: number;
-  className?: string;
-  cardHeight?: number;
 }
 
-export const ServiceCard = ({
-  service,
-  index,
-  className = '',
-  cardHeight,
-}: Props) => {
+export const ServiceCard = ({ service, index }: Props) => {
   const Icon = serviceIcons[index];
-  const accent = accentColors[index];
-  const iconColor = iconColors[index];
-  const glow = glowColors[index];
+  const theme = cardThemes[index];
 
   return (
     <div
-      className={`group relative flex flex-col gap-4 p-6 rounded-2xl overflow-hidden
-        bg-gradient-to-br from-slate-800/80 to-slate-900/95
-        border border-white/[0.10] hover:border-white/[0.22]
-        shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.55)]
-        backdrop-blur-sm
-        transition-all duration-300
-        ${className}`}
-      style={{ height: cardHeight ? `${cardHeight}px` : undefined }}
+      data-service-card
+      data-service-index={index}
+      className={`
+        relative w-full rounded-3xl overflow-hidden
+        bg-gradient-to-br ${theme.bg}
+        border border-white/[0.07]
+        min-h-[460px] md:min-h-[420px]
+        p-8 md:p-12
+        flex flex-col justify-between
+      `}
     >
-      {/* Top accent bar — always visible */}
+      {/* Top accent line */}
       <div
-        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent}`}
+        className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${theme.topBar}`}
       />
 
       {/* Corner glow */}
       <div
-        className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${glow} blur-2xl pointer-events-none`}
+        className={`absolute -top-24 -right-24 w-96 h-96 rounded-full ${theme.glow} blur-3xl pointer-events-none`}
       />
 
-      {/* Header row: number + icon */}
-      <div className='flex items-start justify-between'>
-        <span className='text-4xl font-black text-white/[0.10] select-none leading-none tracking-tight'>
-          {numbers[index]}
-        </span>
-        <div
-          className={`p-2.5 rounded-xl bg-white/[0.06] border border-white/[0.08] ${iconColor}`}
-        >
+      {/* Ghost number — decorative background */}
+      <span
+        className={`absolute -bottom-6 right-6 text-[180px] md:text-[220px] font-black leading-none select-none pointer-events-none ${theme.ghostNum}`}
+      >
+        {theme.number}
+      </span>
+
+      {/* Top row */}
+      <div className='relative flex items-end justify-end'>
+        <div className={`p-3 rounded-2xl border ${theme.iconBox}`}>
           <Icon className='w-5 h-5' />
         </div>
       </div>
 
-      {/* Title */}
-      <h3 className='text-lg font-bold text-white leading-snug'>
-        {service.title}
-      </h3>
+      {/* Content */}
+      <div className='relative mt-auto flex flex-col gap-5'>
+        <h3 className='text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none tracking-tight'>
+          {service.title}
+        </h3>
 
-      {/* Divider */}
-      <div className={`h-px w-10 bg-gradient-to-r ${accent} opacity-60`} />
+        <div
+          className={`w-10 h-0.5 bg-gradient-to-r ${theme.divider} rounded-full`}
+        />
 
-      {/* Description */}
-      <p className='text-slate-400 text-sm leading-relaxed flex-1'>
-        {service.description}
-      </p>
+        <p className='text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl'>
+          {service.description}
+        </p>
 
-      {/* Badge */}
-      <div className='mt-auto pt-1'>
         <span
-          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
-          bg-white/[0.06] border border-white/[0.10]
-          text-slate-300 text-xs font-medium`}
+          className={`
+            self-start inline-flex items-center gap-2
+            px-4 py-2 rounded-full border
+            text-sm font-medium
+            ${theme.tag}
+          `}
         >
-          <span
-            className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${accent} shrink-0`}
-          />
-          {service.idealFor}
+          <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${theme.dot}`} />
+          Ideal para: {service.idealFor}
         </span>
       </div>
-
-      {/* Hover overlay */}
-      <div className='absolute inset-0 rounded-2xl bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
     </div>
   );
 };
