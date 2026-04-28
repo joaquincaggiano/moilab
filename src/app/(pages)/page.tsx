@@ -3,7 +3,9 @@ import Hero from '@/app/components/sections/hero/Hero';
 import Services from '@/app/services/components/section/Services';
 
 export const metadata: Metadata = {
-  title: 'Inicio',
+  title: {
+    absolute: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
+  },
   description:
     'MoiLab - Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad. Impulsa tu negocio con soluciones digitales que marcan la diferencia.',
   keywords: [
@@ -26,6 +28,12 @@ export const metadata: Metadata = {
       'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
     url: 'https://moilab.es',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
+    description:
+      'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
   },
   alternates: {
     canonical: 'https://moilab.es',

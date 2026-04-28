@@ -5,14 +5,8 @@ import './globals.css';
 import { Footer } from './components/sections/footer/Footer';
 import { CookieBanner } from './components/cookie-banner/CookieBanner';
 import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
-import dynamic from 'next/dynamic';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from './components/sections/header/Header';
-
-const SpeedInsights = dynamic(() =>
-  import('@vercel/speed-insights/next').then(m => ({
-    default: m.SpeedInsights,
-  }))
-);
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -45,6 +39,12 @@ export const metadata: Metadata = {
     'React',
     'TypeScript',
   ],
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
+    description:
+      'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
+  },
 };
 
 export default function RootLayout({
