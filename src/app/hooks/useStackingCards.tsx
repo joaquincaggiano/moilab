@@ -21,7 +21,7 @@ interface UseStackingCardsOptions {
 
 export const useStackingCards = ({
   peekPx = 48,
-  scrollPerCard = 500,
+  scrollPerCard = 300,
 }: UseStackingCardsOptions = {}) => {
   const containerRef = useRef<HTMLDivElement>(null);
 

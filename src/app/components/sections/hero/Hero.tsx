@@ -2,27 +2,8 @@
 
 import { ShaderBackground } from '../../ui/backgrounds/HeroShader';
 import BlurText from '../../ui/texts/BlurText';
-import ButtonGradient from '../../ui/buttons/ButtonGradient';
-import ButtonShiny from '../../ui/buttons/ButtonShiny';
-import { useFadeIn } from '@/app/hooks/useFadeIn';
 
 const Hero = () => {
-  const buttonGradientRef = useFadeIn({
-    delay: 1000,
-    duration: 700,
-    easing: 'easeOutExpo',
-  });
-  const buttonShinyRef = useFadeIn({
-    delay: 1200,
-    duration: 700,
-    easing: 'easeOutExpo',
-  });
-
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       className='w-full h-screen relative'
@@ -54,14 +35,6 @@ const Hero = () => {
               stagger={0.04}
               duration={1.5}
             />
-
-            {/* Boton de contacto */}
-            <div ref={buttonGradientRef}>
-              <ButtonGradient
-                onClick={() => scrollToSection('contact')}
-                text='Comenzar Proyecto'
-              />
-            </div>
           </div>
         </div>
       </ShaderBackground>
