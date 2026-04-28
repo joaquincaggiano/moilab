@@ -1,4 +1,4 @@
-import { SectionLayout } from '../SectionLayout';
+import { SectionLayout } from '@/app/components/sections/SectionLayout';
 import ServicesGrid from './ServicesGrid';
 
 const Services = () => {

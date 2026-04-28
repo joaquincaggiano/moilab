@@ -1,7 +1,5 @@
 'use client';
 
-import { useLenisStore } from '@/app/storage/lenisStore';
-
 interface Props {
   href: string;
   text: string;
@@ -10,8 +8,6 @@ interface Props {
 }
 
 const LiNavbar = ({ href, text, className, onClick }: Props) => {
-  const { scrollTo } = useLenisStore();
-
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
@@ -21,15 +17,12 @@ const LiNavbar = ({ href, text, className, onClick }: Props) => {
 
       if (targetElement) {
         const header = document.querySelector('header');
-        const offset = header ? -(header.getBoundingClientRect().bottom + 20) : -20;
-        scrollTo(targetElement, { offset });
-      } else {
-        // Fallback si el elemento no existe
-        console.warn(`Element with id "${targetId}" not found`);
+        const offset = header ? header.getBoundingClientRect().bottom + 20 : 20;
+        const top = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     }
 
-    // Ejecutar callback si se proporciona
     if (onClick) {
       onClick();
     }

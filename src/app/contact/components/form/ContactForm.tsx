@@ -1,12 +1,12 @@
 'use client';
 
 import { sendEmailAction } from '@/app/actions/sendEmail';
+import { ButtonForm } from '@/app/components/ui/form/ButtonForm';
+import { InputForm } from '@/app/components/ui/form/InputForm';
+import { TextAreaForm } from '@/app/components/ui/form/TextAreaForm';
 import { FormState } from '@/app/dto/send-email.dto';
 import { useActionState, useEffect } from 'react';
 import { toast, Toaster } from 'sonner';
-import { InputForm } from '../../ui/form/InputForm';
-import { TextAreaForm } from '../../ui/form/TextAreaForm';
-import { ButtonForm } from '../../ui/form/ButtonForm';
 
 const ContactForm = () => {
   const initialState: FormState = {

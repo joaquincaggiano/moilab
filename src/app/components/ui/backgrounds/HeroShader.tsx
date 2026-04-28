@@ -1,6 +1,5 @@
 'use client';
 
-import type React from 'react';
 import { MeshGradient } from '@paper-design/shaders-react';
 import { colors } from '@/app/theme/palette-colors';
 

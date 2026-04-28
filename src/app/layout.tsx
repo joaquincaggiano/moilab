@@ -2,14 +2,16 @@ import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
 import { SiWhatsapp } from 'react-icons/si';
 import './globals.css';
-import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import { Footer } from './components/sections/footer/Footer';
 import { CookieBanner } from './components/cookie-banner/CookieBanner';
 import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
 import dynamic from 'next/dynamic';
+import Header from './components/sections/header/Header';
 
 const SpeedInsights = dynamic(() =>
-  import('@vercel/speed-insights/next').then((m) => ({ default: m.SpeedInsights }))
+  import('@vercel/speed-insights/next').then(m => ({
+    default: m.SpeedInsights,
+  }))
 );
 
 const poppins = Poppins({
@@ -53,10 +55,9 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <body className={`${poppins.variable} antialiased`}>
-        <LenisWrapper>
-          {children}
-          <Footer />
-        </LenisWrapper>
+        <Header />
+        {children}
+        <Footer />
         <CookieBanner />
         <a
           href='https://wa.me/34624750408'

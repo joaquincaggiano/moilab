@@ -1,6 +1,5 @@
 'use client';
 
-import { useLenisStore } from '@/app/storage/lenisStore';
 import { ShaderBackground } from '../../ui/backgrounds/HeroShader';
 import BlurText from '../../ui/texts/BlurText';
 import ButtonGradient from '../../ui/buttons/ButtonGradient';
@@ -8,7 +7,6 @@ import ButtonShiny from '../../ui/buttons/ButtonShiny';
 import { useFadeIn } from '@/app/hooks/useFadeIn';
 
 const Hero = () => {
-  const { scrollTo } = useLenisStore();
   const buttonGradientRef = useFadeIn({
     delay: 1000,
     duration: 700,
@@ -20,12 +18,9 @@ const Hero = () => {
     easing: 'easeOutExpo',
   });
 
-  const scrollToContact = () => {
-    scrollTo('contact');
-  };
-
-  const scrollToServices = () => {
-    scrollTo('services');
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -63,7 +58,7 @@ const Hero = () => {
             {/* Boton de contacto */}
             <div ref={buttonGradientRef}>
               <ButtonGradient
-                onClick={scrollToContact}
+                onClick={() => scrollToSection('contact')}
                 text='Comenzar Proyecto'
               />
             </div>

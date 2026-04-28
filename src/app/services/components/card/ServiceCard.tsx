@@ -90,7 +90,7 @@ export const ServiceCard = ({ service, index }: Props) => {
       data-service-index={index}
       className={`
         relative w-full rounded-3xl overflow-hidden
-        bg-gradient-to-br ${theme.bg}
+        bg-slate-950 bg-gradient-to-br ${theme.bg}
         border border-white/[0.07]
         min-h-[460px] md:min-h-[420px]
         p-8 md:p-12
