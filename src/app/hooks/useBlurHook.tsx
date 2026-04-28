@@ -62,10 +62,10 @@ export const useBlurHook = <T extends HTMLElement = HTMLDivElement>(
           duration,
           ease,
           scrollTrigger: {
-            markers: true,
+            //markers: true,
             trigger: el,
             start,
-            //scrub: 1,
+            scrub: true,
           },
         });
       });
