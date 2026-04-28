@@ -35,16 +35,16 @@ export default function Error({
         <div className='flex flex-col gap-4 sm:flex-row'>
           <button
             onClick={reset}
-            className='relative inline-flex h-14 w-full max-w-[200px] overflow-hidden rounded-full p-[2px]'
+            className='relative h-14 min-w-[180px] overflow-hidden rounded-full p-[2px]'
           >
             <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#60a5fa_0%,#a855f7_50%,#60a5fa_100%)]' />
-            <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-gray-50 backdrop-blur-3xl transition-colors duration-300 hover:bg-black'>
+            <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-900 px-6 text-sm font-medium text-gray-50 backdrop-blur-3xl transition-colors duration-300 hover:bg-black'>
               Reintentar
             </span>
           </button>
           <Link
             href='/'
-            className='inline-flex h-14 w-full max-w-[200px] items-center justify-center rounded-full border border-gray-700 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-gray-500 hover:text-white'
+            className='inline-flex h-14 min-w-[180px] items-center justify-center rounded-full border border-gray-700 px-6 text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-gray-500 hover:text-white'
           >
             Volver al inicio
           </Link>
