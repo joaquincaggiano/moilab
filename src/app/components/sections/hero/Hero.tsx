@@ -46,9 +46,8 @@ const Hero = () => {
               text='Creamos tus ideas en experiencias digitales'
               className='text-white text-center text-4xl md:text-5xl lg:text-6xl md:text-start font-bold leading-tight'
               animateBy='words'
-              delay={150}
-              stepDuration={0.4}
-              direction='top'
+              stagger={0.08}
+              duration={1.5}
             />
 
             {/* Texto secundario */}
@@ -56,8 +55,9 @@ const Hero = () => {
               text='Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.'
               className='text-center text-base md:text-start md:text-lg lg:text-xl text-gray-300 leading-relaxed'
               animateBy='words'
-              delay={50}
-              direction='top'
+              delay={0.5}
+              stagger={0.04}
+              duration={1.5}
             />
 
             {/* Boton de contacto */}
