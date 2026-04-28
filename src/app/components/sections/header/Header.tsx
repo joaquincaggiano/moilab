@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl backdrop-blur-xl border border-blue-400/20 rounded-2xl md:rounded-full z-50 shadow-lg shadow-gray-900/10 transition-all duration-300 ease-in-out'>
+    <header className='fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl backdrop-blur-xl border border-blue-400/20 rounded-2xl md:rounded-full z-[100] shadow-lg shadow-gray-900/10 transition-all duration-300 ease-in-out'>
       {/* Header principal */}
       <div className='flex items-center justify-between py-4 px-6'>
         <div className='flex items-center gap-2'>

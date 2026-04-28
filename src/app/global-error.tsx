@@ -1,7 +1,6 @@
 'use client';
 
 export default function GlobalError({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };
@@ -12,63 +11,60 @@ export default function GlobalError({
       <body
         style={{
           margin: 0,
-          display: 'flex',
           minHeight: '100vh',
-          flexDirection: 'column',
+          display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          flexDirection: 'column',
           background: '#000',
           color: '#fff',
           fontFamily: 'sans-serif',
           textAlign: 'center',
           padding: '24px',
+          gap: '16px',
         }}
       >
-        <p
-          style={{
-            marginBottom: '8px',
-            fontSize: '12px',
-            fontWeight: 600,
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            color: '#60a5fa',
-          }}
-        >
-          Error inesperado
+        <p style={{ color: '#60a5fa', fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', margin: 0 }}>
+          Error crítico
         </p>
-        <h1
-          style={{
-            marginBottom: '16px',
-            fontSize: '32px',
-            fontWeight: 700,
-          }}
-        >
+        <h1 style={{ fontSize: '36px', fontWeight: 700, margin: 0 }}>
           Algo salió mal
         </h1>
-        <p
-          style={{
-            marginBottom: '32px',
-            maxWidth: '400px',
-            color: '#9ca3af',
-            lineHeight: 1.6,
-          }}
-        >
-          Ocurrió un error crítico. Puedes intentar recargar la página.
+        <p style={{ color: '#9ca3af', maxWidth: '380px', lineHeight: 1.6, margin: 0 }}>
+          Ocurrió un error crítico. Podés intentar recargar la página.
         </p>
-        <button
-          onClick={() => reset()}
-          style={{
-            padding: '12px 28px',
-            borderRadius: '9999px',
-            border: '1px solid #374151',
-            background: 'transparent',
-            color: '#fff',
-            fontSize: '14px',
-            cursor: 'pointer',
-          }}
-        >
-          Reintentar
-        </button>
+        <div style={{ display: 'flex', gap: '12px', marginTop: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <button
+            onClick={() => reset()}
+            style={{
+              padding: '12px 28px',
+              borderRadius: '9999px',
+              border: '1px solid #4b5563',
+              background: 'transparent',
+              color: '#fff',
+              fontSize: '14px',
+              cursor: 'pointer',
+            }}
+          >
+            Reintentar
+          </button>
+          <a
+            href='/'
+            style={{
+              padding: '12px 28px',
+              borderRadius: '9999px',
+              border: 'none',
+              background: 'linear-gradient(135deg, #60a5fa, #a855f7)',
+              color: '#fff',
+              fontSize: '14px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+          >
+            Volver al inicio
+          </a>
+        </div>
       </body>
     </html>
   );
