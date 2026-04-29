@@ -2,18 +2,7 @@
 
 import type { IconType } from 'react-icons';
 import { useBlurHook } from '@/app/hooks/useBlurHook';
-
-export interface PanelTheme {
-  number: string;
-  bg: string;
-  topBar: string;
-  glow: string;
-  iconBox: string;
-  tag: string;
-  dot: string;
-  ghostNum: string;
-  label: string;
-}
+import type { PanelTheme } from '@/app/services/services.constants';
 
 export interface ServiceCardProps {
   service: {

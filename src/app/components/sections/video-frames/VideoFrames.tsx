@@ -181,7 +181,7 @@ const VideoFrames = () => {
     <section
       ref={containerRef}
       id='video-frames'
-      className='w-full h-screen overflow-hidden bg-black'
+      className='hidden sm:block w-full h-screen overflow-hidden bg-black'
       aria-label='Animación de producto'
     >
       <canvas
