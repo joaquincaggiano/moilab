@@ -45,11 +45,14 @@ interface UseHorizontalScrollOptions {
  *     <div className="track flex">...</div>
  *   </section>
  */
-export const useHorizontalScroll = <T extends HTMLElement = HTMLDivElement>(
+export const useHorizontalScroll = <
+  TContainer extends HTMLElement = HTMLElement,
+  TInner extends HTMLElement = HTMLDivElement,
+>(
   options: UseHorizontalScrollOptions = {}
 ) => {
-  const containerRef = useRef<T>(null);
-  const innerRef = useRef<T>(null);
+  const containerRef = useRef<TContainer>(null);
+  const innerRef = useRef<TInner>(null);
 
   const {
     innerSelector,
@@ -83,7 +86,8 @@ export const useHorizontalScroll = <T extends HTMLElement = HTMLDivElement>(
           scrub,
           start,
           // end adjusts dynamically so the whole track is visible before unpinning
-          end: () => `+=${track.scrollWidth - container.offsetWidth + extraScroll}`,
+          end: () =>
+            `+=${track.scrollWidth - container.offsetWidth + extraScroll}`,
           invalidateOnRefresh: true,
           // markers: true, // uncomment during development
         },

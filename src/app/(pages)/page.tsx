@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Hero from '@/app/components/sections/hero/Hero';
 import VideoFrames from '@/app/components/sections/video-frames/VideoFrames';
-import Services from '@/app/services/components/section/Services';
+import Services from '../services/components/section/Services';
 
 export const metadata: Metadata = {
   title: {
