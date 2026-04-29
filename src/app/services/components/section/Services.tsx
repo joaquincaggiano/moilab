@@ -20,7 +20,7 @@ export default function Services() {
         {servicesData.map((service, index) => (
           <div
             key={service.id}
-            className='sticky min-h-screen flex items-center py-10'
+            className='sticky min-h-screen flex items-center px-4 sm:px-0'
             style={{ top: `${index * 28}px`, zIndex: index + 1 }}
           >
             <ServiceCard service={service} index={index} />
