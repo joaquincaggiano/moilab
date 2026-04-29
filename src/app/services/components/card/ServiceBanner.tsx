@@ -2,17 +2,24 @@
 
 import { useBlurHook } from '@/app/hooks/useBlurHook';
 
-export default function ServiceBanner() {
-  const ref = useBlurHook<HTMLDivElement>({ mediaQuery: '(max-width: 639px)' });
+interface ServiceBannerProps {
+  /** Mobile stacking variant: full-height, no blur hook */
+  mobile?: boolean;
+}
+
+export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
+  const blurRef = useBlurHook<HTMLDivElement>({ mediaQuery: '(max-width: 639px)' });
 
   return (
     <div
-      ref={ref}
+      ref={mobile ? undefined : blurRef}
       className={`
-        relative w-full py-24 sm:flex-shrink-0 sm:w-screen sm:h-full sm:py-0
-        bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950
+        relative overflow-hidden
+        bg-slate-950 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950
         flex items-center justify-center
-        overflow-hidden
+        ${mobile
+          ? 'w-full h-full'
+          : 'w-full py-24 sm:flex-shrink-0 sm:w-screen sm:h-full sm:py-0'}
       `}
     >
       {/* Background glows */}
@@ -25,15 +32,30 @@ export default function ServiceBanner() {
       </span>
 
       {/* Content */}
-      <div className='relative z-10 flex flex-col gap-6 px-8 sm:px-16 md:px-24 max-w-5xl w-full'>
+      <div
+        className={`relative z-10 flex flex-col gap-6 px-8 ${
+          mobile
+            ? 'items-center text-center max-w-sm w-full'
+            : 'sm:px-16 md:px-24 max-w-5xl w-full'
+        }`}
+      >
         {/* Eyebrow */}
-        <span className='inline-flex items-center gap-2 text-sm font-medium text-slate-400 tracking-widest uppercase'>
+        <span
+          className={`inline-flex items-center gap-2 text-sm font-medium text-slate-400 tracking-widest uppercase ${
+            mobile ? 'justify-center' : ''
+          }`}
+        >
           <span className='w-6 h-px bg-slate-600' />
           Lo que hacemos
+          {mobile && <span className='w-6 h-px bg-slate-600' />}
         </span>
 
         {/* Headline */}
-        <h2 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none tracking-tight'>
+        <h2
+          className={`font-black text-white leading-none tracking-tight ${
+            mobile ? 'text-4xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+          }`}
+        >
           Nuestros
           <br />
           <span className='bg-gradient-to-r from-blue-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent'>
@@ -42,10 +64,18 @@ export default function ServiceBanner() {
         </h2>
 
         {/* Divider */}
-        <div className='w-16 h-0.5 bg-gradient-to-r from-blue-400 to-fuchsia-400 rounded-full' />
+        <div
+          className={`h-0.5 bg-gradient-to-r from-blue-400 to-fuchsia-400 rounded-full ${
+            mobile ? 'w-10' : 'w-16'
+          }`}
+        />
 
         {/* Subtitle */}
-        <p className='text-slate-400 text-base sm:text-lg leading-relaxed max-w-md'>
+        <p
+          className={`text-slate-400 leading-relaxed ${
+            mobile ? 'text-sm max-w-xs' : 'text-base sm:text-lg max-w-md'
+          }`}
+        >
           Transformamos ideas en productos digitales. Desde una landing hasta software a medida.
         </p>
       </div>

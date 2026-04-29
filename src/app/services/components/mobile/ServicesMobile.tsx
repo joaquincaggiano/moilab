@@ -3,26 +3,20 @@
 import { useStackingCards } from '@/app/hooks/useStackingCards';
 import { servicesData } from '@/app/data/services/services.data';
 import { panelThemes, serviceIcons } from '@/app/services/services.constants';
-import ServicesMobileCard from './ServicesMobileCard';
-import ServicesMobileHeader from './ServicesMobileHeader';
+import ServiceCard from '@/app/services/components/card/ServiceCard';
+import ServiceBanner from '@/app/services/components/card/ServiceBanner';
 
 export default function ServicesMobile() {
   const { sectionRef, stickyRef } = useStackingCards<HTMLDivElement>();
 
   return (
-    // sectionRef gets dynamic height from GSAP (cards.length * 100vh)
     <div ref={sectionRef} className='sm:hidden bg-slate-950'>
-      {/* Sticky viewport — all cards are absolutely stacked inside */}
-      <div
-        ref={stickyRef}
-        className='sticky top-0 h-screen overflow-hidden'
-      >
-        {/* Header panel — z-index 0, gets covered first */}
+      <div ref={stickyRef} className='sticky top-0 h-screen overflow-hidden'>
+        {/* Banner — first in the stack, gets covered by card 1 */}
         <div data-mobile-card className='absolute inset-0' style={{ zIndex: 0 }}>
-          <ServicesMobileHeader />
+          <ServiceBanner mobile />
         </div>
 
-        {/* Each card has a higher z-index so it fully covers the previous one */}
         {servicesData.map((service, index) => (
           <div
             key={service.id}
@@ -30,11 +24,11 @@ export default function ServicesMobile() {
             className='absolute inset-0'
             style={{ zIndex: index + 1 }}
           >
-            <ServicesMobileCard
+            <ServiceCard
               service={service}
               theme={panelThemes[index]}
               icon={serviceIcons[index]}
-              total={servicesData.length}
+              mobile
             />
           </div>
         ))}
