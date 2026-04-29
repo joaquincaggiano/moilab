@@ -16,9 +16,7 @@ const LiNavbar = ({ href, text, className, onClick }: Props) => {
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
-        const header = document.querySelector('header');
-        const offset = header ? header.getBoundingClientRect().bottom + 20 : 20;
-        const top = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        const top = targetElement.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     }

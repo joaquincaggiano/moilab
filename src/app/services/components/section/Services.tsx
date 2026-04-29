@@ -11,6 +11,7 @@ import {
 } from 'react-icons/lu';
 import type { IconType } from 'react-icons';
 import ServiceCard from '@/app/services/components/card/ServiceCard';
+import ServiceBanner from '@/app/services/components/card/ServiceBanner';
 
 const serviceIcons: IconType[] = [
   LuLayoutTemplate,
@@ -94,8 +95,9 @@ export default function Services() {
       <div
         ref={innerRef}
         className='flex h-full will-change-transform'
-        style={{ width: `${servicesData.length * 100}vw` }}
+        style={{ width: `${(servicesData.length + 1) * 100}vw` }}
       >
+        <ServiceBanner services={servicesData} />
         {servicesData.map((service, index) => {
           const Icon = serviceIcons[index];
           const theme = panelThemes[index];
