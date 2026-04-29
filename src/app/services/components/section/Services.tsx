@@ -1,5 +1,6 @@
 'use client';
 
+import type React from 'react';
 import { useHorizontalScroll } from '@/app/hooks/useHorizontalScroll';
 import { servicesData } from '@/app/data/services/services.data';
 import {
@@ -89,15 +90,16 @@ export default function Services() {
     <section
       id='services'
       ref={containerRef}
-      className='relative w-full h-screen overflow-hidden bg-slate-950'
+      className='relative w-full h-auto sm:h-screen sm:overflow-hidden bg-slate-950'
     >
       {/* Horizontal track */}
       <div
         ref={innerRef}
-        className='flex h-full will-change-transform'
-        style={{ width: `${(servicesData.length + 1) * 100}vw` }}
+        className='flex flex-col sm:flex-row sm:h-full will-change-transform sm:[width:var(--track-w)]'
+        style={{ '--track-w': `${(servicesData.length + 1) * 100}vw` } as React.CSSProperties}
       >
-        <ServiceBanner services={servicesData} />
+        <ServiceBanner />
+
         {servicesData.map((service, index) => {
           const Icon = serviceIcons[index];
           const theme = panelThemes[index];

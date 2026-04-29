@@ -1,4 +1,7 @@
+'use client';
+
 import type { IconType } from 'react-icons';
+import { useBlurHook } from '@/app/hooks/useBlurHook';
 
 export interface PanelTheme {
   number: string;
@@ -28,10 +31,13 @@ export default function ServiceCard({
   theme,
   icon: Icon,
 }: ServiceCardProps) {
+  const ref = useBlurHook<HTMLDivElement>({ mediaQuery: '(max-width: 639px)' });
+
   return (
     <div
+      ref={ref}
       className={`
-        relative flex-shrink-0 w-screen h-full
+        relative w-full py-24 sm:flex-shrink-0 sm:w-screen sm:h-full sm:py-0
         bg-gradient-to-br ${theme.bg}
         flex items-center justify-center
         overflow-hidden

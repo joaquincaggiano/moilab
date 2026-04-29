@@ -73,25 +73,31 @@ export const useHorizontalScroll = <
 
       if (!track) return;
 
-      // How far the track needs to travel to reveal all its content
-      const getScrollDistance = () =>
-        -(track.scrollWidth - container.offsetWidth + extraScroll);
+      const mm = gsap.matchMedia();
 
-      gsap.to(track, {
-        x: getScrollDistance,
-        ease,
-        scrollTrigger: {
-          trigger: container,
-          pin: true,
-          scrub,
-          start,
-          // end adjusts dynamically so the whole track is visible before unpinning
-          end: () =>
-            `+=${track.scrollWidth - container.offsetWidth + extraScroll}`,
-          invalidateOnRefresh: true,
-          // markers: true, // uncomment during development
-        },
+      mm.add('(min-width: 640px)', () => {
+        // How far the track needs to travel to reveal all its content
+        const getScrollDistance = () =>
+          -(track.scrollWidth - container.offsetWidth + extraScroll);
+
+        gsap.to(track, {
+          x: getScrollDistance,
+          ease,
+          scrollTrigger: {
+            trigger: container,
+            pin: true,
+            scrub,
+            start,
+            // end adjusts dynamically so the whole track is visible before unpinning
+            end: () =>
+              `+=${track.scrollWidth - container.offsetWidth + extraScroll}`,
+            invalidateOnRefresh: true,
+            // markers: true, // uncomment during development
+          },
+        });
       });
+
+      return () => mm.revert();
     },
     {
       scope: containerRef,

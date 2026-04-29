@@ -20,6 +20,8 @@ interface UseBlurHookOptions {
   start?: string;
   /** Blur amount in px (default: 8) */
   blur?: number;
+  /** Optional CSS media query — animation only runs when the query matches */
+  mediaQuery?: string;
 }
 
 /**
@@ -42,35 +44,46 @@ export const useBlurHook = <T extends HTMLElement = HTMLDivElement>(
     ease = 'power2.out',
     start = 'top 90%',
     blur = 8,
+    mediaQuery,
   } = options;
 
   useGSAP(
     () => {
       if (!ref.current) return;
 
-      const targets: HTMLElement[] = selector
-        ? Array.from(ref.current.querySelectorAll<HTMLElement>(selector))
-        : [ref.current];
+      const animate = () => {
+        const targets: HTMLElement[] = selector
+          ? Array.from(ref.current!.querySelectorAll<HTMLElement>(selector))
+          : [ref.current!];
 
-      if (targets.length === 0) return;
+        if (targets.length === 0) return;
 
-      targets.forEach((el) => {
-        gsap.from(el, {
-          autoAlpha: 0,
-          y: yFrom,
-          filter: `blur(${blur}px)`,
-          duration,
-          ease,
-          scrollTrigger: {
-            //markers: true,
-            trigger: el,
-            start,
-            scrub: true,
-          },
+        targets.forEach((el) => {
+          gsap.from(el, {
+            autoAlpha: 0,
+            y: yFrom,
+            filter: `blur(${blur}px)`,
+            duration,
+            ease,
+            scrollTrigger: {
+              //markers: true,
+              trigger: el,
+              start,
+              scrub: true,
+            },
+          });
         });
-      });
+      };
+
+      if (mediaQuery) {
+        const mm = gsap.matchMedia();
+        mm.add(mediaQuery, animate);
+        return () => mm.revert();
+      } else {
+        animate();
+      }
     },
-    { scope: ref, dependencies: [selector, yFrom, duration, ease, start, blur] }
+    { scope: ref, dependencies: [selector, yFrom, duration, ease, start, blur, mediaQuery] }
   );
 
   return ref;
