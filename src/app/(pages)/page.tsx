@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/app/components/sections/hero/Hero';
+import VideoFrames from '@/app/components/sections/video-frames/VideoFrames';
 import Services from '@/app/services/components/section/Services';
 
 export const metadata: Metadata = {
@@ -42,8 +43,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className='w-full min-h-screen relative flex flex-col'>
+    <main className='w-full min-h-screen relative'>
       <Hero />
+
+      <VideoFrames />
 
       <Services />
     </main>
