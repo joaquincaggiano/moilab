@@ -12,7 +12,31 @@ const FRAME_COUNT = 121;
 const getFrameSrc = (index: number) =>
   `/frames/frame_${String(index + 1).padStart(4, '0')}.webp`;
 
-/** Draw an image with object-fit: contain behavior on canvas (full frame, centered, no crop) */
+/** object-fit: cover — llena el canvas, recorta lo que sobra */
+function drawImageCover(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  canvasWidth: number,
+  canvasHeight: number
+) {
+  const imgAspect = img.naturalWidth / img.naturalHeight;
+  const canvasAspect = canvasWidth / canvasHeight;
+
+  let sx = 0, sy = 0, sw = img.naturalWidth, sh = img.naturalHeight;
+
+  if (canvasAspect > imgAspect) {
+    sh = img.naturalWidth / canvasAspect;
+    sy = (img.naturalHeight - sh) / 2;
+  } else {
+    sw = img.naturalHeight * canvasAspect;
+    sx = (img.naturalWidth - sw) / 2;
+  }
+
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvasWidth, canvasHeight);
+}
+
+/** object-fit: contain — frame completo, centrado, con barras negras */
 function drawImageContain(
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
@@ -25,11 +49,9 @@ function drawImageContain(
   let dw: number, dh: number;
 
   if (canvasAspect > imgAspect) {
-    // Canvas is wider — constrain by height
     dh = canvasHeight;
     dw = dh * imgAspect;
   } else {
-    // Canvas is taller — constrain by width
     dw = canvasWidth;
     dh = dw / imgAspect;
   }
@@ -46,6 +68,20 @@ const VideoFrames = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const currentFrameRef = useRef(0);
+  const isMobileRef = useRef(false);
+
+  const drawCurrentFrame = useCallback(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
+    const img = imagesRef.current[currentFrameRef.current];
+    if (!canvas || !ctx || !img?.complete || img.naturalWidth === 0) return;
+
+    if (isMobileRef.current) {
+      drawImageContain(ctx, img, canvas.width, canvas.height);
+    } else {
+      drawImageCover(ctx, img, canvas.width, canvas.height);
+    }
+  }, []);
 
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -56,13 +92,8 @@ const VideoFrames = () => {
     canvas.width = width;
     canvas.height = height;
 
-    // Redraw current frame after resize
-    const ctx = canvas.getContext('2d');
-    const img = imagesRef.current[currentFrameRef.current];
-    if (ctx && img?.complete && img.naturalWidth > 0) {
-      drawImageContain(ctx, img, width, height);
-    }
-  }, []);
+    drawCurrentFrame();
+  }, [drawCurrentFrame]);
 
   useEffect(() => {
     const images: HTMLImageElement[] = Array.from(
@@ -75,19 +106,12 @@ const VideoFrames = () => {
     );
     imagesRef.current = images;
 
-    const drawFirst = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
-      if (!canvas || !ctx) return;
-      drawImageContain(ctx, images[0], canvas.width, canvas.height);
-    };
-
     if (images[0].complete) {
-      drawFirst();
+      drawCurrentFrame();
     } else {
-      images[0].onload = drawFirst;
+      images[0].onload = drawCurrentFrame;
     }
-  }, []);
+  }, [drawCurrentFrame]);
 
   useEffect(() => {
     resizeCanvas();
@@ -117,6 +141,11 @@ const VideoFrames = () => {
             isMobile: boolean;
           };
 
+          isMobileRef.current = isMobile;
+
+          // Redibujar con el modo correcto al cambiar breakpoint
+          drawCurrentFrame();
+
           ScrollTrigger.create({
             trigger: containerRef.current,
             start: 'top top',
@@ -128,7 +157,11 @@ const VideoFrames = () => {
               currentFrameRef.current = index;
               const img = imagesRef.current[index];
               if (img?.complete && img.naturalWidth > 0) {
-                drawImageContain(ctx, img, canvas.width, canvas.height);
+                if (isMobile) {
+                  drawImageContain(ctx, img, canvas.width, canvas.height);
+                } else {
+                  drawImageCover(ctx, img, canvas.width, canvas.height);
+                }
               }
             },
           });
