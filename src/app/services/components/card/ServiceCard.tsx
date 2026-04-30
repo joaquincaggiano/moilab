@@ -65,7 +65,7 @@ export default function ServiceCard({
       <div
         className={`relative z-10 flex flex-col gap-6 px-8 ${
           mobile
-            ? 'items-center text-center max-w-sm w-full'
+            ? 'items-center text-center w-full'
             : 'sm:px-16 md:px-24 max-w-5xl w-full'
         }`}
       >
@@ -79,7 +79,7 @@ export default function ServiceCard({
         {/* Title */}
         <h2
           className={`font-black text-white leading-none tracking-tight ${
-            mobile ? 'text-4xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+            mobile ? 'text-5xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
           }`}
         >
           {service.title}
@@ -95,7 +95,7 @@ export default function ServiceCard({
         {/* Description */}
         <p
           className={`text-slate-400 leading-relaxed ${
-            mobile ? 'text-sm max-w-xs' : 'text-base sm:text-lg max-w-xl'
+            mobile ? 'text-lg max-w-md' : 'text-base sm:text-lg max-w-xl'
           }`}
         >
           {service.description}
