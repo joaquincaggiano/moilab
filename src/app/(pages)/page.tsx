@@ -3,6 +3,7 @@ import Hero from '@/app/components/sections/hero/Hero';
 import VideoFrames from '@/app/components/sections/video-frames/VideoFrames';
 import Services from '../services/components/section/Services';
 import Projects from '../projects/components/section/Projects';
+import Contact from '../contact/components/section/Contact';
 
 export const metadata: Metadata = {
   title: {
@@ -52,6 +53,8 @@ export default function HomePage() {
       <Services />
 
       <Projects />
+
+      <Contact />
     </main>
   );
 }
