@@ -9,7 +9,7 @@ export const ButtonForm = ({ isLoading, text, textLoading }: Props) => {
     <button
       type='submit'
       disabled={isLoading}
-      className='group relative w-full h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 active:scale-[0.98] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden cursor-pointer'
+      className='group relative w-full h-11 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 active:scale-[0.98] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden cursor-pointer'
     >
       {/* Shine sweep on hover */}
       <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none' />

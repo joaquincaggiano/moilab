@@ -35,13 +35,13 @@ const ContactForm = () => {
 
       <form
         action={action}
-        className='relative bg-slate-900/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 flex flex-col gap-6 border border-slate-700/30 group-hover:border-slate-600/50 transition-all duration-700'
+        className='relative bg-slate-900/60 backdrop-blur-xl rounded-3xl p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 border border-slate-700/30 group-hover:border-slate-600/50 transition-all duration-700'
       >
         {/* Inner glow on hover */}
         <div className='absolute inset-0 bg-gradient-to-br from-violet-500/[0.04] via-transparent to-blue-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none' />
 
         {/* Campos del formulario */}
-        <div className='relative flex flex-col gap-5'>
+        <div className='relative flex flex-col gap-3.5 sm:gap-5'>
           <InputForm
             label='Nombre Completo'
             name='fullName'
@@ -77,9 +77,9 @@ const ContactForm = () => {
             textLoading='Enviando...'
           />
         </div>
-
-        <Toaster richColors />
       </form>
+
+      <Toaster richColors />
     </div>
   );
 };
