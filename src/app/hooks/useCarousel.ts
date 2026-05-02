@@ -7,13 +7,13 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AUTO_SPEED = 0.20; // degrees per ticker frame (~9 deg/s at 60fps)
+const AUTO_SPEED = 0.2; // degrees per ticker frame (~9 deg/s at 60fps)
 
-interface UseCarouselGSAPOptions {
+interface UseCarouselOptions {
   count: number;
 }
 
-export function useCarouselGSAP({ count }: UseCarouselGSAPOptions) {
+export function useCarousel({ count }: UseCarouselOptions) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const rotRef = useRef(0);

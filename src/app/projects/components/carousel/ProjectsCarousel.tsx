@@ -1,8 +1,8 @@
 'use client';
 
 import { projectsData } from '@/app/data/projects/projects.data';
-import { useCarouselGSAP } from '@/app/hooks/useCarouselGSAP';
 import ProjectCard from './ProjectCard';
+import { useCarousel } from '@/app/hooks/useCarousel';
 
 const RADIUS = 460;
 
@@ -10,7 +10,7 @@ export default function ProjectsCarousel() {
   const projects = projectsData.filter(p => p.image);
   const ANGLE = 360 / projects.length;
 
-  const { sectionRef, trackRef } = useCarouselGSAP({ count: projects.length });
+  const { sectionRef, trackRef } = useCarousel({ count: projects.length });
 
   return (
     <section
