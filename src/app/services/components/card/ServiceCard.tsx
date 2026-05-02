@@ -79,7 +79,7 @@ export default function ServiceCard({
         {/* Title */}
         <h2
           className={`font-black text-white leading-none tracking-tight ${
-            mobile ? 'text-5xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+            mobile ? 'text-4xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
           }`}
         >
           {service.title}
@@ -95,7 +95,7 @@ export default function ServiceCard({
         {/* Description */}
         <p
           className={`text-slate-400 leading-relaxed ${
-            mobile ? 'text-lg max-w-md' : 'text-base sm:text-lg max-w-xl'
+            mobile ? 'text-base max-w-md' : 'text-base sm:text-lg max-w-xl'
           }`}
         >
           {service.description}
@@ -106,7 +106,7 @@ export default function ServiceCard({
           className={`
             inline-flex items-center gap-2
             px-4 py-2 rounded-full border
-            text-sm font-medium
+            text-xs font-medium
             ${mobile ? '' : 'self-start'}
             ${theme.tag}
           `}

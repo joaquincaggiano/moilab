@@ -20,7 +20,7 @@ const Hero = () => {
             </h1>
             <BlurText
               text='Creamos tus ideas en experiencias digitales'
-              className='text-white text-center text-5xl md:text-6xl lg:text-7xl md:text-start font-bold leading-tight'
+              className='text-white text-center text-2xl sm:text-4xl md:text-6xl lg:text-7xl md:text-start font-bold leading-tight'
               animateBy='words'
               stagger={0.08}
               duration={1.5}
@@ -29,7 +29,7 @@ const Hero = () => {
             {/* Texto secundario */}
             <BlurText
               text='Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.'
-              className='text-center text-lg md:text-start lg:text-xl text-gray-300 leading-relaxed'
+              className='text-center text-base sm:text-lg md:text-start lg:text-xl text-gray-300 leading-relaxed'
               animateBy='words'
               delay={0.5}
               stagger={0.04}

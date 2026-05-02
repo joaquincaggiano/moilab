@@ -64,7 +64,7 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
         {/* Eyebrow */}
         <span
           data-banner-eyebrow
-          className={`inline-flex items-center gap-2 text-sm font-medium text-slate-400 tracking-widest uppercase ${
+          className={`inline-flex items-center gap-2 text-xs font-medium text-slate-400 tracking-widest uppercase ${
             mobile ? 'justify-center' : ''
           }`}
         >
@@ -76,7 +76,7 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
         {/* Headline */}
         <h2
           className={`font-black leading-none tracking-tight ${
-            mobile ? 'text-6xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+            mobile ? 'text-4xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
           }`}
         >
           {/* Line 1: white, split letter by letter */}
@@ -105,7 +105,7 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
         <p
           data-banner-subtitle
           className={`text-slate-400 leading-relaxed ${
-            mobile ? 'text-lg max-w-xs' : 'text-base sm:text-lg max-w-md'
+            mobile ? 'text-base max-w-xs' : 'text-base sm:text-lg max-w-md'
           }`}
         >
           Proyectos construidos con propósito y atención al detalle.

@@ -18,13 +18,13 @@ export default function Contact() {
           {/* Left: Banner */}
           <div className='flex flex-col gap-6'>
             {/* Eyebrow */}
-            <span className='inline-flex items-center gap-2 text-sm font-medium text-slate-400 tracking-widest uppercase'>
+            <span className='inline-flex items-center gap-2 text-xs font-medium text-slate-400 tracking-widest uppercase'>
               <span className='w-6 h-px bg-slate-600' />
               Hablemos
             </span>
 
             {/* Headline */}
-            <h2 className='font-black leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl'>
+            <h2 className='font-black leading-none tracking-tight text-4xl sm:text-5xl md:text-7xl lg:text-8xl'>
               <span className='block text-white'>¿Tienes un</span>
               <span className='block bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent'>
                 proyecto?

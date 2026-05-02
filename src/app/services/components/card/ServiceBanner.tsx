@@ -41,7 +41,7 @@ export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
       >
         {/* Eyebrow */}
         <span
-          className={`inline-flex items-center gap-2 text-sm font-medium text-slate-400 tracking-widest uppercase ${
+          className={`inline-flex items-center gap-2 text-xs font-medium text-slate-400 tracking-widest uppercase ${
             mobile ? 'justify-center' : ''
           }`}
         >
@@ -53,7 +53,7 @@ export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
         {/* Headline */}
         <h2
           className={`font-black text-white leading-none tracking-tight ${
-            mobile ? 'text-6xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+            mobile ? 'text-4xl' : 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
           }`}
         >
           Nuestros
@@ -73,7 +73,7 @@ export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
         {/* Subtitle */}
         <p
           className={`text-slate-400 leading-relaxed ${
-            mobile ? 'text-lg max-w-xs' : 'text-base sm:text-lg max-w-md'
+            mobile ? 'text-base max-w-xs' : 'text-base sm:text-lg max-w-md'
           }`}
         >
           Transformamos ideas en productos digitales. Desde una landing hasta software a medida.
