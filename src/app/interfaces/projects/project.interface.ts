@@ -5,4 +5,5 @@ export interface Project {
   collaborator?: string;
   website?: string;
   description?: string;
+  image?: string;
 }
