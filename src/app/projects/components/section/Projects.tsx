@@ -5,14 +5,14 @@ import ProjectsCarousel from '@/app/projects/components/carousel/ProjectsCarouse
 
 export default function Projects() {
   return (
-    <div id='projects'>
+    <div id='projects' className="overflow-hidden bg-slate-950 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Desktop */}
-      <section className='hidden sm:flex relative w-full h-screen overflow-hidden bg-slate-950'>
+      <section className='hidden sm:flex relative w-full h-screen'>
         <ProjectBanner />
       </section>
 
       {/* Mobile */}
-      <section className='sm:hidden w-full h-screen bg-slate-950'>
+      <section className='sm:hidden w-full h-screen'>
         <ProjectBanner mobile />
       </section>
 

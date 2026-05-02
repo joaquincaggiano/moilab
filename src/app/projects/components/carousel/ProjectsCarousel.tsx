@@ -13,10 +13,7 @@ export default function ProjectsCarousel() {
   const { sectionRef, trackRef } = useCarousel({ count: projects.length });
 
   return (
-    <section
-      ref={sectionRef}
-      className='relative w-full bg-slate-950 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-24 overflow-hidden'
-    >
+    <section ref={sectionRef} className='relative w-full py-24 '>
       {/* 3-D stage */}
       <div
         className='relative w-full flex items-center justify-center'

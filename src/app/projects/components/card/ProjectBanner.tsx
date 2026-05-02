@@ -10,10 +10,15 @@ function SplitTitle({ text }: { text: string }) {
         char === ' ' ? (
           <span key={i} className='w-[0.3em]' aria-hidden='true' />
         ) : (
-          <span key={i} data-banner-letter className='inline-block' aria-hidden='true'>
+          <span
+            key={i}
+            data-banner-letter
+            className='inline-block'
+            aria-hidden='true'
+          >
             {char}
           </span>
-        ),
+        )
       )}
     </span>
   );
@@ -31,7 +36,6 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
       ref={containerRef}
       className={`
         relative overflow-hidden
-        bg-slate-950 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950
         flex items-center justify-center
         ${
           mobile
