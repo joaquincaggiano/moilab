@@ -13,7 +13,7 @@ export default function ProjectsCarousel() {
   const { sectionRef, trackRef } = useCarousel({ count: projects.length });
 
   return (
-    <section ref={sectionRef} className='relative w-full py-24 '>
+    <section ref={sectionRef} className='relative w-full min-h-screen flex items-center justify-center'>
       {/* 3-D stage */}
       <div
         className='relative w-full flex items-center justify-center'

@@ -7,8 +7,6 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AUTO_SPEED = 0.2; // degrees per ticker frame (~9 deg/s at 60fps)
-
 interface UseCarouselOptions {
   count: number;
 }
@@ -16,7 +14,6 @@ interface UseCarouselOptions {
 export function useCarousel({ count }: UseCarouselOptions) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const rotRef = useRef(0);
 
   const ANGLE = 360 / count;
 
@@ -31,8 +28,11 @@ export function useCarousel({ count }: UseCarouselOptions) {
         section
       );
 
-      // ── Entrance: section fades in on scroll ──────────────────────────────
-      gsap.from(section, {
+      // ── Entrance: animate the stage (child), never the pinned section ────
+      // Animating `y` on the pinned element itself causes a jump when
+      // ScrollTrigger switches it to position:fixed at `top top`.
+      const stage = track.parentElement;
+      gsap.from(stage, {
         opacity: 0,
         y: 60,
         duration: 1,
@@ -43,11 +43,11 @@ export function useCarousel({ count }: UseCarouselOptions) {
         },
       });
 
-      // ── Auto-rotation + opacity via gsap.ticker ───────────────────────────
-      const updateOpacity = () => {
+      // ── Opacity update driven by rotation progress ────────────────────────
+      const updateOpacity = (rotation: number) => {
         cards.forEach((card, i) => {
           const cardAngle = i * ANGLE;
-          const total = rotRef.current % 360;
+          const total = rotation % 360;
           const rel = (((cardAngle + total) % 360) + 360) % 360;
           const norm = rel > 180 ? 360 - rel : rel;
           const opacity = Math.max(0.15, 1 - norm / 180);
@@ -55,25 +55,19 @@ export function useCarousel({ count }: UseCarouselOptions) {
         });
       };
 
-      const onTick = () => {
-        rotRef.current += AUTO_SPEED;
-        gsap.set(track, { rotateY: rotRef.current });
-        updateOpacity();
-      };
-
-      gsap.ticker.add(onTick);
-
-      // ── Scroll: add extra rotation on scroll progress ─────────────────────
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        onUpdate: self => {
-          rotRef.current += self.getVelocity() * 0.003;
+      // ── Scroll-driven full rotation: pin section for one complete 360° ────
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'center center',
+          end: '+=2000',
+          pin: true,
+          scrub: 1,
+          onUpdate: self => updateOpacity(self.progress * 360),
         },
       });
 
-      return () => gsap.ticker.remove(onTick);
+      tl.to(track, { rotateY: 360, ease: 'none' });
     },
     { scope: sectionRef }
   );
