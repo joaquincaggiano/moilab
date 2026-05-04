@@ -4,6 +4,7 @@ import VideoFrames from '@/app/components/sections/video-frames/VideoFrames';
 import Services from '../services/components/section/Services';
 import Projects from '../projects/components/section/Projects';
 import Contact from '../contact/components/section/Contact';
+import { Footer } from '../components/sections/footer/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,8 @@ export default function HomePage() {
       <Projects />
 
       <Contact />
+
+      <Footer />
     </main>
   );
 }

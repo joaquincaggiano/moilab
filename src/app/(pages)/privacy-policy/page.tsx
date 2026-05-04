@@ -17,7 +17,7 @@ const PrivacyPolicyPage = () => {
   ];
 
   return (
-    <article className='max-w-4xl mx-auto py-16 px-5 sm:px-10'>
+    <article className='max-w-4xl mx-auto py-30 px-5 sm:px-10'>
       <Breadcrumbs items={breadcrumbItems} />
       <header className='mb-8'>
         <h1 className='text-4xl font-bold text-white mb-4'>
