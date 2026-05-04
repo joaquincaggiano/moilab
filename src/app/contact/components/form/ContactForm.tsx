@@ -46,7 +46,7 @@ const ContactForm = () => {
             label='Nombre Completo'
             name='fullName'
             type='text'
-            placeholder='John Doe'
+            placeholder='Moilab'
             defaultValue={state?.values?.fullName || ''}
             errors={state?.errors?.fullName}
           />
@@ -55,7 +55,7 @@ const ContactForm = () => {
             label='Email'
             name='email'
             type='email'
-            placeholder='john.doe@example.com'
+            placeholder='moilab.web@gmail.com'
             defaultValue={state?.values?.email || ''}
             errors={state?.errors?.email}
           />
