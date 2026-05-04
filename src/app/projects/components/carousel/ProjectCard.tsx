@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Project } from '@/app/interfaces/projects/project.interface';
 
@@ -103,7 +104,10 @@ export default function ProjectCard({
         <div className='absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent' />
 
         {/* Card info */}
-        <div className='absolute bottom-0 left-0 right-0 p-4 text-white'>
+        <Link
+          href={`/projects/${project.id}`}
+          className='absolute bottom-0 left-0 right-0 p-4 text-white cursor-pointer'
+        >
           <div className='w-8 h-px bg-gradient-to-r from-emerald-400 to-cyan-400 mb-2' />
           <h3 className='font-bold text-sm leading-tight'>{project.title}</h3>
           {project.collaborator && (
@@ -111,17 +115,10 @@ export default function ProjectCard({
               {project.collaborator}
             </p>
           )}
-          {project.website && (
-            <a
-              href={project.website}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='inline-block text-xs text-emerald-400 mt-2 hover:underline'
-            >
-              Ver proyecto →
-            </a>
-          )}
-        </div>
+          <span className='inline-block text-xs text-emerald-400 mt-2 group-hover:underline'>
+            Ver detalle →
+          </span>
+        </Link>
       </div>
     </div>
   );
