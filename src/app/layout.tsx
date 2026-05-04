@@ -55,10 +55,9 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <body className={`${alexandria.variable} antialiased`}>
-        <Header />
         {children}
-        {/* <Footer />
-        <CookieBanner /> */}
+        <Footer />
+        <CookieBanner />
         <a
           href='https://wa.me/34624750408'
           target='_blank'

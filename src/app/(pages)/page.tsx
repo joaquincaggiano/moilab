@@ -5,6 +5,7 @@ import Services from '../services/components/section/Services';
 import Projects from '../projects/components/section/Projects';
 import Contact from '../contact/components/section/Contact';
 import { Footer } from '../components/sections/footer/Footer';
+import Header from '../components/sections/header/Header';
 
 export const metadata: Metadata = {
   title: {
@@ -47,6 +48,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className='w-full min-h-screen relative'>
+      <Header />
+
       <Hero />
 
       <VideoFrames />
@@ -56,8 +59,6 @@ export default function HomePage() {
       <Projects />
 
       <Contact />
-
-      <Footer />
     </main>
   );
 }
