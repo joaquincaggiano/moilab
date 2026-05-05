@@ -55,6 +55,10 @@ export function useCarousel({ count }: UseCarouselOptions) {
         });
       };
 
+      // Set correct initial opacities immediately so there's no jump when
+      // the ScrollTrigger fires for the first time at center center.
+      updateOpacity(0);
+
       // ── Scroll-driven full rotation: pin section for one complete 360° ────
       const tl = gsap.timeline({
         scrollTrigger: {
