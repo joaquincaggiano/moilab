@@ -11,7 +11,7 @@ export default function ProjectCta({ website }: ProjectCtaProps) {
         href={website}
         target='_blank'
         rel='noopener noreferrer'
-        className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-semibold text-sm hover:opacity-90 transition-opacity duration-200'
+        className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#60a5fa] to-[#a855f7] text-slate-950 font-semibold text-sm hover:opacity-90 transition-opacity duration-200'
       >
         Ver proyecto en vivo
         <LuExternalLink size={16} aria-hidden='true' />

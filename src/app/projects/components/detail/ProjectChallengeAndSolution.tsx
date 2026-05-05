@@ -28,7 +28,7 @@ export default function ProjectChallengeAndSolution({
       {solution && (
         <div className='p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07]'>
           <div className='flex items-center gap-2 mb-4'>
-            <div className='w-2 h-2 rounded-full bg-emerald-400' />
+            <div className='w-2 h-2 rounded-full bg-[#60a5fa]' />
             <h2 className='text-xs font-semibold tracking-widest uppercase text-slate-400'>
               La solución
             </h2>

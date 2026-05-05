@@ -45,8 +45,8 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
       `}
     >
       {/* Background glows */}
-      <div className='absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-emerald-500/8 blur-3xl pointer-events-none' />
-      <div className='absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-cyan-500/8 blur-3xl pointer-events-none' />
+      <div className='absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[#60a5fa]/8 blur-3xl pointer-events-none' />
+      <div className='absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#a855f7]/8 blur-3xl pointer-events-none' />
 
       {/* Ghost text */}
       <span className='absolute right-8 bottom-0 text-[30vw] font-black leading-none select-none pointer-events-none text-white/[0.02]'>
@@ -87,7 +87,7 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
           {/* Line 2: gradient, enters as one word — bg-clip-text needs the full word */}
           <span
             data-banner-title-word
-            className='block bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent'
+            className='block bg-gradient-to-r from-[#60a5fa] via-[#a855f7] to-[#60a5fa] bg-clip-text text-transparent'
           >
             proyectos.
           </span>
@@ -96,7 +96,7 @@ export default function ProjectBanner({ mobile = false }: ProjectBannerProps) {
         {/* Divider */}
         <div
           data-banner-divider
-          className={`h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full ${
+          className={`h-0.5 bg-gradient-to-r from-[#60a5fa] to-[#a855f7] rounded-full ${
             mobile ? 'w-10' : 'w-16'
           }`}
         />

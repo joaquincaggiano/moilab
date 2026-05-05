@@ -19,7 +19,7 @@ export default function ProjectHighlights({ highlights }: ProjectHighlightsProps
             key={i}
             className='flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]'
           >
-            <span className='mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400' />
+            <span className='mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#60a5fa] to-[#a855f7]' />
             <span className='text-slate-300 text-sm leading-relaxed'>{item}</span>
           </li>
         ))}

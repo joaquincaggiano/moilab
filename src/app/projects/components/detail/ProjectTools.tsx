@@ -17,7 +17,7 @@ export default function ProjectTools({ tools }: ProjectToolsProps) {
         {tools.map((tool) => (
           <span
             key={tool}
-            className='px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-300 text-sm font-medium hover:border-emerald-500/40 hover:text-emerald-300 transition-colors duration-200'
+            className='px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-300 text-sm font-medium hover:border-[#60a5fa]/40 hover:text-[#60a5fa] transition-colors duration-200'
           >
             {tool}
           </span>
