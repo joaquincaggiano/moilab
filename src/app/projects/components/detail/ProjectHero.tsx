@@ -25,7 +25,21 @@ export default function ProjectHero({
 
   useEffect(() => {
     if (image) {
-      extractCornerColor(image).then(setBgColor);
+      extractCornerColor(image).then((color) => {
+        // Parse rgb(r,g,b) and check perceived brightness
+        const match = color.match(/rgb\((\d+),(\d+),(\d+)\)/);
+        if (match) {
+          const r = parseInt(match[1]);
+          const g = parseInt(match[2]);
+          const b = parseInt(match[3]);
+          // Perceived brightness formula (ITU-R BT.601)
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+          // If too bright (near white), use a dark neutral instead
+          setBgColor(brightness > 200 ? '#1a1a2e' : color);
+        } else {
+          setBgColor(color);
+        }
+      });
     }
   }, [image]);
 
@@ -44,7 +58,7 @@ export default function ProjectHero({
       {/* Content */}
       <div className='relative z-10 max-w-6xl mx-auto px-6 sm:px-12 md:px-20 py-20 sm:py-24 flex flex-col md:flex-row items-center gap-12 md:gap-16'>
         {/* Left: text */}
-        <div className='flex-1 min-w-0'>
+        <div className='flex-1 min-w-0 self-start md:self-center'>
           <div className='flex items-center gap-3 mb-5'>
             {category && (
               <span className='px-3 py-1 rounded-full bg-[#60a5fa]/15 border border-[#60a5fa]/25 text-[#60a5fa] text-xs font-medium tracking-wider uppercase'>
@@ -83,6 +97,7 @@ export default function ProjectHero({
                 alt={title}
                 fill
                 priority
+                sizes='(max-width: 768px) 100vw, 360px'
                 className='object-contain p-4'
               />
               {/* Subtle inner glow overlay */}
