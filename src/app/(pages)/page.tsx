@@ -6,6 +6,8 @@ import Projects from '../projects/components/section/Projects';
 import Contact from '../contact/components/section/Contact';
 import { Footer } from '../components/sections/footer/Footer';
 import Header from '../components/sections/header/Header';
+import ScrollToHash from '@/app/components/ScrollToHash';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: {
@@ -48,6 +50,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className='w-full min-h-screen relative'>
+      <Suspense>
+        <ScrollToHash />
+      </Suspense>
       <Header />
 
       <Hero />

@@ -56,7 +56,7 @@ export default function ProjectHero({
       <div className='absolute -bottom-40 -right-40 w-[400px] h-[400px] rounded-full bg-[#a855f7]/8 blur-3xl pointer-events-none' />
 
       {/* Content */}
-      <div className='relative z-10 max-w-6xl mx-auto px-6 sm:px-12 md:px-20 py-20 sm:py-24 flex flex-col md:flex-row items-center gap-12 md:gap-16'>
+      <div className='relative z-10 max-w-6xl mx-auto px-6 sm:px-12 md:px-20 py-30 sm:py-24 flex flex-col md:flex-row items-center gap-12 md:gap-16'>
         {/* Left: text */}
         <div className='flex-1 min-w-0 self-start md:self-center'>
           <div className='flex items-center gap-3 mb-5'>
