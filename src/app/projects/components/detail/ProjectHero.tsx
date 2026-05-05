@@ -41,11 +41,6 @@ export default function ProjectHero({
       <div className='absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#60a5fa]/8 blur-3xl pointer-events-none' />
       <div className='absolute -bottom-40 -right-40 w-[400px] h-[400px] rounded-full bg-[#a855f7]/8 blur-3xl pointer-events-none' />
 
-      {/* Ghost letter */}
-      <span className='absolute right-0 bottom-0 text-[20vw] font-black leading-none select-none pointer-events-none text-white/[0.02]'>
-        P
-      </span>
-
       {/* Content */}
       <div className='relative z-10 max-w-6xl mx-auto px-6 sm:px-12 md:px-20 py-20 sm:py-24 flex flex-col md:flex-row items-center gap-12 md:gap-16'>
         {/* Left: text */}
@@ -55,8 +50,8 @@ export default function ProjectHero({
               <span className='px-3 py-1 rounded-full bg-[#60a5fa]/15 border border-[#60a5fa]/25 text-[#60a5fa] text-xs font-medium tracking-wider uppercase'>
                 {category}
               </span>
-            )}
-            {year && <span className='text-slate-500 text-xs'>{year}</span>}
+            )}{' '}
+            - {year && <span className='text-slate-400 text-xs'>{year}</span>}
           </div>
 
           <div className='w-10 h-0.5 bg-gradient-to-r from-[#60a5fa] to-[#a855f7] rounded-full mb-5' />
@@ -65,13 +60,16 @@ export default function ProjectHero({
             {title}
           </h1>
 
-          {(role || collaborator) && (
+          {role && (
             <p className='mt-4 text-slate-400 text-sm sm:text-base'>
-              {role && <span>{role}</span>}
-              {role && collaborator && (
-                <span className='mx-2 text-slate-600'>·</span>
-              )}
-              {collaborator && <span>{collaborator}</span>}
+              <span className='font-bold text-slate-300'>Role:</span> {role}
+            </p>
+          )}
+
+          {collaborator && (
+            <p className='text-slate-400 text-sm sm:text-base'>
+              <span className='font-bold text-slate-300'>Colaboración:</span>{' '}
+              {collaborator}
             </p>
           )}
         </div>
