@@ -134,4 +134,34 @@ export const projectsData: Project[] = [
       'Sistema de pago con Stripe para la oferta de servicios profesionales o de buscavidas',
     ],
   },
+  {
+    id: '6',
+    title: 'Tu Finca',
+    type: 'collaboration',
+    collaborator: 'Tu Finca',
+    website: 'https://tufinca.es/',
+    description: 'Solución integral en línea para la administración eficiente, transparente y colaborativa de fincas, pensada para simplificar la gestión y comunicación entre administradores y vecinos.',
+    image: '/img/projects/tu_finca.png',
+    year: '2026',
+    category: 'Plataforma Web',
+    role: 'Full Stack Developer',
+    challenge:
+      'Crear una plataforma digital que permita a los administradores de fincas gestionar las fincas de forma sencilla y eficiente.',
+    solution:
+      'Crear un dashboard para el administrador de fincas que permita gestionar las fincas, controlar ingresos y gastos, manejar derramas e incidentes, entre otras funcionalidades.',
+    tools: [
+      'Next.js',
+      'TypeScript',
+      'TailwindCSS',
+      'PostgreSQL',
+      'Prisma',
+      'Tink',
+    ],
+    highlights: [
+      'Gestión de fincas',
+      'Control de ingresos y gastos',
+      'Manejo de derramas e incidentes',
+      'Notificaciones y juntas de vecinos',
+    ],
+  },
 ];
