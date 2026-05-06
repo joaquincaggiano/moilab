@@ -141,7 +141,7 @@ export const projectsData: Project[] = [
     collaborator: 'Tu Finca',
     website: 'https://tufinca.es/',
     description: 'Solución integral en línea para la administración eficiente, transparente y colaborativa de fincas, pensada para simplificar la gestión y comunicación entre administradores y vecinos.',
-    image: '/img/projects/tu_finca.png',
+    image: '/img/projects/tu_finca.jpeg',
     year: '2026',
     category: 'Plataforma Web',
     role: 'Full Stack Developer',
