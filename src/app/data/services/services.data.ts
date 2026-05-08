@@ -3,48 +3,44 @@ import type { Service } from '../../interfaces/services/service.interface';
 export const servicesData: Service[] = [
   {
     id: 1,
-    title: 'Landing Pages',
+    title: 'Software personalizado',
     description:
-      'Páginas de conversión optimizadas que transforman visitantes en clientes. Diseño centrado en UX, velocidad de carga optimizada y integración con herramientas de marketing para maximizar tu ROI.',
-    image:
-      '/img/services/landing-pages.png',
-    idealFor: 'Startups',
+      'Cuando las herramientas del mercado no alcanzan, construimos la tuya. Software a medida que encaja en tu operación sin forzar adaptaciones.',
+    idealFor: 'Startups - Empresas',
   },
   {
     id: 2,
-    title: 'Aplicaciones Móviles',
+    title: 'Sitios web institucionales',
     description:
-      'Apps nativas e híbridas con React Native. Interfaces intuitivas, rendimiento optimizado, integración con APIs y publicación en App Store y Google Play.',
-    image:
-      '/img/services/app-mobile.png',
-    idealFor: 'Negocios digitales',
+      'Tu sitio es la primera impresión de tu empresa. Lo construimos para que transmita credibilidad, aparezca en Google y funcione en cualquier dispositivo.',
+    idealFor: 'Empresas',
   },
   {
     id: 3,
-    title: 'Sitios web institucionales',
+    title: 'Aplicaciones Móviles',
     description:
-      'Presencia digital corporativa completa con Next.js y TypeScript. CMS integrado, SEO optimizado, diseño responsive y arquitectura escalable.',
-    image:
-      '/img/services/institution-web.png',
-    idealFor: 'Empresas ',
+      'Construimos tu app desde cero. Diseño, desarrollo y lanzamiento en App Store y Google Play, con el rendimiento que tus usuarios esperan.',
+    idealFor: 'Negocios digitales',
   },
   {
     id: 4,
-    title: 'Mantenimiento',
+    title: 'Landing Pages',
     description:
-      'Mantenemos tu aplicación, sitio web o software funcionando perfectamente. Actualizaciones de funcionalidades, corrección de bugs, optimización de rendimiento y adaptación a nuevas versiones de tecnologías para que tu proyecto siempre esté actualizado.',
-    image:
-      '/img/services/maintenance.png',
-    idealFor: 'Proyectos existentes',
+      'Diseñamos páginas con un objetivo: que el visitante actúe. Estructura clara, carga rápida y cada sección pensada para convertir.',
+    idealFor: 'Startups',
   },
   {
     id: 5,
-    title: 'Software personalizado',
+    title: 'Integraciones de IA',
     description:
-      'Creamos la solución perfecta para tu requerimiento específico. Analizamos tus necesidades y desarrollamos software a medida que se adapte exactamente a tu proceso de negocio.',
-    image:
-      '/img/services/custom-software.png',
-    idealFor:
-      'Startups - Empresas',
+      'Integramos inteligencia artificial donde más valor genera para tu negocio. Búsqueda inteligente, procesamiento de documentos, análisis de datos y automatizaciones que eliminan trabajo manual.',
+    idealFor: 'Startups - Empresas',
+  },
+  {
+    id: 6,
+    title: 'Mantenimiento',
+    description:
+      'Tu proyecto no puede detenerse. Gestionamos actualizaciones, corrección de errores y mejoras de rendimiento para que todo funcione sin fricciones.',
+    idealFor: 'Proyectos existentes',
   },
 ];

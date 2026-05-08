@@ -5,6 +5,7 @@ import {
   LuGlobe,
   LuWrench,
   LuCode,
+  LuBrain,
 } from 'react-icons/lu';
 
 export interface PanelTheme {
@@ -25,6 +26,7 @@ export const serviceIcons: IconType[] = [
   LuGlobe,
   LuWrench,
   LuCode,
+  LuBrain,
 ];
 
 export const panelThemes: PanelTheme[] = [
@@ -74,13 +76,24 @@ export const panelThemes: PanelTheme[] = [
   },
   {
     number: '05',
-    bg: 'from-slate-950 via-fuchsia-950/30 to-slate-950',
-    topBar: 'from-purple-500 to-fuchsia-500',
-    glow: 'bg-fuchsia-500/10',
-    iconBox: 'bg-fuchsia-500/10 border-fuchsia-400/20 text-fuchsia-400',
-    tag: 'bg-fuchsia-500/10 border-fuchsia-400/25 text-fuchsia-300',
-    dot: 'bg-fuchsia-400',
-    ghostNum: 'text-fuchsia-400/[0.05]',
-    label: 'text-fuchsia-400/60',
+    bg: 'from-slate-950 via-purple-950/40 to-slate-950',
+    topBar: 'from-purple-500 to-purple-600',
+    glow: 'bg-purple-600/10',
+    iconBox: 'bg-purple-500/10 border-purple-500/20 text-purple-500',
+    tag: 'bg-purple-500/10 border-purple-500/25 text-purple-400',
+    dot: 'bg-purple-500',
+    ghostNum: 'text-purple-500/[0.05]',
+    label: 'text-purple-500/60',
+  },
+  {
+    number: '06',
+    bg: 'from-slate-950 via-purple-950/50 to-slate-950',
+    topBar: 'from-purple-600 to-purple-700',
+    glow: 'bg-purple-700/10',
+    iconBox: 'bg-purple-600/10 border-purple-600/20 text-purple-400',
+    tag: 'bg-purple-600/10 border-purple-600/25 text-purple-300',
+    dot: 'bg-purple-600',
+    ghostNum: 'text-purple-600/[0.05]',
+    label: 'text-purple-600/60',
   },
 ];
