@@ -1,113 +1,43 @@
 'use client';
 
-import { useLenisStore } from '@/app/storage/lenisStore';
-import { colors } from '@/app/theme/palette-colors';
-import LightRays from '../../ui/backgrounds/LighRays';
+import { ShaderBackground } from '../../ui/backgrounds/HeroShader';
 import BlurText from '../../ui/texts/BlurText';
-import ButtonGradient from '../../ui/buttons/ButtonGradient';
-import ButtonShiny from '../../ui/buttons/ButtonShiny';
-import { useFadeIn } from '@/app/hooks/useFadeIn';
 
 const Hero = () => {
-  const { scrollTo } = useLenisStore();
-  const buttonGradientRef = useFadeIn({
-    delay: 1000,
-    duration: 700,
-    easing: "easeOutExpo",
-  });
-  const buttonShinyRef = useFadeIn({
-    delay: 1200,
-    duration: 700,
-    easing: "easeOutExpo",
-  });
-
-  const scrollToContact = () => {
-    scrollTo('contact');
-  };
-
-  const scrollToServices = () => {
-    scrollTo('services');
-  };
-
   return (
     <section
       className='w-full h-screen relative'
       id='home'
       aria-label='Sección principal'
     >
-      <LightRays
-        raysOrigin='top-center'
-        raysColor='#ffffff'
-        raysSpeed={1.5}
-        lightSpread={0.8}
-        rayLength={1.2}
-        followMouse={true}
-        mouseInfluence={0.1}
-        noiseAmount={0.1}
-        distortion={0.05}
-        className='custom-rays'
-      />
-
-      {/* Hero Content */}
-      <div className='absolute inset-0 flex items-center justify-center z-10 pt-10'>
-        <div className='flex flex-col gap-4 items-center justify-center'>
-          {/* Texto principal */}
-          <header className='flex flex-col items-center justify-center text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl p-2'>
+      <ShaderBackground>
+        {/* Hero Content */}
+        <div className='absolute inset-0 flex items-center justify-center md:items-end md:justify-start z-10 pb-14 md:pb-20 px-5 sm:px-14 md:px-16 lg:px-24'>
+          <div className='flex flex-col items-center md:items-start gap-5 w-full md:max-w-2xl lg:max-w-3xl'>
+            {/* Texto principal */}
             <h1 className='sr-only'>
               MoiLab - Desarrollo de Software y Aplicaciones Web
             </h1>
             <BlurText
-              text='Creamos tus ideas en'
-              className='text-white'
+              text='Creamos tus ideas en experiencias digitales'
+              className='text-white text-center text-2xl sm:text-4xl md:text-6xl lg:text-7xl md:text-start font-bold leading-tight'
               animateBy='words'
-              delay={150}
-              stepDuration={0.4}
-              direction='top'
+              stagger={0.08}
+              duration={1.5}
             />
-            <BlurText
-              text='experiencias digitales'
-              className=''
-              animateBy='words'
-              delay={300}
-              stepDuration={0.4}
-              direction='top'
-              gradientStart={colors.primary}
-              gradientEnd={colors.secondary}
-            />
-          </header>
 
-          {/* Texto secundario */}
-          <div className='w-full max-w-xl mb-6 flex items-center justify-center'>
+            {/* Texto secundario */}
             <BlurText
-              text='Desarrollamos software personalizado, landing pages impactantes y
-              aplicaciones web que convierten tu visión en realidad. Impulsa tu
-              negocio con soluciones digitales que marcan la diferencia.'
-              className='text-center text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed'
+              text='Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.'
+              className='text-center text-base sm:text-lg md:text-start lg:text-xl text-gray-300 leading-relaxed'
               animateBy='words'
-              delay={50}
-              // stepDuration={0.1}
-              direction='top'
+              delay={0.5}
+              stagger={0.04}
+              duration={1.5}
             />
           </div>
-
-          {/* Botones */}
-          <nav
-            className='w-full flex flex-col sm:flex-row gap-4 justify-center items-center'
-            aria-label='Acciones principales'
-          >
-            <div ref={buttonGradientRef} className="w-full max-w-[200px]">
-              <ButtonGradient
-              onClick={scrollToContact}
-              text='Comenzar Proyecto'
-              />
-            </div>
-
-            <div ref={buttonShinyRef} className="w-full max-w-[150px]">
-              <ButtonShiny onClick={scrollToServices} text='Ver Servicios' />
-            </div>
-          </nav>
         </div>
-      </div>
+      </ShaderBackground>
     </section>
   );
 };

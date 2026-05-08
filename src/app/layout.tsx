@@ -1,19 +1,15 @@
 import type { Metadata, Viewport } from 'next';
-import { Poppins } from 'next/font/google';
+import { Alexandria } from 'next/font/google';
 import { SiWhatsapp } from 'react-icons/si';
 import './globals.css';
-import { LenisWrapper } from './components/wrapper/lenis-wrapper';
 import { Footer } from './components/sections/footer/Footer';
 import { CookieBanner } from './components/cookie-banner/CookieBanner';
 import { ConditionalAnalytics } from './components/analytics/ConditionalAnalytics';
-import dynamic from 'next/dynamic';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Header from './components/sections/header/Header';
 
-const SpeedInsights = dynamic(() =>
-  import('@vercel/speed-insights/next').then((m) => ({ default: m.SpeedInsights }))
-);
-
-const poppins = Poppins({
-  variable: '--font-poppins',
+const alexandria = Alexandria({
+  variable: '--font-alexandria',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
@@ -43,6 +39,12 @@ export const metadata: Metadata = {
     'React',
     'TypeScript',
   ],
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MoiLab - Desarrollo de Software y Aplicaciones Web',
+    description:
+      'Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.',
+  },
 };
 
 export default function RootLayout({
@@ -52,11 +54,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={`${poppins.variable} antialiased`}>
-        <LenisWrapper>
-          {children}
-          <Footer />
-        </LenisWrapper>
+      <body className={`${alexandria.variable} antialiased`}>
+        {children}
+        <Footer />
         <CookieBanner />
         <a
           href='https://wa.me/34624750408'
