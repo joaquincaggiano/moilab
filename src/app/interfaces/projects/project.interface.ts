@@ -6,6 +6,7 @@ export interface Project {
   website?: string;
   description?: string;
   image?: string;
+  imageFit?: 'contain' | 'cover';
   // Detail page fields
   year?: string;
   category?: string;

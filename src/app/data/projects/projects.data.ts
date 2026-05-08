@@ -8,7 +8,8 @@ export const projectsData: Project[] = [
     collaborator: 'desaway S.L.',
     description:
       'Aplicación móvil enfocada a la oferta y demanda de trabajos y servicios profesionales o de buscavidas.',
-    image: '/img/projects/pocketjob2.png',
+    image: '/img/projects/pocketjob.png',
+    imageFit: 'cover',
     year: '2026',
     category: 'App Móvil',
     role: 'Full Stack Developer',

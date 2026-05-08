@@ -47,15 +47,14 @@ export default function ProjectCard({
         className='relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-colors duration-500'
         style={{ backgroundColor: bgColor }}
       >
-        {/* Image — object-contain so logos/screenshots no se recortan */}
-        <div className='absolute inset-0 p-4 pb-20'>
+        <div className='absolute inset-0'>
           <div className='relative w-full h-full'>
             <Image
               src={project.image!}
               alt={project.title}
               fill
               sizes={`${cardWidth}px`}
-              className='object-contain'
+              className={project.imageFit === 'cover' ? 'object-cover' : 'object-contain'}
             />
           </div>
         </div>
