@@ -76,7 +76,7 @@ export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
             mobile ? 'text-base max-w-xs' : 'text-base sm:text-lg max-w-md'
           }`}
         >
-          Transformamos ideas en productos digitales. Desde una landing hasta software a medida.
+          Diseño, desarrollo y estrategia bajo un mismo techo. Sin intermediarios, sin fricción.
         </p>
       </div>
     </div>

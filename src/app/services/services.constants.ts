@@ -21,12 +21,12 @@ export interface PanelTheme {
 }
 
 export const serviceIcons: IconType[] = [
+  LuCode,
   LuLayoutTemplate,
   LuSmartphone,
   LuGlobe,
-  LuWrench,
-  LuCode,
   LuBrain,
+  LuWrench,
 ];
 
 export const panelThemes: PanelTheme[] = [
