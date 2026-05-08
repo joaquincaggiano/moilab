@@ -19,7 +19,7 @@ const Hero = () => {
               MoiLab - Desarrollo de Software y Aplicaciones Web
             </h1>
             <BlurText
-              text='Creamos tus ideas en experiencias digitales'
+              text='Software que hace crecer tu negocio'
               className='text-white text-center text-2xl sm:text-4xl md:text-6xl lg:text-7xl md:text-start font-bold leading-tight'
               animateBy='words'
               stagger={0.08}
@@ -28,7 +28,7 @@ const Hero = () => {
 
             {/* Texto secundario */}
             <BlurText
-              text='Desarrollamos software personalizado, landing pages impactantes y aplicaciones web que convierten tu visión en realidad.'
+              text='Desarrollamos webs, apps y software a medida — desde una landing que convierte hasta la plataforma que escala con tu negocio.'
               className='text-center text-base sm:text-lg md:text-start lg:text-xl text-gray-300 leading-relaxed'
               animateBy='words'
               delay={0.5}
