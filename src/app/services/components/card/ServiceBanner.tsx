@@ -8,7 +8,9 @@ interface ServiceBannerProps {
 }
 
 export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
-  const blurRef = useBlurHook<HTMLDivElement>({ mediaQuery: '(max-width: 639px)' });
+  const blurRef = useBlurHook<HTMLDivElement>({
+    mediaQuery: '(max-width: 639px)',
+  });
 
   return (
     <div
@@ -17,9 +19,11 @@ export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
         relative overflow-hidden
         bg-slate-950 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950
         flex items-center justify-center
-        ${mobile
-          ? 'w-full h-full'
-          : 'w-full py-24 sm:flex-shrink-0 sm:w-screen sm:h-full sm:py-0'}
+        ${
+          mobile
+            ? 'w-full h-full'
+            : 'w-full py-24 sm:flex-shrink-0 sm:w-screen sm:h-full sm:py-0'
+        }
       `}
     >
       {/* Background glows */}
@@ -76,7 +80,8 @@ export default function ServiceBanner({ mobile = false }: ServiceBannerProps) {
             mobile ? 'text-base max-w-xs' : 'text-base sm:text-lg max-w-md'
           }`}
         >
-          Diseño, desarrollo y estrategia bajo un mismo techo. Sin intermediarios, sin fricción.
+          Diseño, desarrollo y estrategia bajo un mismo techo. Sin
+          intermediarios, sin fricción.
         </p>
       </div>
     </div>
