@@ -60,19 +60,25 @@ export function useCarousel({ count }: UseCarouselOptions) {
       updateOpacity(0);
 
       // ── Scroll-driven full rotation: pin section for one complete 360° ────
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=2000',
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          onUpdate: self => updateOpacity(self.progress * 360),
-        },
-      });
+      const mm = gsap.matchMedia();
 
-      tl.to(track, { rotateY: 360, ease: 'none' });
+      const buildTimeline = (scrub: boolean | number) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: '+=2000',
+            pin: true,
+            scrub,
+            invalidateOnRefresh: true,
+            onUpdate: self => updateOpacity(self.progress * 360),
+          },
+        });
+        tl.to(track, { rotateY: 360, ease: 'none' });
+      };
+
+      mm.add('(max-width: 639px)', () => buildTimeline(true));
+      mm.add('(min-width: 640px)', () => buildTimeline(1));
     },
     { scope: sectionRef }
   );
