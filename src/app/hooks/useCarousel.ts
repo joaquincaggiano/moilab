@@ -63,10 +63,11 @@ export function useCarousel({ count }: UseCarouselOptions) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'center center',
+          start: 'top top',
           end: '+=2000',
           pin: true,
           scrub: 1,
+          invalidateOnRefresh: true,
           onUpdate: self => updateOpacity(self.progress * 360),
         },
       });

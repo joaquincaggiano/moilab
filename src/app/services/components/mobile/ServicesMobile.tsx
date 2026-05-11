@@ -10,7 +10,7 @@ export default function ServicesMobile() {
   const { sectionRef, stickyRef } = useStackingCards<HTMLDivElement>();
 
   return (
-    <div ref={sectionRef} className='sm:hidden bg-slate-950'>
+    <div ref={sectionRef} className='lg:hidden bg-slate-950'>
       <div ref={stickyRef} className='sticky top-0 h-screen overflow-hidden'>
         {/* Banner — first in the stack, gets covered by card 1 */}
         <div data-mobile-card className='absolute inset-0' style={{ zIndex: 0 }}>

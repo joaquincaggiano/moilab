@@ -19,7 +19,7 @@ export default function Services() {
       {/* Desktop: horizontal scroll */}
       <section
         ref={containerRef}
-        className='hidden sm:block relative w-full h-screen overflow-hidden bg-slate-950'
+        className='hidden lg:block relative w-full h-screen overflow-hidden bg-slate-950'
       >
         <div
           ref={innerRef}

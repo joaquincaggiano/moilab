@@ -75,7 +75,7 @@ export const useHorizontalScroll = <
 
       const mm = gsap.matchMedia();
 
-      mm.add('(min-width: 640px)', () => {
+      mm.add('(min-width: 1024px)', () => {
         // How far the track needs to travel to reveal all its content
         const getScrollDistance = () =>
           -(track.scrollWidth - container.offsetWidth + extraScroll);
