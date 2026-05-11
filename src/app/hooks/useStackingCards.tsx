@@ -50,7 +50,7 @@ export const useStackingCards = <T extends HTMLElement = HTMLDivElement>() => {
             trigger: section,
             start: 'top top',
             end: () => `+=${(cards.length - 1) * window.innerHeight}`,
-            scrub: 1,
+            scrub: true,
             invalidateOnRefresh: true,
           },
         });
