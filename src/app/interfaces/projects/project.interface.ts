@@ -4,6 +4,8 @@ export interface Project {
   type: 'own' | 'collaboration';
   collaborator?: string;
   website?: string;
+  appStoreUrl?: string;
+  googlePlayUrl?: string;
   description?: string;
   image?: string;
   imageFit?: 'contain' | 'cover';

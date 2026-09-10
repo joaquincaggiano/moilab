@@ -68,7 +68,13 @@ export default async function ProjectDetailPage({ params }: Props) {
           <ProjectTools tools={project.tools} />
         )}
 
-        {project.website && <ProjectCta website={project.website} />}
+        {(project.website || project.appStoreUrl || project.googlePlayUrl) && (
+          <ProjectCta
+            website={project.website}
+            appStoreUrl={project.appStoreUrl}
+            googlePlayUrl={project.googlePlayUrl}
+          />
+        )}
       </div>
     </main>
   );

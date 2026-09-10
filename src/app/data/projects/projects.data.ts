@@ -6,6 +6,10 @@ export const projectsData: Project[] = [
     title: 'Pocket Job',
     type: 'own',
     collaborator: 'desaway S.L.',
+    appStoreUrl:
+      'https://apps.apple.com/es/app/pocketjob-trabajo-y-servicios/id6791920562',
+    googlePlayUrl:
+      'https://play.google.com/store/apps/details?id=com.pocketjob.app&hl=es_DO',
     description:
       'Aplicación móvil enfocada a la oferta y demanda de trabajos y servicios profesionales o de buscavidas.',
     image: '/img/projects/pocketjob.png',
