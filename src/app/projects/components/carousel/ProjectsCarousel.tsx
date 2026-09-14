@@ -27,8 +27,8 @@ export default function ProjectsCarousel() {
     <section ref={sectionRef} className='relative w-full min-h-screen flex items-center justify-center'>
       {/* 3-D stage */}
       <div
-        className='relative w-full flex items-center justify-center'
-        style={{ height: dims.cardH + 80, perspective: '1400px' }}
+        className='relative w-full flex items-center justify-center h-[290px] sm:h-[440px]'
+        style={{ perspective: '1400px' }}
       >
         <div
           ref={trackRef}
@@ -43,7 +43,6 @@ export default function ProjectsCarousel() {
               angle={ANGLE}
               radius={dims.radius}
               cardWidth={dims.cardW}
-              cardHeight={dims.cardH}
             />
           ))}
         </div>

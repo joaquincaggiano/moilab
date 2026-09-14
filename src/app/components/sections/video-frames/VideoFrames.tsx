@@ -186,6 +186,7 @@ const VideoFrames = () => {
     >
       <canvas
         ref={canvasRef}
+        className='w-full h-full'
         style={{ display: 'block' }}
       />
     </section>

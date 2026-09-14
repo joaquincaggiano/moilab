@@ -19,5 +19,5 @@ body {
     ),
     #000;
   min-height: 100vh;
-  font-family: "Alexandria", sans-serif;
+  font-family: var(--font-alexandria), sans-serif;
 }

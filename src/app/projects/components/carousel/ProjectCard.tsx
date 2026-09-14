@@ -12,7 +12,6 @@ interface ProjectCardProps {
   angle: number;
   radius: number;
   cardWidth: number;
-  cardHeight: number;
 }
 
 export default function ProjectCard({
@@ -21,7 +20,6 @@ export default function ProjectCard({
   angle,
   radius,
   cardWidth,
-  cardHeight,
 }: ProjectCardProps) {
   const [bgColor, setBgColor] = useState('#000');
 
@@ -34,13 +32,9 @@ export default function ProjectCard({
   return (
     <div
       data-carousel-card
-      className='absolute'
+      className='absolute w-[150px] h-[210px] -ml-[75px] -mt-[105px] sm:w-[260px] sm:h-[360px] sm:-ml-[130px] sm:-mt-[180px]'
       style={{
-        width: cardWidth,
-        height: cardHeight,
         transform: `rotateY(${index * angle}deg) translateZ(${radius}px)`,
-        marginLeft: -cardWidth / 2,
-        marginTop: -cardHeight / 2,
       }}
     >
       <div
