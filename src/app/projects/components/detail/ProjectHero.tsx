@@ -70,7 +70,7 @@ export default function ProjectHero({
 
           <div className='w-10 h-0.5 bg-gradient-to-r from-[#60a5fa] to-[#a855f7] rounded-full mb-5' />
 
-          <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight'>
+          <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight'>
             {title}
           </h1>
 
