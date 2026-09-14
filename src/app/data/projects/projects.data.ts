@@ -3,7 +3,7 @@ import { Project } from '@/app/interfaces/projects/project.interface';
 export const projectsData: Project[] = [
   {
     id: '1',
-    title: 'Pocket Job',
+    title: 'PocketJob - Trabajo y Servicios',
     type: 'own',
     collaborator: 'desaway S.L.',
     appStoreUrl:
@@ -126,7 +126,10 @@ export const projectsData: Project[] = [
     title: 'UJI Pride',
     type: 'collaboration',
     collaborator: 'desaway S.L.',
-    website: 'https://apps.apple.com/es/app/uji-pride/id6469503897',
+    appStoreUrl:
+      'https://apps.apple.com/es/app/uji-pride/id6469503897',
+    googlePlayUrl:
+      'https://play.google.com/store/apps/details?id=es.uji.ujipride',
     description:
       'App informativa sobre el programa de diversidad afectivo-sexual y de género de la Universitat Jaume I, que centraliza recursos, eventos y noticias para la comunidad universitaria.',
     image: '/img/projects/uji-pride.png',
@@ -150,7 +153,10 @@ export const projectsData: Project[] = [
     title: 'Stop Xenofobia',
     type: 'collaboration',
     collaborator: 'desaway S.L.',
-    website: 'https://apps.apple.com/es/app/stop-xenofobia/id6470800794',
+    appStoreUrl:
+      'https://apps.apple.com/es/app/stop-xenofobia/id6470800794',
+    googlePlayUrl:
+      'https://play.google.com/store/apps/details?id=es.upv.ext.stopxenofobia',
     description:
       'APP institucional de la UPV que facilita el acceso a recursos legales y de apoyo ante situaciones de racismo y xenofobia, desarrollada bajo el Vicerrectorado de Arte, Ciencia, Tecnología y Sociedad.',
     image: '/img/projects/stop-xenofobia.png',
