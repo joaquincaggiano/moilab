@@ -68,28 +68,28 @@ export const projectsData: Project[] = [
       'Notificaciones y juntas de vecinos',
     ],
   },
-  {
-    id: '3',
-    title: 'Decentraland - Career Quest',
-    type: 'collaboration',
-    website: 'https://decentraland.org/careerquest',
-    description:
-      'Landing page oficial del evento Career Quest de Decentraland, diseñada para atraer a desarrolladores y creadores del metaverso.',
-    image: '/img/projects/decentraland.jpeg',
-    year: '2025',
-    category: 'Landing Page',
-    role: 'Frontend Developer',
-    challenge:
-      'Crear una experiencia visual impactante que transmitiera la identidad futurista de Decentraland y capturara la atención de la comunidad Web3 en un tiempo muy ajustado.',
-    solution:
-      'Desarrollamos una landing page animada con microinteracciones y un diseño inmersivo que reflejaba el universo de Decentraland, optimizada para rendimiento y conversión.',
-    tools: ['React', 'TypeScript', 'TailwindCSS'],
-    highlights: [
-      'Diseño 100% responsive con enfoque mobile-first',
-      'Optimización de imágenes y assets para carga rápida',
-      'Integración con el ecosistema de Decentraland',
-    ],
-  },
+  // {
+  //   id: '3',
+  //   title: 'Decentraland - Career Quest',
+  //   type: 'collaboration',
+  //   website: 'https://decentraland.org/careerquest',
+  //   description:
+  //     'Landing page oficial del evento Career Quest de Decentraland, diseñada para atraer a desarrolladores y creadores del metaverso.',
+  //   image: '/img/projects/decentraland.jpeg',
+  //   year: '2025',
+  //   category: 'Landing Page',
+  //   role: 'Frontend Developer',
+  //   challenge:
+  //     'Crear una experiencia visual impactante que transmitiera la identidad futurista de Decentraland y capturara la atención de la comunidad Web3 en un tiempo muy ajustado.',
+  //   solution:
+  //     'Desarrollamos una landing page animada con microinteracciones y un diseño inmersivo que reflejaba el universo de Decentraland, optimizada para rendimiento y conversión.',
+  //   tools: ['React', 'TypeScript', 'TailwindCSS'],
+  //   highlights: [
+  //     'Diseño 100% responsive con enfoque mobile-first',
+  //     'Optimización de imágenes y assets para carga rápida',
+  //     'Integración con el ecosistema de Decentraland',
+  //   ],
+  // },
   {
     id: '4',
     title: 'Re-K Platform',
